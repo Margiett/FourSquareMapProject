@@ -37,7 +37,9 @@ class FavoritesView: UIView {
         commonInit()
     }
     private func commonInit() {
+        setupSearchBar()
         setupGeminiCollectionViewConstraints()
+        
     }
     private func setupSearchBar(){
         addSubview(searchBar)
