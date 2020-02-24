@@ -20,9 +20,9 @@ class TabBarController: UITabBarController {
         return vc
     }()
     
-    private lazy var collectionVC: CollectionViewController = {
+    private lazy var collectionVC: FavoritesViewController = {
        
-        let vc = CollectionViewController(dataPersistence: dataPersistence, userPreference: userPreference)
+        let vc = FavoritesViewController(dataPersistence: dataPersistence, userPreference: userPreference)
         
         vc.tabBarItem = UITabBarItem(title: "Collection", image: UIImage(systemName: "folder.badge.plus"), tag: 1)
         return vc
