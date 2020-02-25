@@ -24,7 +24,6 @@ class FavoritesView: UIView {
         layout.itemSize = CGSize(width: 100, height: 150)
         let cv = GeminiCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0.9672935605, alpha: 1)
-        cv.isHidden = true
         return cv
     
     }()
@@ -49,7 +48,7 @@ class FavoritesView: UIView {
             searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant:  0),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            searchBar.bottomAnchor.constraint(equalTo: bottomAnchor)
+            
         
         ])
     }
