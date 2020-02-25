@@ -14,13 +14,13 @@ class FavoritesViewController: UIViewController {
     private var dataPersistence: DataPersistence<Map>
     private var userPreference: UserPreference
     
-    let collectionView = FavoritesView()
+    let collectionViews = FavoritesView()
     
     private var venues = [Map]() {
         didSet{
-            collectionView.geminiCollectionView.reloadData()
+            collectionViews.geminiCollectionView.reloadData()
             if venues.isEmpty {
-                collectionView.geminiCollectionView.backgroundView = EmptyView(title: "Venue Name", message: "There are curretly no saved venues in your favorite collection view.")
+                collectionViews.geminiCollectionView.backgroundView = EmptyView(title: "Venue Name", message: "There are curretly no saved venues in your favorite collection view.")
             } else {
                 view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             }
@@ -32,7 +32,7 @@ class FavoritesViewController: UIViewController {
         self.dataPersistence = dataPersistence
         self.userPreference = userPreference
         super.init(nibName: nil, bundle: nil)
-        // self.userPreference.delegate = self
+        //self.userPreference.delegate = self
     }
     required init?(coder: NSCoder) {
         fatalError("init couldnt be implemented")
@@ -40,17 +40,18 @@ class FavoritesViewController: UIViewController {
     
     
     override func loadView() {
-        view = collectionView
+        view = collectionViews
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.geminiCollectionView.dataSource = self
-        collectionView.geminiCollectionView.delegate = self
-        collectionView.geminiCollectionView.register(FavoritesViewCell.self, forCellWithReuseIdentifier: "geminiVenueCell")
+        collectionViews.geminiCollectionView.dataSource = self
+        collectionViews.geminiCollectionView.delegate = self
+        collectionViews.geminiCollectionView.register(FavoritesViewCell.self, forCellWithReuseIdentifier: "geminiVenueCell")
         navigationItem.title = "Favorite Venues"
         view.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         circleRotation()
+        getSavedVenues()
         
     }
     private func getSavedVenues() {
@@ -63,7 +64,7 @@ class FavoritesViewController: UIViewController {
     }
     
     private func circleRotation(){
-        collectionView.geminiCollectionView.gemini
+        collectionViews.geminiCollectionView.gemini
             .circleRotationAnimation()
             .radius(450) // The radius of the circle
             .rotateDirection(.clockwise) // Direction of rotation.
@@ -79,9 +80,13 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let maxSize: CGSize = UIScreen.main.bounds.size
-        let itemWidth: CGFloat = maxSize.width * 0.75
-        let itemHeight: CGFloat = maxSize.height * 0.70
+        let spacingBetweenItem: CGFloat = 8
+        let numberOfItems: CGFloat = 1
+        let itemWidth: CGFloat = maxSize.width * 0.55
+        let itemHeight: CGFloat = maxSize.height * 0.50
+        let totalSpacing: CGFloat = (2 * spacingBetweenItem) + (numberOfItems - 1) * spacingBetweenItem
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
@@ -101,19 +106,45 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
 }
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return venues.count
+        return 10
+            //venues.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let geminiCell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
             fatalError("could not deque cell")
         }
-        let venue = venues[indexPath.row]
-        
-        
+        //let food = venues[indexPath.row]
+        collectionViews.geminiCollectionView.animateCell(geminiCell)
+        geminiCell.geminiDelegate = self
+        //geminiCell.configureCell(for: food)
+    
         return geminiCell
     }
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        collectionViews.geminiCollectionView.animateVisibleCells()
+        collectionViews.geminiCollectionView.alpha = 1
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if let cell = cell as? FavoritesViewCell {
+            collectionViews.geminiCollectionView.animateCell(cell)
+        }
+    
+    }
 }
+
+extension FavoritesViewController: DataPersistenceDelegate {
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        getSavedVenues()
+    }
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        getSavedVenues()
+    }
+}
+
+
+
 extension FavoritesViewController: GeminiCellDelegate {
     func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell, venue: Map) {
          let action = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -127,25 +158,12 @@ extension FavoritesViewController: GeminiCellDelegate {
                    actionVenue.forEach { action.addAction($0)}
                    present(action, animated: true, completion: nil)
     }
-    
-    
-    private func deleteVenue(_ foodVenue: Map){
-        guard let index = venues.firstIndex(of: foodVenue) else {
-            return
-        }
-        do {
-            try dataPersistence.deleteItem(at: index)
-        } catch {
-            showAlert(title: "There is an error when deleting", message: "Error: \(error)")
-        }
-    }
-    
-    
+
     
     func tapGesture(_ imageCell: FavoritesViewCell, venue: Map) {
         print("Testing if delegate is working")
         
-        guard let indexPath = collectionView.geminiCollectionView.indexPath(for: imageCell)
+        guard let indexPath = collectionViews.geminiCollectionView.indexPath(for: imageCell)
             else {
                 return
         }
@@ -161,8 +179,16 @@ extension FavoritesViewController: GeminiCellDelegate {
         alterController.addAction(deleteAction)
         alterController.addAction(cancelAction)
         
-    
-        
+    }
+    private func deleteVenue(_ foodVenue: Map){
+        guard let index = venues.firstIndex(of: foodVenue) else {
+            return
+        }
+        do {
+            try dataPersistence.deleteItem(at: index)
+        } catch {
+            showAlert(title: "There is an error when deleting", message: "Error: \(error)")
+        }
     }
 }
 

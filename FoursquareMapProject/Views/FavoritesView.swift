@@ -21,8 +21,8 @@ class FavoritesView: UIView {
 
     public lazy var geminiCollectionView: GeminiCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 50, height: 100)
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 100, height: 150)
         let cv = GeminiCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0.9672935605, alpha: 1)
         return cv

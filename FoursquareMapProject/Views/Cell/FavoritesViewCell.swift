@@ -15,11 +15,6 @@ protocol GeminiCellDelegate: AnyObject {
     func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell, venue: Map)
     
 }
-//protocol VenueButtonDelegate: AnyObject {
-//    
-//}
-
-
 
 class FavoritesViewCell: GeminiCell {
     
@@ -28,6 +23,7 @@ class FavoritesViewCell: GeminiCell {
     
     lazy var editButton: UIButton = {
         let editButton = UIButton()
+        //editButton.backgroundColor = .black
         editButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         editButton.addTarget(self, action: #selector(editButtonPressed), for: .touchUpInside)
         return editButton
@@ -38,6 +34,7 @@ class FavoritesViewCell: GeminiCell {
         let iv = UIImageView()
         iv.image = UIImage(systemName: "photo.fill")
         iv.contentMode = .scaleToFill
+        iv.isUserInteractionEnabled = true
         iv.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         return iv
     }()
@@ -46,6 +43,8 @@ class FavoritesViewCell: GeminiCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.textAlignment = .center
+        label.isUserInteractionEnabled = true
         label.text = "Venue Name"
         return label
         
@@ -56,6 +55,7 @@ class FavoritesViewCell: GeminiCell {
         label.numberOfLines = 4
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.text = "Venue Description"
+        label.isUserInteractionEnabled = true 
         return label
         
     }()
@@ -68,7 +68,6 @@ class FavoritesViewCell: GeminiCell {
     }()
     
     private var isBackOfCardShowing = false
-    
     weak var geminiDelegate: GeminiCellDelegate?
     
     override init(frame: CGRect) {
@@ -81,9 +80,12 @@ class FavoritesViewCell: GeminiCell {
     }
     
     private func commonInit() {
-        setupEditButtonConstraints()
         setupImageConstraints()
+        setupEditButtonConstraints()
         setupSelectedViewConstraints()
+        setupVenueName()
+        setupVenueDescription()
+        
         addGestureRecognizer(tapGesture)
     }
     
@@ -107,7 +109,7 @@ class FavoritesViewCell: GeminiCell {
         NSLayoutConstraint.activate([
             editButton.topAnchor.constraint(equalTo: topAnchor),
             editButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-            editButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
+            editButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
             editButton.widthAnchor.constraint(equalTo: editButton.heightAnchor)
         
         ])
@@ -137,11 +139,36 @@ class FavoritesViewCell: GeminiCell {
         ])
     }
     
-    //    public func configureCell(for card: Map){
+    private func setupVenueName(){
+        addSubview(venueName)
+        venueName.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            venueName.centerXAnchor.constraint(equalTo: centerXAnchor),
+            venueName.centerYAnchor.constraint(equalTo: centerYAnchor),
+            venueName.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.75),
+            venueName.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
+        
+        ])
+    }
+    private func setupVenueDescription(){
+        addSubview(venueDescription)
+        venueDescription.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            venueDescription.topAnchor.constraint(equalTo: topAnchor),
+            venueDescription.leadingAnchor.constraint(equalTo: leadingAnchor),
+            venueDescription.trailingAnchor.constraint(equalTo: trailingAnchor)
+        
+        
+        ])
+    }
+    //MARK: TODO waiting on model to finish configureCell
+       public func configureCell(for card: Map){
        //        currentVenue = card
     
        //        venueName.text =
-       //    }
+          }
     @objc
     public func editButtonPressed(){
         delegate.moreButtonPressed(self, venue: currentVenue)
@@ -155,10 +182,11 @@ class FavoritesViewCell: GeminiCell {
         }
         isBackOfCardShowing.toggle()
         geminiDelegate?.tapGesture(self, venue: currentVenue)
+        animate()
         
     }
     private func animate(){
-        let duration = 0.2
+        let duration = 1.0
         
         if isBackOfCardShowing {
             UIView.transition(with: self, duration: duration, options:
@@ -169,7 +197,7 @@ class FavoritesViewCell: GeminiCell {
             }, completion: nil)
         } else {
             UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
-                self.venueImageView.alpha = 1.0
+                self.venueImageView.alpha = 0.0
                 self.venueName.alpha = 1.0
                 self.venueDescription.alpha = 1.0
                 
