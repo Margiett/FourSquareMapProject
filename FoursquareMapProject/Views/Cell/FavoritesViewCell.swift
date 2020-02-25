@@ -13,7 +13,13 @@ import ImageKit
 protocol GeminiCellDelegate: AnyObject {
     func tapGesture(_ imageCell: FavoritesViewCell, venue: Map)
     func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell, venue: Map)
+    
 }
+//protocol VenueButtonDelegate: AnyObject {
+//    
+//}
+
+
 
 class FavoritesViewCell: GeminiCell {
     

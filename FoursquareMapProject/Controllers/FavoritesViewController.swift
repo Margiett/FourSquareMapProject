@@ -58,7 +58,7 @@ class FavoritesViewController: UIViewController {
             venues = try dataPersistence.loadItems().reversed()
             dataPersistence.synchronize(venues)
         } catch {
-            
+            showAlert(title: "There was an error loading the venues", message: "Error: \(error)")
         }
     }
     
@@ -114,3 +114,56 @@ extension FavoritesViewController: UICollectionViewDataSource {
         return geminiCell
     }
 }
+extension FavoritesViewController: GeminiCellDelegate {
+    func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell, venue: Map) {
+         let action = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                   
+                   let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] (alertAction) in
+                       self?.deleteVenue(venue)
+                       self?.getSavedVenues()
+                   }
+                   let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                   let actionVenue = [deleteAction, cancelAction]
+                   actionVenue.forEach { action.addAction($0)}
+                   present(action, animated: true, completion: nil)
+    }
+    
+    
+    private func deleteVenue(_ foodVenue: Map){
+        guard let index = venues.firstIndex(of: foodVenue) else {
+            return
+        }
+        do {
+            try dataPersistence.deleteItem(at: index)
+        } catch {
+            showAlert(title: "There is an error when deleting", message: "Error: \(error)")
+        }
+    }
+    
+    
+    
+    func tapGesture(_ imageCell: FavoritesViewCell, venue: Map) {
+        print("Testing if delegate is working")
+        
+        guard let indexPath = collectionView.geminiCollectionView.indexPath(for: imageCell)
+            else {
+                return
+        }
+        let alterController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        present(alterController, animated:  true)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alterAction in
+            self?.deleteVenue(venue)
+            self?.venues.remove(at: indexPath.row)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alterController.addAction(deleteAction)
+        alterController.addAction(cancelAction)
+        
+    
+        
+    }
+}
+
+
