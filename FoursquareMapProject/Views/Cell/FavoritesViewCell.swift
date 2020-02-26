@@ -19,7 +19,7 @@ protocol GeminiCellDelegate: AnyObject {
 
 class FavoritesViewCell: GeminiCell {
     
-    private var currentVenue: Map!
+//    private var currentVenue: Map!
  
     weak var geminiDelegate: GeminiCellDelegate?
     
@@ -72,11 +72,11 @@ class FavoritesViewCell: GeminiCell {
     }
     
     //MARK: TODO waiting on model to finish configureCell
-       public func configureCell(for card: Map){
-       //        currentVenue = card
-    
-       //        venueName.text =
-          }
+//       public func configureCell(for card: Map){
+//       //        currentVenue = card
+//    
+//       //        venueName.text =
+//          }
     
     
     @objc

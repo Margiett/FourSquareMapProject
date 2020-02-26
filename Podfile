@@ -7,6 +7,7 @@ target 'FoursquareMapProject' do
 
   # Pods for FoursquareMapProject
    pod "Gemini"
+   pod "Pulley"
 
 
   target 'FoursquareMapProjectTests' do

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E23B2D024058233009C8EB3 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23B2CF24058233009C8EB3 /* CoreLocation.swift */; };
+		2E23B2D224058454009C8EB3 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23B2D124058454009C8EB3 /* SearchQuery.swift */; };
+		2E5C567E24057A6800B2171F /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C567D24057A6800B2171F /* APIKeys.swift */; };
+		2EE6F2D024044A1400BD86B5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6F2CF24044A1400BD86B5 /* APIClient.swift */; };
+		2EE6F2D324044CB000BD86B5 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6F2D224044CB000BD86B5 /* SearchModel.swift */; };
+		2EE6F2D524044DDD00BD86B5 /* PictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6F2D424044DDD00BD86B5 /* PictureModel.swift */; };
 		6374DEEF24043DED00E0C03F /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374DEEE24043DED00E0C03F /* SearchTableView.swift */; };
 		9F7AEAA724006BC000ED1E98 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAA624006BC000ED1E98 /* TabBarController.swift */; };
 		9F7AEAA924006C8100ED1E98 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAA824006C8100ED1E98 /* UserPreference.swift */; };
@@ -34,7 +40,10 @@
 		9FF3FA4324057E0600FD6BDA /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4224057E0600FD6BDA /* EmptyView.swift */; };
 		9FF3FA4524058F0700FD6BDA /* Extensions + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4424058F0700FD6BDA /* Extensions + Alerts.swift */; };
 		9FF3FA4724058F3100FD6BDA /* appError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4624058F3100FD6BDA /* appError.swift */; };
-		9FF3FA492406FB7100FD6BDA /* FavoritesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA482406FB7100FD6BDA /* FavoritesDetailView.swift */; };
+		9FF3FA4C24071BAC00FD6BDA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4B24071BAC00FD6BDA /* MainVC.swift */; };
+		9FF3FA4E24071CDB00FD6BDA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4D24071CDB00FD6BDA /* SearchTableViewCell.swift */; };
+		9FF3FA502407218700FD6BDA /* SearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4F2407218700FD6BDA /* SearchTableVC.swift */; };
+		9FF3FA532407235800FD6BDA /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF3FA522407235800FD6BDA /* Storyboard.storyboard */; };
 		C5099FAD327A24C13F2748D0 /* Pods_FoursquareMapProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7212DD91D0BA347815CE0C19 /* Pods_FoursquareMapProject.framework */; };
 		DEAADD368772F68E98467B91 /* Pods_FoursquareMapProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACAF4FDFE97155F5B70B609 /* Pods_FoursquareMapProjectTests.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +61,12 @@
 /* Begin PBXFileReference section */
 		03D827D6608D2478CE5040C2 /* Pods-FoursquareMapProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareMapProjectTests.release.xcconfig"; path = "Target Support Files/Pods-FoursquareMapProjectTests/Pods-FoursquareMapProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		0F3720C3457B202EF176883C /* Pods-FoursquareMapProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareMapProject.release.xcconfig"; path = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject.release.xcconfig"; sourceTree = "<group>"; };
+		2E23B2CF24058233009C8EB3 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
+		2E23B2D124058454009C8EB3 /* SearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
+		2E5C567D24057A6800B2171F /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		2EE6F2CF24044A1400BD86B5 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		2EE6F2D224044CB000BD86B5 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		2EE6F2D424044DDD00BD86B5 /* PictureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureModel.swift; sourceTree = "<group>"; };
 		6374DEEE24043DED00E0C03F /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		7212DD91D0BA347815CE0C19 /* Pods_FoursquareMapProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoursquareMapProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EAB40D9BC3B0B8E7ABEB72 /* Pods-FoursquareMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareMapProject.debug.xcconfig"; path = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,7 +97,10 @@
 		9FF3FA4224057E0600FD6BDA /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		9FF3FA4424058F0700FD6BDA /* Extensions + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extensions + Alerts.swift"; path = "FoursquareMapProject/Views/Extensions + Alerts.swift"; sourceTree = SOURCE_ROOT; };
 		9FF3FA4624058F3100FD6BDA /* appError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = appError.swift; path = FoursquareMapProject/Views/appError.swift; sourceTree = SOURCE_ROOT; };
-		9FF3FA482406FB7100FD6BDA /* FavoritesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDetailView.swift; sourceTree = "<group>"; };
+		9FF3FA4B24071BAC00FD6BDA /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		9FF3FA4D24071CDB00FD6BDA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		9FF3FA4F2407218700FD6BDA /* SearchTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableVC.swift; sourceTree = "<group>"; };
+		9FF3FA522407235800FD6BDA /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		AF91D26E18BFCD1CFB8CA03A /* Pods-FoursquareMapProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareMapProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-FoursquareMapProjectTests/Pods-FoursquareMapProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FACAF4FDFE97155F5B70B609 /* Pods_FoursquareMapProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoursquareMapProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,6 +139,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2E23B2CE240581F1009C8EB3 /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				2E23B2CF24058233009C8EB3 /* CoreLocation.swift */,
+			);
+			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		2E5C567C24057A0600B2171F /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				2E5C567D24057A6800B2171F /* APIKeys.swift */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
+		2EE6F2D124044C7900BD86B5 /* APiClient */ = {
+			isa = PBXGroup;
+			children = (
+				2EE6F2CF24044A1400BD86B5 /* APIClient.swift */,
+				2EE6F2D224044CB000BD86B5 /* SearchModel.swift */,
+				2EE6F2D424044DDD00BD86B5 /* PictureModel.swift */,
+				2E23B2D124058454009C8EB3 /* SearchQuery.swift */,
+			);
+			path = APiClient;
+			sourceTree = "<group>";
+		};
 		8156611BF437D81A9E4A6914 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +190,7 @@
 			children = (
 				9F7AEAC1240079EB00ED1E98 /* SearchCell.swift */,
 				9F7AEAC324007B4400ED1E98 /* FavoritesViewCell.swift */,
+				9FF3FA4D24071CDB00FD6BDA /* SearchTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -152,6 +198,7 @@
 		9F7AEAB4240075C100ED1E98 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9FF3FA522407235800FD6BDA /* Storyboard.storyboard */,
 				9F7AEAB52400763D00ED1E98 /* SearchView.swift */,
 				6374DEEE24043DED00E0C03F /* SearchTableView.swift */,
 				9F7AEABF2400799600ED1E98 /* SearchCollectionView.swift */,
@@ -159,7 +206,6 @@
 				9F7AEAB72400765B00ED1E98 /* FavoritesView.swift */,
 				9FF3FA4224057E0600FD6BDA /* EmptyView.swift */,
 				9F7AEAB3240074FC00ED1E98 /* Cell */,
-				9FF3FA482406FB7100FD6BDA /* FavoritesDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +233,9 @@
 		9FC44E202400681700D68408 /* FoursquareMapProject */ = {
 			isa = PBXGroup;
 			children = (
+				2E5C567C24057A0600B2171F /* Secrets */,
+				2E23B2CE240581F1009C8EB3 /* CoreLocation */,
+				2EE6F2D124044C7900BD86B5 /* APiClient */,
 				9F7AEAAA24006D0C00ED1E98 /* Model */,
 				9F7AEAB4240075C100ED1E98 /* Views */,
 				9FC44E4D240069E800D68408 /* Controllers */,
@@ -224,9 +273,11 @@
 			isa = PBXGroup;
 			children = (
 				9F7AEAA624006BC000ED1E98 /* TabBarController.swift */,
+				9FF3FA4F2407218700FD6BDA /* SearchTableVC.swift */,
 				9F7AEAAD24006E2B00ED1E98 /* SearchViewController.swift */,
 				9F7AEABB2400783A00ED1E98 /* SearchDetailViewController.swift */,
 				9F7AEAAF24006E4000ED1E98 /* FavoritesViewController.swift */,
+				9FF3FA4B24071BAC00FD6BDA /* MainVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FC44E2E2400681A00D68408 /* LaunchScreen.storyboard in Resources */,
+				9FF3FA532407235800FD6BDA /* Storyboard.storyboard in Resources */,
 				9FC44E2B2400681A00D68408 /* Assets.xcassets in Resources */,
 				9FC44E292400681700D68408 /* Main.storyboard in Resources */,
 			);
@@ -411,14 +463,20 @@
 			files = (
 				9F7AEABC2400783A00ED1E98 /* SearchDetailViewController.swift in Sources */,
 				9F7AEAB62400763D00ED1E98 /* SearchView.swift in Sources */,
+				9FF3FA502407218700FD6BDA /* SearchTableVC.swift in Sources */,
 				9F7AEABA240077BE00ED1E98 /* SearchDetailView.swift in Sources */,
+				2E23B2D024058233009C8EB3 /* CoreLocation.swift in Sources */,
 				9FC44E262400681700D68408 /* ViewController.swift in Sources */,
 				9F7AEAAE24006E2B00ED1E98 /* SearchViewController.swift in Sources */,
 				9F7AEAA724006BC000ED1E98 /* TabBarController.swift in Sources */,
 				9FC44E222400681700D68408 /* AppDelegate.swift in Sources */,
 				9F7AEAB024006E4000ED1E98 /* FavoritesViewController.swift in Sources */,
 				9F7AEAAC24006D2400ED1E98 /* FoursqModel.swift in Sources */,
+				9FF3FA4E24071CDB00FD6BDA /* SearchTableViewCell.swift in Sources */,
+				2E5C567E24057A6800B2171F /* APIKeys.swift in Sources */,
+				2E23B2D224058454009C8EB3 /* SearchQuery.swift in Sources */,
 				9F7AEAB22400730500ED1E98 /* PendingNotifications.swift in Sources */,
+				9FF3FA4C24071BAC00FD6BDA /* MainVC.swift in Sources */,
 				9FF3FA4324057E0600FD6BDA /* EmptyView.swift in Sources */,
 				6374DEEF24043DED00E0C03F /* SearchTableView.swift in Sources */,
 				9FF3FA4724058F3100FD6BDA /* appError.swift in Sources */,
@@ -427,9 +485,11 @@
 				9F7AEAA924006C8100ED1E98 /* UserPreference.swift in Sources */,
 				9F7AEAB82400765B00ED1E98 /* FavoritesView.swift in Sources */,
 				9FC44E242400681700D68408 /* SceneDelegate.swift in Sources */,
+				2EE6F2D324044CB000BD86B5 /* SearchModel.swift in Sources */,
 				9F7AEAC2240079EB00ED1E98 /* SearchCell.swift in Sources */,
 				9FF3FA4524058F0700FD6BDA /* Extensions + Alerts.swift in Sources */,
-				9FF3FA492406FB7100FD6BDA /* FavoritesDetailView.swift in Sources */,
+				2EE6F2D524044DDD00BD86B5 /* PictureModel.swift in Sources */,
+				2EE6F2D024044A1400BD86B5 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -148,8 +148,6 @@ extension FavoritesViewController: DataPersistenceDelegate {
     }
 }
 
-
-
 extension FavoritesViewController: GeminiCellDelegate {
     func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell) {
         print("testing is delegate is working !!! ")
@@ -167,7 +165,6 @@ extension FavoritesViewController: GeminiCellDelegate {
     }
 
     
-
     private func deleteVenue(_ foodVenue: Map){
         guard let index = venues.firstIndex(of: foodVenue) else {
             return
@@ -179,5 +176,3 @@ extension FavoritesViewController: GeminiCellDelegate {
         }
     }
 }
-
-

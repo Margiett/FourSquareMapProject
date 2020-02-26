@@ -1,16 +1,20 @@
 PODS:
   - Gemini (1.4.0)
+  - Pulley (2.8.0)
 
 DEPENDENCIES:
   - Gemini
+  - Pulley
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Gemini
+    - Pulley
 
 SPEC CHECKSUMS:
   Gemini: 4ad915cca8805577fe3021e02feeca2b77dcdbfc
+  Pulley: 81301031e9b08c7b240fa47e8b5d76e00bb05530
 
-PODFILE CHECKSUM: d04d7496331e9226770c63bc232c0bddfa9f0bb5
+PODFILE CHECKSUM: c9c12bbd0a6ffb7b374698d0f2cf3822ff7a5b82
 
 COCOAPODS: 1.7.5
