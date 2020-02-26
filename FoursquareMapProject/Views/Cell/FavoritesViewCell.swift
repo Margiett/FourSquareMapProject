@@ -13,14 +13,15 @@ import ImageKit
 
 protocol GeminiCellDelegate: AnyObject {
     //func longPressGesture(_ imageCell: FavoritesViewCell, venue: Map)
-    func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell, venue: Map)
+    func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell)
     
 }
 
 class FavoritesViewCell: GeminiCell {
     
     private var currentVenue: Map!
-    weak var delegate: GeminiCellDelegate?
+ 
+    weak var geminiDelegate: GeminiCellDelegate?
     
     lazy var editButton: UIButton = {
         let editButton = UIButton()
@@ -36,33 +37,11 @@ class FavoritesViewCell: GeminiCell {
         iv.image = UIImage(systemName: "photo.fill")
         iv.contentMode = .scaleToFill
         iv.isUserInteractionEnabled = false
-        iv.alpha = 1
-        iv.backgroundColor = .systemBackground
+   
+        iv.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         return iv
     }()
     
-    public lazy var venueName: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 2
-        label.alpha = 0.0
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
-        label.textAlignment = .center
-        label.isUserInteractionEnabled = true
-        label.text = "Venue Name"
-        return label
-        
-    }()
-    
-    public lazy var venueDescription: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 4
-        label.alpha = 0.0
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        label.text = "Venue Description"
-        label.isUserInteractionEnabled = true 
-        return label
-        
-    }()
     
     public lazy var selectedView: UIView = {
         let view = UIView()
@@ -70,9 +49,6 @@ class FavoritesViewCell: GeminiCell {
         view.isHidden = true
         return view
     }()
-    
-    private var isBackOfCardShowing = false
-    weak var geminiDelegate: GeminiCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -84,26 +60,31 @@ class FavoritesViewCell: GeminiCell {
     }
     
     private func commonInit() {
-       // setupImageConstraints()
-        //setupEditButtonConstraints()
-        //setupSelectedViewConstraints()
-      //  setupVenueName()
-      //  setupVenueDescription()
-        
-        //addGestureRecognizer(longPressGesture)
+        setupImageConstraints()
+        setupEditButtonConstraints()
+        setupSelectedViewConstraints()
     }
-    
-    public lazy var longPressGesture: UILongPressGestureRecognizer = {
-        let gesture = UILongPressGestureRecognizer()
-        gesture.addTarget(self, action: #selector(longPressAction(_ :)))
-        return gesture
-    }()
+
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-    addGestureRecognizer(longPressGesture)
     }
+    
+    //MARK: TODO waiting on model to finish configureCell
+       public func configureCell(for card: Map){
+       //        currentVenue = card
+    
+       //        venueName.text =
+          }
+    
+    
+    @objc
+      public func editButtonPressed(){
+          geminiDelegate?.moreButtonPressed(self)
+      }
+    
+    
     
     //MARK: TODO CongigureCell & setup constraints
     private func setupEditButtonConstraints(){
@@ -142,74 +123,9 @@ class FavoritesViewCell: GeminiCell {
         
         ])
     }
-    
-    private func setupVenueName(){
-        addSubview(venueName)
-        venueName.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            venueName.centerXAnchor.constraint(equalTo: centerXAnchor),
-            venueName.centerYAnchor.constraint(equalTo: centerYAnchor),
-            venueName.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.75),
-            venueName.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
-        
-        ])
-    }
-    private func setupVenueDescription(){
-        addSubview(venueDescription)
-        venueDescription.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            venueDescription.topAnchor.constraint(equalTo: topAnchor),
-            venueDescription.leadingAnchor.constraint(equalTo: leadingAnchor),
-            venueDescription.trailingAnchor.constraint(equalTo: trailingAnchor)
-        
-        
-        ])
-    }
-    //MARK: TODO waiting on model to finish configureCell
-       public func configureCell(for card: Map){
-       //        currentVenue = card
-    
-       //        venueName.text =
-          }
-    @objc
-    public func editButtonPressed(){
-        delegate?.moreButtonPressed(self, venue: currentVenue)
-    }
-    @objc private func longPressAction(_ gesture: UILongPressGestureRecognizer) {
-        guard currentVenue != nil else { return }
-        if gesture.state == .began || gesture.state == .changed {
-            print("testing gesture")
-            return
-        }
-        isBackOfCardShowing.toggle()
-        //geminiDelegate?.longPressGesture(self, venue: currentVenue)
-        animate()
-        
-    }
-    private func animate(){
-        let duration = 1.0
-        
-        if isBackOfCardShowing {
-            UIView.transition(with: self, duration: duration, options:
-                [ .transitionFlipFromLeft], animations: {
-                    self.venueImageView.alpha = 1.0
-                    self.venueName.alpha = 0.0
-                    self.venueDescription.alpha = 0.0
-            }, completion: nil)
-        } else {
-            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
-                self.venueImageView.alpha = 0.0
-                self.venueName.alpha = 1.0
-                self.venueDescription.alpha = 1.0
-                
-            }, completion: nil)
-        }
-        //isBackOfCardShowing = true
-    }
+}
+
     
     
    
     
-}

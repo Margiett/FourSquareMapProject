@@ -21,10 +21,11 @@ class FavoritesView: UIView {
 
     public lazy var geminiCollectionView: GeminiCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 100, height: 150)
+//        layout.scrollDirection = .vertical
+//        layout.itemSize = CGSize(width: 40, height: 150)
         let cv = GeminiCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0.9672935605, alpha: 1)
+        
         return cv
     
     }()
@@ -61,8 +62,8 @@ class FavoritesView: UIView {
         
         NSLayoutConstraint.activate([
             geminiCollectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            geminiCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            geminiCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            geminiCollectionView.leadingAnchor.constraint(equalTo:safeAreaLayoutGuide.leadingAnchor),
+            geminiCollectionView.trailingAnchor.constraint(equalTo:safeAreaLayoutGuide.trailingAnchor),
             geminiCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         
         ])
