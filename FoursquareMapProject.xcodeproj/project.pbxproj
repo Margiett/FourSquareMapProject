@@ -34,6 +34,7 @@
 		9FF3FA4324057E0600FD6BDA /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4224057E0600FD6BDA /* EmptyView.swift */; };
 		9FF3FA4524058F0700FD6BDA /* Extensions + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4424058F0700FD6BDA /* Extensions + Alerts.swift */; };
 		9FF3FA4724058F3100FD6BDA /* appError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4624058F3100FD6BDA /* appError.swift */; };
+		9FF3FA492406FB7100FD6BDA /* FavoritesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA482406FB7100FD6BDA /* FavoritesDetailView.swift */; };
 		C5099FAD327A24C13F2748D0 /* Pods_FoursquareMapProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7212DD91D0BA347815CE0C19 /* Pods_FoursquareMapProject.framework */; };
 		DEAADD368772F68E98467B91 /* Pods_FoursquareMapProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACAF4FDFE97155F5B70B609 /* Pods_FoursquareMapProjectTests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		9FF3FA4224057E0600FD6BDA /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		9FF3FA4424058F0700FD6BDA /* Extensions + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extensions + Alerts.swift"; path = "FoursquareMapProject/Views/Extensions + Alerts.swift"; sourceTree = SOURCE_ROOT; };
 		9FF3FA4624058F3100FD6BDA /* appError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = appError.swift; path = FoursquareMapProject/Views/appError.swift; sourceTree = SOURCE_ROOT; };
+		9FF3FA482406FB7100FD6BDA /* FavoritesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDetailView.swift; sourceTree = "<group>"; };
 		AF91D26E18BFCD1CFB8CA03A /* Pods-FoursquareMapProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareMapProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-FoursquareMapProjectTests/Pods-FoursquareMapProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FACAF4FDFE97155F5B70B609 /* Pods_FoursquareMapProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoursquareMapProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 				9F7AEAB72400765B00ED1E98 /* FavoritesView.swift */,
 				9FF3FA4224057E0600FD6BDA /* EmptyView.swift */,
 				9F7AEAB3240074FC00ED1E98 /* Cell */,
+				9FF3FA482406FB7100FD6BDA /* FavoritesDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				9FC44E242400681700D68408 /* SceneDelegate.swift in Sources */,
 				9F7AEAC2240079EB00ED1E98 /* SearchCell.swift in Sources */,
 				9FF3FA4524058F0700FD6BDA /* Extensions + Alerts.swift in Sources */,
+				9FF3FA492406FB7100FD6BDA /* FavoritesDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
