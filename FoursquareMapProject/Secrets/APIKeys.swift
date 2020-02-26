@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct APIKeys {
+  static let CientId = ""
+    static let ClientSecret = ""
+}
