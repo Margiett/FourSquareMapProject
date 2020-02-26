@@ -13,6 +13,7 @@ class FavoritesViewController: UIViewController {
     
     private var dataPersistence: DataPersistence<Map>
     private var userPreference: UserPreference
+    private var arr = ["cat", "dog", "bird"]
     
     let collectionViews = FavoritesView()
     
@@ -66,8 +67,8 @@ class FavoritesViewController: UIViewController {
     private func circleRotation(){
         collectionViews.geminiCollectionView.gemini
             .circleRotationAnimation()
-            .radius(450) // The radius of the circle
-            .rotateDirection(.clockwise) // Direction of rotation.
+            .radius(400) // The radius of the circle
+            .rotateDirection(.anticlockwise) // Direction of rotation.
             .itemRotationEnabled(true) // Whether the item rotates or not.
         
         //view.backgroundColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
@@ -90,23 +91,23 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
-            fatalError("could not deque cell")
-        }
-        cell.selectedView.isHidden = true
-        let venue = venues[indexPath.row]
-        
-        cell.layoutIfNeeded()
-        
-        
-        
-        
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+////        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
+////            fatalError("could not deque cell")
+////        }
+//      //  cell.selectedView.isHidden = true
+//       // let venue = venues[indexPath.row]
+//
+//      //  cell.layoutIfNeeded()
+//
+//
+//
+//
+//    }
 }
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return arr.count
             //venues.count
     }
     
@@ -117,6 +118,7 @@ extension FavoritesViewController: UICollectionViewDataSource {
         //let food = venues[indexPath.row]
         collectionViews.geminiCollectionView.animateCell(geminiCell)
         geminiCell.geminiDelegate = self
+        geminiCell.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         //geminiCell.configureCell(for: food)
     
         return geminiCell
@@ -160,26 +162,26 @@ extension FavoritesViewController: GeminiCellDelegate {
     }
 
     
-    func tapGesture(_ imageCell: FavoritesViewCell, venue: Map) {
-        print("Testing if delegate is working")
-        
-        guard let indexPath = collectionViews.geminiCollectionView.indexPath(for: imageCell)
-            else {
-                return
-        }
-        let alterController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        present(alterController, animated:  true)
-        
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alterAction in
-            self?.deleteVenue(venue)
-            self?.venues.remove(at: indexPath.row)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        alterController.addAction(deleteAction)
-        alterController.addAction(cancelAction)
-        
-    }
+//    func longPressGesture(_ imageCell: FavoritesViewCell, venue: Map) {
+//        print("Testing if delegate is working")
+//        
+//        guard let indexPath = collectionViews.geminiCollectionView.indexPath(for: imageCell)
+//            else {
+//                return
+//        }
+//        let alterController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        present(alterController, animated:  true)
+//        
+//        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alterAction in
+//            self?.deleteVenue(venue)
+//            self?.venues.remove(at: indexPath.row)
+//        }
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+//        
+//        alterController.addAction(deleteAction)
+//        alterController.addAction(cancelAction)
+//        
+//    }
     private func deleteVenue(_ foodVenue: Map){
         guard let index = venues.firstIndex(of: foodVenue) else {
             return

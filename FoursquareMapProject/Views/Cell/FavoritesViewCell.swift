@@ -10,8 +10,9 @@ import UIKit
 import Gemini
 import ImageKit
 
+
 protocol GeminiCellDelegate: AnyObject {
-    func tapGesture(_ imageCell: FavoritesViewCell, venue: Map)
+    //func longPressGesture(_ imageCell: FavoritesViewCell, venue: Map)
     func moreButtonPressed(_ CollectionViewCell: FavoritesViewCell, venue: Map)
     
 }
@@ -19,7 +20,7 @@ protocol GeminiCellDelegate: AnyObject {
 class FavoritesViewCell: GeminiCell {
     
     private var currentVenue: Map!
-    weak var delegate: GeminiCellDelegate!
+    weak var delegate: GeminiCellDelegate?
     
     lazy var editButton: UIButton = {
         let editButton = UIButton()
@@ -34,14 +35,16 @@ class FavoritesViewCell: GeminiCell {
         let iv = UIImageView()
         iv.image = UIImage(systemName: "photo.fill")
         iv.contentMode = .scaleToFill
-        iv.isUserInteractionEnabled = true
-        iv.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        iv.isUserInteractionEnabled = false
+        iv.alpha = 1
+        iv.backgroundColor = .systemBackground
         return iv
     }()
     
     public lazy var venueName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
+        label.alpha = 0.0
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textAlignment = .center
         label.isUserInteractionEnabled = true
@@ -53,6 +56,7 @@ class FavoritesViewCell: GeminiCell {
     public lazy var venueDescription: UILabel = {
         let label = UILabel()
         label.numberOfLines = 4
+        label.alpha = 0.0
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.text = "Venue Description"
         label.isUserInteractionEnabled = true 
@@ -80,25 +84,25 @@ class FavoritesViewCell: GeminiCell {
     }
     
     private func commonInit() {
-        setupImageConstraints()
-        setupEditButtonConstraints()
-        setupSelectedViewConstraints()
-        setupVenueName()
-        setupVenueDescription()
+       // setupImageConstraints()
+        //setupEditButtonConstraints()
+        //setupSelectedViewConstraints()
+      //  setupVenueName()
+      //  setupVenueDescription()
         
-        addGestureRecognizer(tapGesture)
+        //addGestureRecognizer(longPressGesture)
     }
     
-    private lazy var tapGesture: UITapGestureRecognizer = {
-        let gesture = UITapGestureRecognizer()
-        gesture.addTarget(self, action: #selector(tapGestureAction(_ :)))
+    public lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(longPressAction(_ :)))
         return gesture
     }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        addGestureRecognizer(tapGesture)
+    addGestureRecognizer(longPressGesture)
     }
     
     //MARK: TODO CongigureCell & setup constraints
@@ -171,17 +175,16 @@ class FavoritesViewCell: GeminiCell {
           }
     @objc
     public func editButtonPressed(){
-        delegate.moreButtonPressed(self, venue: currentVenue)
+        delegate?.moreButtonPressed(self, venue: currentVenue)
     }
-    @objc
-    private func tapGestureAction(_ gesture: UITapGestureRecognizer) {
+    @objc private func longPressAction(_ gesture: UILongPressGestureRecognizer) {
         guard currentVenue != nil else { return }
         if gesture.state == .began || gesture.state == .changed {
             print("testing gesture")
             return
         }
         isBackOfCardShowing.toggle()
-        geminiDelegate?.tapGesture(self, venue: currentVenue)
+        //geminiDelegate?.longPressGesture(self, venue: currentVenue)
         animate()
         
     }
@@ -203,7 +206,9 @@ class FavoritesViewCell: GeminiCell {
                 
             }, completion: nil)
         }
+        //isBackOfCardShowing = true
     }
+    
     
    
     
