@@ -12,7 +12,6 @@ struct PhotoModel: Codable {
     let photos: Photos
 }
 
-
 struct Photos: Codable {
     let count: Int
     let items: [Item]

@@ -8,13 +8,6 @@
 
 import Foundation
 
-
-
-//struct Empty: Codable {
-//
-//    let response: Response
-//}
-
 struct Response: Codable {
     let venues: [Venue]
     
@@ -83,7 +76,7 @@ enum Country: String, Codable {
     case unitedStates = "United States"
 }
 
-// MARK: - LabeledLatLng
+
 struct LabeledLatLng: Codable {
     let label: Label
     let lat: Double
@@ -103,7 +96,7 @@ enum ReferralID: String, Codable {
     case v1582568525 = "v-1582568525"
 }
 
-// MARK: - VenuePage
+
 struct VenuePage: Codable {
     let id: String
 }
