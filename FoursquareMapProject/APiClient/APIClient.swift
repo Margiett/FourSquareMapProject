@@ -14,7 +14,8 @@ import NetworkHelper
 struct SearchAPICLient{
     static func getSearchResults(completion: @escaping (Result <Response,AppError>) -> ()){
         
-        let endPointURL = "https://api.foursquare.com/v2/venues/search?ll=\(SearchQuery.lat ?? 40.7),\(SearchQuery.long ?? -74)&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())&query=\(SearchQuery.wordSearch)"
+        let endPointURL = ""
+//        "https://api.foursquare.com/v2/venues/search?ll=\(SearchQuery.lat ?? 40.7),\(SearchQuery.long ?? -74)&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())&query=\(SearchQuery.wordSearch)"
         
         guard let url = URL(string: endPointURL) else {
             completion(.failure(.badURL(endPointURL)))

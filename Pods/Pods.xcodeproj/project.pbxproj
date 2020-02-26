@@ -7,29 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05FB9FD6293F7BBEF23E35863EFCF28D /* EasingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E707546797EE7BAF20673827861FA /* EasingAnimatable.swift */; };
+		05FB9FD6293F7BBEF23E35863EFCF28D /* EasingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB86EC7F1F22F49F803F5C0E12289CBB /* EasingAnimatable.swift */; };
+		0CEB1FAD5B874B4023A3651DE4127B3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		0CFCDEA13F766C1F9260E60C2D9A777A /* Pods-FoursquareMapProjectTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B712B045751B2ABE23C09100ADF19BF /* Pods-FoursquareMapProjectTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0E150C51649C2587F17815F3C21F1CA2 /* Pods-FoursquareMapProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 284C6AE56B4B680BB6A2B86BAC3B8A60 /* Pods-FoursquareMapProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		142D5D280048D1464688EE810BF838BD /* YawRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE973BB081BB253F38F6839AB66198A5 /* YawRotationAnimatable.swift */; };
-		2BC98A99502EAD1AE1F6962E14AC5A46 /* GeminiAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591287F1463A54181E5617155B1B17D7 /* GeminiAnimationModel.swift */; };
-		37E5D071D6368C27F0227856F9F59039 /* GeminiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA60CA30AE37DA0123B104A9A09447 /* GeminiCell.swift */; };
-		457755386A05F86E85BB5310C938C2F2 /* Gemini-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9191BE2CEB27FDBECB7265AEE599725A /* Gemini-dummy.m */; };
-		4D2F941E57AE0BC1E5A69524DD7F0354 /* PitchRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3309F7630B2507474B3E1DA9608988 /* PitchRotationAnimatable.swift */; };
-		4F203F93EC5C4F8E8389C18E23EBD336 /* ScaleAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F6A595FE55B5679EAAA6C36043BC1D /* ScaleAnimatable.swift */; };
-		67367C95022814B451818D7DA966B39F /* CustomAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27B48B6CD60272836B02110DA8E37E /* CustomAnimatable.swift */; };
-		76C1BE5087E110A2F30165142F2529AD /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDADE74E5AB781B5F99A32E6E9BEF9AD /* EasingFunction.swift */; };
+		142D5D280048D1464688EE810BF838BD /* YawRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE513A85D92D72CDFC067AF2413B27C /* YawRotationAnimatable.swift */; };
+		2BC98A99502EAD1AE1F6962E14AC5A46 /* GeminiAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614CBFC39A59CCCA0B648B07B1C1514A /* GeminiAnimationModel.swift */; };
+		37E5D071D6368C27F0227856F9F59039 /* GeminiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE292BE4DC57F8A0DC35CF74681C737E /* GeminiCell.swift */; };
+		399301B1A8D678D609E1D3400B18FB28 /* Pods-FoursquareMapProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 284C6AE56B4B680BB6A2B86BAC3B8A60 /* Pods-FoursquareMapProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		457755386A05F86E85BB5310C938C2F2 /* Gemini-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF6B918638AE6CEE17DBCBA36E9518 /* Gemini-dummy.m */; };
+		4D2F941E57AE0BC1E5A69524DD7F0354 /* PitchRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA8D428B1DD40F3FD0033F51167E379 /* PitchRotationAnimatable.swift */; };
+		4F203F93EC5C4F8E8389C18E23EBD336 /* ScaleAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C9BCE978E3D9940EBE6F85C274BA54 /* ScaleAnimatable.swift */; };
+		67367C95022814B451818D7DA966B39F /* CustomAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C090B40C09570E5FFAA1727CF8C104 /* CustomAnimatable.swift */; };
+		72A3A8055EA0A2AD9AAA86CD07CF31F2 /* UIViewController+PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C538F9C491E9FAA7A7CE61B1091703 /* UIViewController+PulleyViewController.swift */; };
+		76C1BE5087E110A2F30165142F2529AD /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2257B84CCC3B27CD9AF5FEFDF7481E4 /* EasingFunction.swift */; };
 		7789D0362D4CD04B933A477B8230C868 /* Pods-FoursquareMapProjectTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A20F68EAC81A9B5E47EC167E6F68BA5 /* Pods-FoursquareMapProjectTests-dummy.m */; };
-		863D027754593DC7EDD79424E81AAB93 /* CircleRotateAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41BE858AD08FFD70EAD087FEADF542 /* CircleRotateAnimatable.swift */; };
-		9695AB4268A3A5D9E3BA3DAEBFC92B3E /* Pods-FoursquareMapProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A22EFEFD5BDBC86129429278E17F884 /* Pods-FoursquareMapProject-dummy.m */; };
-		9F3F23545E9660F0E3613A01765E7CCD /* CubeAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E70F00276E3BBE1766379C3834E860 /* CubeAnimatable.swift */; };
-		A2AAC50C345806EA0D59A8EE90231AF1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333BBB7CA882E8E113B215BCE0B91FF /* UIViewExtension.swift */; };
-		B5A10580A561DCE1A2233E35EC0B6F96 /* GeminiCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F36F71D1C0F03E797A95AF7A1091E04 /* GeminiCollectionView.swift */; };
-		B977AB53A6799219557190FEA41FF5C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		C510B3C2C8B502B1134AEAFDB7DA10E5 /* Gemini-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B768FCFE9FC7AC7FF1EABE399E6564A /* Gemini-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CABDC21F6BCAE55DD91D98FB15D6F2BF /* RollRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D5A08EBF2E53D02B64989579E1FE26 /* RollRotationAnimatable.swift */; };
-		CC8B42A7D0C7AE9674EFA17AB3483033 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		D524ECF2235BAD6DBF10894304F2E197 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		DE87ECAB93B21749969B2C63FE3ED3F0 /* UIAppearanceAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A2C9C0E8B9E6139A1EE35FB58E483C /* UIAppearanceAnimatable.swift */; };
+		863D027754593DC7EDD79424E81AAB93 /* CircleRotateAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803E011E30A7C36CED5DBBCAD3C2F098 /* CircleRotateAnimatable.swift */; };
+		9936DD9503F52A1584C731F43B02988D /* Pods-FoursquareMapProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A22EFEFD5BDBC86129429278E17F884 /* Pods-FoursquareMapProject-dummy.m */; };
+		9D2329293E5597A74FBFF2D8155D0DCE /* Pulley-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A6288FE525C6E7BE71C4013BA2FE9BE /* Pulley-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E314CDFE63E310C11B33F7449B81755 /* UIView+constrainToParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D7B0054C1FCA132D154503D8DDD82 /* UIView+constrainToParent.swift */; };
+		9F3F23545E9660F0E3613A01765E7CCD /* CubeAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83D6A05486F1B12DA7A11D6897EBF70 /* CubeAnimatable.swift */; };
+		A2AAC50C345806EA0D59A8EE90231AF1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0064CF7D9FBE6734AB012388F80B88D /* UIViewExtension.swift */; };
+		B413FDF5ADDDE94E440427A8D25E90BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		B5A10580A561DCE1A2233E35EC0B6F96 /* GeminiCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F3122FB44D4302E707BD8091D5D17D /* GeminiCollectionView.swift */; };
+		C510B3C2C8B502B1134AEAFDB7DA10E5 /* Gemini-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7314622A21566542C9F34B03CABC2674 /* Gemini-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9581CFBB8383C2969BA0A3C4E57A4B4 /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CA7704222A95AD1B8ACD2E392B4AF1 /* PulleyViewController.swift */; };
+		CABDC21F6BCAE55DD91D98FB15D6F2BF /* RollRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7915B9BA0A52C344A183D4A5213B924D /* RollRotationAnimatable.swift */; };
+		CC8B42A7D0C7AE9674EFA17AB3483033 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		D519F6CA84B77D2B8AEEB740E7361172 /* Pulley-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A77FDBD23BCB5B4084B1D4018C90BE /* Pulley-dummy.m */; };
+		D524ECF2235BAD6DBF10894304F2E197 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		DE87ECAB93B21749969B2C63FE3ED3F0 /* UIAppearanceAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC517FF7A3492316BD5DD3B7452C3771 /* UIAppearanceAnimatable.swift */; };
+		EE085E6BC93B587D70D7A7BC47073EA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		F2E0581504BA03C37BDDA3D6BD026BB0 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36014BCE07665D24A3BCA291665D9E8 /* PulleyPassthroughScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +48,14 @@
 			remoteGlobalIDString = 53A88859FF05B8E72E9E54975EED2FEB;
 			remoteInfo = "Pods-FoursquareMapProject";
 		};
-		0F99B53DFD238A5E8C44C3CF1C00C422 /* PBXContainerItemProxy */ = {
+		9F0268F7418609525FF89E86CA5E2C5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDFBB6677FF11273953A3294FBA7E475;
+			remoteInfo = Pulley;
+		};
+		AC12C44E593A8312A96C76F7239530D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -50,48 +65,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F36F71D1C0F03E797A95AF7A1091E04 /* GeminiCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeminiCollectionView.swift; path = Gemini/GeminiCollectionView.swift; sourceTree = "<group>"; };
-		1E1BFC46798C784F03E4015B9CB2D6B4 /* Gemini-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Gemini-Info.plist"; sourceTree = "<group>"; };
-		1E41BE858AD08FFD70EAD087FEADF542 /* CircleRotateAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircleRotateAnimatable.swift; path = Gemini/CircleRotateAnimatable.swift; sourceTree = "<group>"; };
+		07C538F9C491E9FAA7A7CE61B1091703 /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+PulleyViewController.swift"; path = "PulleyLib/UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
+		0A66BBF24142A5DF241D0991D35BBE1F /* Pulley-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pulley-prefix.pch"; sourceTree = "<group>"; };
 		217CC4ED875FB1AA96BB2F45E243A264 /* Pods-FoursquareMapProject-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FoursquareMapProject-frameworks.sh"; sourceTree = "<group>"; };
-		21AA60CA30AE37DA0123B104A9A09447 /* GeminiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeminiCell.swift; path = Gemini/GeminiCell.swift; sourceTree = "<group>"; };
-		2333BBB7CA882E8E113B215BCE0B91FF /* UIViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = Gemini/UIViewExtension.swift; sourceTree = "<group>"; };
 		284C6AE56B4B680BB6A2B86BAC3B8A60 /* Pods-FoursquareMapProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FoursquareMapProject-umbrella.h"; sourceTree = "<group>"; };
-		29D5A08EBF2E53D02B64989579E1FE26 /* RollRotationAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RollRotationAnimatable.swift; path = Gemini/RollRotationAnimatable.swift; sourceTree = "<group>"; };
 		2B712B045751B2ABE23C09100ADF19BF /* Pods-FoursquareMapProjectTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FoursquareMapProjectTests-umbrella.h"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		30FC96225CB5DF933840F068A9B9020E /* Gemini.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Gemini.modulemap; sourceTree = "<group>"; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		372E869979CE0733FFA6FF9FC864B15F /* Pulley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pulley.framework; path = Pulley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39C9BCE978E3D9940EBE6F85C274BA54 /* ScaleAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScaleAnimatable.swift; path = Gemini/ScaleAnimatable.swift; sourceTree = "<group>"; };
+		3DA05964DF5B0B97AC2FF07061669945 /* Gemini-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-prefix.pch"; sourceTree = "<group>"; };
+		42F3122FB44D4302E707BD8091D5D17D /* GeminiCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeminiCollectionView.swift; path = Gemini/GeminiCollectionView.swift; sourceTree = "<group>"; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		43A77FDBD23BCB5B4084B1D4018C90BE /* Pulley-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pulley-dummy.m"; sourceTree = "<group>"; };
 		4E79958862A94A99F0A40F883CEB810E /* Gemini.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Gemini.framework; path = Gemini.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50716D6D05C564BF0962F570FC62F2F2 /* Pods_FoursquareMapProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FoursquareMapProjectTests.framework; path = "Pods-FoursquareMapProjectTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		591287F1463A54181E5617155B1B17D7 /* GeminiAnimationModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeminiAnimationModel.swift; path = Gemini/GeminiAnimationModel.swift; sourceTree = "<group>"; };
+		510CF038875B5AD66B531C1DE3E3348F /* Gemini-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Gemini-Info.plist"; sourceTree = "<group>"; };
+		5A6288FE525C6E7BE71C4013BA2FE9BE /* Pulley-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pulley-umbrella.h"; sourceTree = "<group>"; };
+		614CBFC39A59CCCA0B648B07B1C1514A /* GeminiAnimationModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeminiAnimationModel.swift; path = Gemini/GeminiAnimationModel.swift; sourceTree = "<group>"; };
 		6AD393B49457352EEFB72ACE2C764AC2 /* Pods-FoursquareMapProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FoursquareMapProject.modulemap"; sourceTree = "<group>"; };
+		7314622A21566542C9F34B03CABC2674 /* Gemini-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-umbrella.h"; sourceTree = "<group>"; };
 		761FC7253EC885C9332B50CB2B7EB965 /* Pods-FoursquareMapProjectTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FoursquareMapProjectTests.modulemap"; sourceTree = "<group>"; };
+		7671E52FC5E3E4B2F9EF825B3C3E9157 /* Gemini.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gemini.xcconfig; sourceTree = "<group>"; };
+		7915B9BA0A52C344A183D4A5213B924D /* RollRotationAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RollRotationAnimatable.swift; path = Gemini/RollRotationAnimatable.swift; sourceTree = "<group>"; };
 		7A20F68EAC81A9B5E47EC167E6F68BA5 /* Pods-FoursquareMapProjectTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FoursquareMapProjectTests-dummy.m"; sourceTree = "<group>"; };
 		8032F323C854FB8C8880AAD18B796A2A /* Pods_FoursquareMapProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FoursquareMapProject.framework; path = "Pods-FoursquareMapProject.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		803E011E30A7C36CED5DBBCAD3C2F098 /* CircleRotateAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircleRotateAnimatable.swift; path = Gemini/CircleRotateAnimatable.swift; sourceTree = "<group>"; };
+		8046F9304FBA7E69C2ADBAA8618DC5C7 /* Pulley.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Pulley.modulemap; sourceTree = "<group>"; };
 		8201F16A0024BAF2D1DB3216BE7B4720 /* Pods-FoursquareMapProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoursquareMapProjectTests.release.xcconfig"; sourceTree = "<group>"; };
-		84E70F00276E3BBE1766379C3834E860 /* CubeAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CubeAnimatable.swift; path = Gemini/CubeAnimatable.swift; sourceTree = "<group>"; };
-		86F6A595FE55B5679EAAA6C36043BC1D /* ScaleAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScaleAnimatable.swift; path = Gemini/ScaleAnimatable.swift; sourceTree = "<group>"; };
-		8B768FCFE9FC7AC7FF1EABE399E6564A /* Gemini-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-umbrella.h"; sourceTree = "<group>"; };
-		9191BE2CEB27FDBECB7265AEE599725A /* Gemini-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Gemini-dummy.m"; sourceTree = "<group>"; };
-		94A2C9C0E8B9E6139A1EE35FB58E483C /* UIAppearanceAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIAppearanceAnimatable.swift; path = Gemini/UIAppearanceAnimatable.swift; sourceTree = "<group>"; };
-		965A75D92CF09D4663338A5AD3E45B32 /* Gemini.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Gemini.modulemap; sourceTree = "<group>"; };
+		94C090B40C09570E5FFAA1727CF8C104 /* CustomAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomAnimatable.swift; path = Gemini/CustomAnimatable.swift; sourceTree = "<group>"; };
 		9A22EFEFD5BDBC86129429278E17F884 /* Pods-FoursquareMapProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FoursquareMapProject-dummy.m"; sourceTree = "<group>"; };
 		9A4428E056A717C8C3D65B00DE21F93B /* Pods-FoursquareMapProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoursquareMapProject.release.xcconfig"; sourceTree = "<group>"; };
 		9AB9621F906A14A8BC25931F99221EA2 /* Pods-FoursquareMapProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FoursquareMapProject-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9BF2BFF04BCA4083A93D7CBB7362BAA6 /* Pulley.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pulley.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A3DE49B0BF08052FB37AD42699A7EAB1 /* Pods-FoursquareMapProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoursquareMapProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A577E3B4E92E754579031B670DB337CB /* Pods-FoursquareMapProjectTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FoursquareMapProjectTests-Info.plist"; sourceTree = "<group>"; };
-		AE3309F7630B2507474B3E1DA9608988 /* PitchRotationAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchRotationAnimatable.swift; path = Gemini/PitchRotationAnimatable.swift; sourceTree = "<group>"; };
+		B0064CF7D9FBE6734AB012388F80B88D /* UIViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = Gemini/UIViewExtension.swift; sourceTree = "<group>"; };
+		B69D7B0054C1FCA132D154503D8DDD82 /* UIView+constrainToParent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+constrainToParent.swift"; path = "PulleyLib/UIView+constrainToParent.swift"; sourceTree = "<group>"; };
 		BB3CBEF363CFC3D776901B239BC31295 /* Pods-FoursquareMapProjectTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FoursquareMapProjectTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C16A9030628C8D0C93905844EB21AD59 /* Gemini.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gemini.xcconfig; sourceTree = "<group>"; };
+		BDA8D428B1DD40F3FD0033F51167E379 /* PitchRotationAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PitchRotationAnimatable.swift; path = Gemini/PitchRotationAnimatable.swift; sourceTree = "<group>"; };
+		C83D6A05486F1B12DA7A11D6897EBF70 /* CubeAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CubeAnimatable.swift; path = Gemini/CubeAnimatable.swift; sourceTree = "<group>"; };
 		C9748DB815377B80E99142C012EC22CD /* Pods-FoursquareMapProject-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FoursquareMapProject-Info.plist"; sourceTree = "<group>"; };
+		CB86EC7F1F22F49F803F5C0E12289CBB /* EasingAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EasingAnimatable.swift; path = Gemini/EasingAnimatable.swift; sourceTree = "<group>"; };
+		CBE513A85D92D72CDFC067AF2413B27C /* YawRotationAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YawRotationAnimatable.swift; path = Gemini/YawRotationAnimatable.swift; sourceTree = "<group>"; };
+		CC517FF7A3492316BD5DD3B7452C3771 /* UIAppearanceAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIAppearanceAnimatable.swift; path = Gemini/UIAppearanceAnimatable.swift; sourceTree = "<group>"; };
+		CF33E9A93A52D105C7A383D0A9FCB978 /* Pulley-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pulley-Info.plist"; sourceTree = "<group>"; };
+		D36014BCE07665D24A3BCA291665D9E8 /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PulleyPassthroughScrollView.swift; path = PulleyLib/PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
 		D41F0841BC680C34E508D2EF91C6AF0E /* Pods-FoursquareMapProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FoursquareMapProject-acknowledgements.plist"; sourceTree = "<group>"; };
 		D6B0300AEEFF869FF88D65CFF4B6CD98 /* Pods-FoursquareMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoursquareMapProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D9043025AFFE5388AC057EBB93321185 /* Pods-FoursquareMapProjectTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FoursquareMapProjectTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DE27B48B6CD60272836B02110DA8E37E /* CustomAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomAnimatable.swift; path = Gemini/CustomAnimatable.swift; sourceTree = "<group>"; };
-		E8B769213C6AE9B8D50598D9B31BF51D /* Gemini-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-prefix.pch"; sourceTree = "<group>"; };
-		ED0E707546797EE7BAF20673827861FA /* EasingAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EasingAnimatable.swift; path = Gemini/EasingAnimatable.swift; sourceTree = "<group>"; };
-		EDADE74E5AB781B5F99A32E6E9BEF9AD /* EasingFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EasingFunction.swift; path = Gemini/EasingFunction.swift; sourceTree = "<group>"; };
-		EE973BB081BB253F38F6839AB66198A5 /* YawRotationAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YawRotationAnimatable.swift; path = Gemini/YawRotationAnimatable.swift; sourceTree = "<group>"; };
+		DABF6B918638AE6CEE17DBCBA36E9518 /* Gemini-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Gemini-dummy.m"; sourceTree = "<group>"; };
+		E1CA7704222A95AD1B8ACD2E392B4AF1 /* PulleyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PulleyViewController.swift; path = PulleyLib/PulleyViewController.swift; sourceTree = "<group>"; };
+		F2257B84CCC3B27CD9AF5FEFDF7481E4 /* EasingFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EasingFunction.swift; path = Gemini/EasingFunction.swift; sourceTree = "<group>"; };
+		FE292BE4DC57F8A0DC35CF74681C737E /* GeminiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeminiCell.swift; path = Gemini/GeminiCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +130,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD6AA2559275C1CAE8CB55A748F0F1E7 /* Frameworks */ = {
+		8AFE98D7AA0059C054680720D152FECF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B977AB53A6799219557190FEA41FF5C3 /* Foundation.framework in Frameworks */,
+				B413FDF5ADDDE94E440427A8D25E90BA /* Foundation.framework in Frameworks */,
+				EE085E6BC93B587D70D7A7BC47073EA8 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBCE5789EDD3046C5C513EAF1BED88ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CEB1FAD5B874B4023A3651DE4127B3B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,27 +175,12 @@
 			path = "Target Support Files/Pods-FoursquareMapProject";
 			sourceTree = "<group>";
 		};
-		11AD585B665A329C24D85214F3331AE8 /* Gemini */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1E41BE858AD08FFD70EAD087FEADF542 /* CircleRotateAnimatable.swift */,
-				84E70F00276E3BBE1766379C3834E860 /* CubeAnimatable.swift */,
-				DE27B48B6CD60272836B02110DA8E37E /* CustomAnimatable.swift */,
-				ED0E707546797EE7BAF20673827861FA /* EasingAnimatable.swift */,
-				EDADE74E5AB781B5F99A32E6E9BEF9AD /* EasingFunction.swift */,
-				591287F1463A54181E5617155B1B17D7 /* GeminiAnimationModel.swift */,
-				21AA60CA30AE37DA0123B104A9A09447 /* GeminiCell.swift */,
-				0F36F71D1C0F03E797A95AF7A1091E04 /* GeminiCollectionView.swift */,
-				AE3309F7630B2507474B3E1DA9608988 /* PitchRotationAnimatable.swift */,
-				29D5A08EBF2E53D02B64989579E1FE26 /* RollRotationAnimatable.swift */,
-				86F6A595FE55B5679EAAA6C36043BC1D /* ScaleAnimatable.swift */,
-				94A2C9C0E8B9E6139A1EE35FB58E483C /* UIAppearanceAnimatable.swift */,
-				2333BBB7CA882E8E113B215BCE0B91FF /* UIViewExtension.swift */,
-				EE973BB081BB253F38F6839AB66198A5 /* YawRotationAnimatable.swift */,
-				E3929F4CA459D62095D5EC31706859AB /* Support Files */,
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
 			);
-			name = Gemini;
-			path = Gemini;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		569D6B4284597D65BCA3174B43EA4A5E /* Targets Support Files */ = {
@@ -169,6 +190,15 @@
 				6D94F72F5B1945E1FB34710DEEC52B90 /* Pods-FoursquareMapProjectTests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		67C99C393169057277C2C290A9FE670D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B31BE7BC0FB32B8A22FA75564272E785 /* Gemini */,
+				FDFC0F37FC690C1140052ACEBD98753D /* Pulley */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		6D94F72F5B1945E1FB34710DEEC52B90 /* Pods-FoursquareMapProjectTests */ = {
@@ -187,63 +217,99 @@
 			path = "Target Support Files/Pods-FoursquareMapProjectTests";
 			sourceTree = "<group>";
 		};
-		7856A93C4961AD6697457A3C4D637766 /* Pods */ = {
+		B31BE7BC0FB32B8A22FA75564272E785 /* Gemini */ = {
 			isa = PBXGroup;
 			children = (
-				11AD585B665A329C24D85214F3331AE8 /* Gemini */,
+				803E011E30A7C36CED5DBBCAD3C2F098 /* CircleRotateAnimatable.swift */,
+				C83D6A05486F1B12DA7A11D6897EBF70 /* CubeAnimatable.swift */,
+				94C090B40C09570E5FFAA1727CF8C104 /* CustomAnimatable.swift */,
+				CB86EC7F1F22F49F803F5C0E12289CBB /* EasingAnimatable.swift */,
+				F2257B84CCC3B27CD9AF5FEFDF7481E4 /* EasingFunction.swift */,
+				614CBFC39A59CCCA0B648B07B1C1514A /* GeminiAnimationModel.swift */,
+				FE292BE4DC57F8A0DC35CF74681C737E /* GeminiCell.swift */,
+				42F3122FB44D4302E707BD8091D5D17D /* GeminiCollectionView.swift */,
+				BDA8D428B1DD40F3FD0033F51167E379 /* PitchRotationAnimatable.swift */,
+				7915B9BA0A52C344A183D4A5213B924D /* RollRotationAnimatable.swift */,
+				39C9BCE978E3D9940EBE6F85C274BA54 /* ScaleAnimatable.swift */,
+				CC517FF7A3492316BD5DD3B7452C3771 /* UIAppearanceAnimatable.swift */,
+				B0064CF7D9FBE6734AB012388F80B88D /* UIViewExtension.swift */,
+				CBE513A85D92D72CDFC067AF2413B27C /* YawRotationAnimatable.swift */,
+				D9C3C39EECE561AC4446C42646C4B360 /* Support Files */,
 			);
-			name = Pods;
+			name = Gemini;
+			path = Gemini;
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+		C2D86BFA3480773B2C3FE4CA93D9A1AC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+				8046F9304FBA7E69C2ADBAA8618DC5C7 /* Pulley.modulemap */,
+				9BF2BFF04BCA4083A93D7CBB7362BAA6 /* Pulley.xcconfig */,
+				43A77FDBD23BCB5B4084B1D4018C90BE /* Pulley-dummy.m */,
+				CF33E9A93A52D105C7A383D0A9FCB978 /* Pulley-Info.plist */,
+				0A66BBF24142A5DF241D0991D35BBE1F /* Pulley-prefix.pch */,
+				5A6288FE525C6E7BE71C4013BA2FE9BE /* Pulley-umbrella.h */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "../Target Support Files/Pulley";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				7856A93C4961AD6697457A3C4D637766 /* Pods */,
-				E50AFEB33E8C02339ACB9B2E40C59725 /* Products */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				67C99C393169057277C2C290A9FE670D /* Pods */,
+				D7F30BCF7EAC76A367D9DEA8AD01FF54 /* Products */,
 				569D6B4284597D65BCA3174B43EA4A5E /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E3929F4CA459D62095D5EC31706859AB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				965A75D92CF09D4663338A5AD3E45B32 /* Gemini.modulemap */,
-				C16A9030628C8D0C93905844EB21AD59 /* Gemini.xcconfig */,
-				9191BE2CEB27FDBECB7265AEE599725A /* Gemini-dummy.m */,
-				1E1BFC46798C784F03E4015B9CB2D6B4 /* Gemini-Info.plist */,
-				E8B769213C6AE9B8D50598D9B31BF51D /* Gemini-prefix.pch */,
-				8B768FCFE9FC7AC7FF1EABE399E6564A /* Gemini-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Gemini";
-			sourceTree = "<group>";
-		};
-		E50AFEB33E8C02339ACB9B2E40C59725 /* Products */ = {
+		D7F30BCF7EAC76A367D9DEA8AD01FF54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				4E79958862A94A99F0A40F883CEB810E /* Gemini.framework */,
 				8032F323C854FB8C8880AAD18B796A2A /* Pods_FoursquareMapProject.framework */,
 				50716D6D05C564BF0962F570FC62F2F2 /* Pods_FoursquareMapProjectTests.framework */,
+				372E869979CE0733FFA6FF9FC864B15F /* Pulley.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D9C3C39EECE561AC4446C42646C4B360 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				30FC96225CB5DF933840F068A9B9020E /* Gemini.modulemap */,
+				7671E52FC5E3E4B2F9EF825B3C3E9157 /* Gemini.xcconfig */,
+				DABF6B918638AE6CEE17DBCBA36E9518 /* Gemini-dummy.m */,
+				510CF038875B5AD66B531C1DE3E3348F /* Gemini-Info.plist */,
+				3DA05964DF5B0B97AC2FF07061669945 /* Gemini-prefix.pch */,
+				7314622A21566542C9F34B03CABC2674 /* Gemini-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Gemini";
+			sourceTree = "<group>";
+		};
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FDFC0F37FC690C1140052ACEBD98753D /* Pulley */ = {
+			isa = PBXGroup;
+			children = (
+				D36014BCE07665D24A3BCA291665D9E8 /* PulleyPassthroughScrollView.swift */,
+				E1CA7704222A95AD1B8ACD2E392B4AF1 /* PulleyViewController.swift */,
+				B69D7B0054C1FCA132D154503D8DDD82 /* UIView+constrainToParent.swift */,
+				07C538F9C491E9FAA7A7CE61B1091703 /* UIViewController+PulleyViewController.swift */,
+				C2D86BFA3480773B2C3FE4CA93D9A1AC /* Support Files */,
+			);
+			name = Pulley;
+			path = Pulley;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +323,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8874024D76B75AD9407A29C00D0F135B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				399301B1A8D678D609E1D3400B18FB28 /* Pods-FoursquareMapProject-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BBF9DC902EE7C2B1CCFE672E483ED52 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,11 +339,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED3F681CED5FE18FFE4189236DE302EF /* Headers */ = {
+		A8B21DEF4586B2BD50BA0B10EC392538 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E150C51649C2587F17815F3C21F1CA2 /* Pods-FoursquareMapProject-umbrella.h in Headers */,
+				9D2329293E5597A74FBFF2D8155D0DCE /* Pulley-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,17 +371,18 @@
 		};
 		53A88859FF05B8E72E9E54975EED2FEB /* Pods-FoursquareMapProject */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E0D59CBAD5415E338CD7DD98ABDA02D /* Build configuration list for PBXNativeTarget "Pods-FoursquareMapProject" */;
+			buildConfigurationList = 0099FA9F7452FF51F53D4816BE87DFB0 /* Build configuration list for PBXNativeTarget "Pods-FoursquareMapProject" */;
 			buildPhases = (
-				ED3F681CED5FE18FFE4189236DE302EF /* Headers */,
-				A200093BC4B8EA96869C788539405593 /* Sources */,
-				AD6AA2559275C1CAE8CB55A748F0F1E7 /* Frameworks */,
-				36B33A6E2C3E911F3029F0956CC8F57C /* Resources */,
+				8874024D76B75AD9407A29C00D0F135B /* Headers */,
+				6D106D4478BD387B88594135CE902AB4 /* Sources */,
+				CBCE5789EDD3046C5C513EAF1BED88ED /* Frameworks */,
+				3047BB6D5DC3E506D568A93C46CCD4D0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				28DCABB4C937DBDDBC01AF1BCEC2E89A /* PBXTargetDependency */,
+				19945E50887FC217BC34FF37FEE970FE /* PBXTargetDependency */,
+				8007D8E0D61F4431743A4FBED45A542F /* PBXTargetDependency */,
 			);
 			name = "Pods-FoursquareMapProject";
 			productName = "Pods-FoursquareMapProject";
@@ -332,6 +407,24 @@
 			productReference = 4E79958862A94A99F0A40F883CEB810E /* Gemini.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FDFBB6677FF11273953A3294FBA7E475 /* Pulley */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA35D3801253E65BB5EAB681FC21BA2A /* Build configuration list for PBXNativeTarget "Pulley" */;
+			buildPhases = (
+				A8B21DEF4586B2BD50BA0B10EC392538 /* Headers */,
+				DDE59FADE891846D9DA28DA317F9E6F5 /* Sources */,
+				8AFE98D7AA0059C054680720D152FECF /* Frameworks */,
+				02469367FE2BC97231B4378202FD2FE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pulley;
+			productName = Pulley;
+			productReference = 372E869979CE0733FFA6FF9FC864B15F /* Pulley.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -350,19 +443,27 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = E50AFEB33E8C02339ACB9B2E40C59725 /* Products */;
+			productRefGroup = D7F30BCF7EAC76A367D9DEA8AD01FF54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				A6AC3B95F2D31FE0816D1936AFDFC4F5 /* Gemini */,
 				53A88859FF05B8E72E9E54975EED2FEB /* Pods-FoursquareMapProject */,
 				088123A3031B48D9C7C0710931320A28 /* Pods-FoursquareMapProjectTests */,
+				FDFBB6677FF11273953A3294FBA7E475 /* Pulley */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		36B33A6E2C3E911F3029F0956CC8F57C /* Resources */ = {
+		02469367FE2BC97231B4378202FD2FE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3047BB6D5DC3E506D568A93C46CCD4D0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -386,19 +487,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6D106D4478BD387B88594135CE902AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9936DD9503F52A1584C731F43B02988D /* Pods-FoursquareMapProject-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		900670197A8F618666B2A7C1DCCE43A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7789D0362D4CD04B933A477B8230C868 /* Pods-FoursquareMapProjectTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A200093BC4B8EA96869C788539405593 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9695AB4268A3A5D9E3BA3DAEBFC92B3E /* Pods-FoursquareMapProject-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,20 +525,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDE59FADE891846D9DA28DA317F9E6F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D519F6CA84B77D2B8AEEB740E7361172 /* Pulley-dummy.m in Sources */,
+				F2E0581504BA03C37BDDA3D6BD026BB0 /* PulleyPassthroughScrollView.swift in Sources */,
+				C9581CFBB8383C2969BA0A3C4E57A4B4 /* PulleyViewController.swift in Sources */,
+				9E314CDFE63E310C11B33F7449B81755 /* UIView+constrainToParent.swift in Sources */,
+				72A3A8055EA0A2AD9AAA86CD07CF31F2 /* UIViewController+PulleyViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		28DCABB4C937DBDDBC01AF1BCEC2E89A /* PBXTargetDependency */ = {
+		19945E50887FC217BC34FF37FEE970FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Gemini;
 			target = A6AC3B95F2D31FE0816D1936AFDFC4F5 /* Gemini */;
-			targetProxy = 0F99B53DFD238A5E8C44C3CF1C00C422 /* PBXContainerItemProxy */;
+			targetProxy = AC12C44E593A8312A96C76F7239530D5 /* PBXContainerItemProxy */;
 		};
 		2935494E4AEAE5058EE6690B9862F66C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-FoursquareMapProject";
 			target = 53A88859FF05B8E72E9E54975EED2FEB /* Pods-FoursquareMapProject */;
 			targetProxy = 06B3A64FAE088F7E7C481E230FA3C79A /* PBXContainerItemProxy */;
+		};
+		8007D8E0D61F4431743A4FBED45A542F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Pulley;
+			target = FDFBB6677FF11273953A3294FBA7E475 /* Pulley */;
+			targetProxy = 9F0268F7418609525FF89E86CA5E2C5B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -480,9 +599,44 @@
 			};
 			name = Debug;
 		};
-		61F3BFE0DC8030A7F55139E152664AA3 /* Debug */ = {
+		6B5179BD13B77ED08D1CCC07B9D6E265 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6B0300AEEFF869FF88D65CFF4B6CD98 /* Pods-FoursquareMapProject.debug.xcconfig */;
+			baseConfigurationReference = 9BF2BFF04BCA4083A93D7CBB7362BAA6 /* Pulley.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Pulley/Pulley-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pulley/Pulley-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Pulley/Pulley.modulemap";
+				PRODUCT_MODULE_NAME = Pulley;
+				PRODUCT_NAME = Pulley;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6E4B138F1EEA34ECC55646BFB8F87C68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A4428E056A717C8C3D65B00DE21F93B /* Pods-FoursquareMapProject.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -513,14 +667,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		72906842097B023E56E6EDEFBDB82877 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C16A9030628C8D0C93905844EB21AD59 /* Gemini.xcconfig */;
+			baseConfigurationReference = 7671E52FC5E3E4B2F9EF825B3C3E9157 /* Gemini.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -618,48 +773,9 @@
 			};
 			name = Debug;
 		};
-		990FB21718899367ABEFFBC23A81A0D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A4428E056A717C8C3D65B00DE21F93B /* Pods-FoursquareMapProject.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		9F073B22F281D56B2F81ECFC6D7D86B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C16A9030628C8D0C93905844EB21AD59 /* Gemini.xcconfig */;
+			baseConfigurationReference = 7671E52FC5E3E4B2F9EF825B3C3E9157 /* Gemini.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -731,6 +847,80 @@
 			};
 			name = Release;
 		};
+		E783246A3CDD490BF3D249AA2B434A78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6B0300AEEFF869FF88D65CFF4B6CD98 /* Pods-FoursquareMapProject.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E9F7CAB52172C26FCAB3959600BBE8A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF2BFF04BCA4083A93D7CBB7362BAA6 /* Pulley.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Pulley/Pulley-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pulley/Pulley-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Pulley/Pulley.modulemap";
+				PRODUCT_MODULE_NAME = Pulley;
+				PRODUCT_NAME = Pulley;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -794,6 +984,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0099FA9F7452FF51F53D4816BE87DFB0 /* Build configuration list for PBXNativeTarget "Pods-FoursquareMapProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E783246A3CDD490BF3D249AA2B434A78 /* Debug */,
+				6E4B138F1EEA34ECC55646BFB8F87C68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -812,20 +1011,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E0D59CBAD5415E338CD7DD98ABDA02D /* Build configuration list for PBXNativeTarget "Pods-FoursquareMapProject" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				61F3BFE0DC8030A7F55139E152664AA3 /* Debug */,
-				990FB21718899367ABEFFBC23A81A0D1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B6AA11B5A103E0FE2C90646A76515C41 /* Build configuration list for PBXNativeTarget "Pods-FoursquareMapProjectTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D37044E7E20412627764E44E62A30E8 /* Debug */,
 				AA480F45350D638D66E3B70D7E081BE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA35D3801253E65BB5EAB681FC21BA2A /* Build configuration list for PBXNativeTarget "Pulley" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B5179BD13B77ED08D1CCC07B9D6E265 /* Debug */,
+				E9F7CAB52172C26FCAB3959600BBE8A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

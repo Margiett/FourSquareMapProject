@@ -13,6 +13,7 @@ class FavoritesView: UIView {
     
     public lazy var searchBar: UISearchBar = {
         let sb = UISearchBar()
+        sb.placeholder = "Search for Venues by category."
         sb.backgroundColor = #colorLiteral(red: 1, green: 0.3698191643, blue: 0.802052021, alpha: 1)
         return sb
         
@@ -20,11 +21,11 @@ class FavoritesView: UIView {
 
     public lazy var geminiCollectionView: GeminiCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 150)
+//        layout.scrollDirection = .vertical
+//        layout.itemSize = CGSize(width: 40, height: 150)
         let cv = GeminiCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0.9672935605, alpha: 1)
-        cv.isHidden = true
+        
         return cv
     
     }()
@@ -49,7 +50,7 @@ class FavoritesView: UIView {
             searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant:  0),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            searchBar.bottomAnchor.constraint(equalTo: bottomAnchor)
+            
         
         ])
     }
@@ -61,8 +62,8 @@ class FavoritesView: UIView {
         
         NSLayoutConstraint.activate([
             geminiCollectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            geminiCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            geminiCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            geminiCollectionView.leadingAnchor.constraint(equalTo:safeAreaLayoutGuide.leadingAnchor),
+            geminiCollectionView.trailingAnchor.constraint(equalTo:safeAreaLayoutGuide.trailingAnchor),
             geminiCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         
         ])
