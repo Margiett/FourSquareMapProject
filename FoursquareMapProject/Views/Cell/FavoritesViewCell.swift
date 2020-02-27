@@ -84,9 +84,10 @@ class FavoritesViewCell: GeminiCell {
     }
     
     //MARK: TODO waiting on model to finish configureCell
-       public func configureCell(for card: PhotoModel){
-        currentVenue = card
-        venueImageView.getImage(with: )) { [weak self] (result) in
+    // "\(photoData.response.venue.photos.groups.first?.items.first?.prefix ?? "")original\(photoData.response.venue.photos.groups.first?.items.first?.suffix ?? "")"
+       public func configureCell(photoData: PhotoModel){
+        currentVenue = photoData
+        venueImageView.getImage(with: "\(photoData.photos.count.items.dupesRemoved)" ) { [weak self] (result) in
             switch result {
             case .failure:
                 self?.venueImageView.image = UIImage(systemName: "photo")

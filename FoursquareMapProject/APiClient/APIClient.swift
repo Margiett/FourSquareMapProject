@@ -66,7 +66,7 @@ struct SearchAPICLient{
     }
     
     static func getImageURL(locationID: String, completion: @escaping (Result<[PhotoModel], AppError>) -> ()) {
-        var photoEndpoint = ""
+        var photoEndpoint = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=KO1VTJ5W522PD1TGSMSJ3XXTPWDTPWJAVXKM0B5VDIGOQ0T3&client_secret=X4NBACIJIBMDHT2XNYO413GNNXP2QKX1MVEONCG2MJAKZ5CS&v=20200227"
         photoEndpoint = photoEndpoint.replacingOccurrences(of: "", with: "%20")
         guard let url = URL(string: photoEndpoint) else {
             completion(.failure(.badURL(photoEndpoint)))
