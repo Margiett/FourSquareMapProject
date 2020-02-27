@@ -19,7 +19,8 @@ protocol GeminiCellDelegate: AnyObject {
 
 class FavoritesViewCell: GeminiCell {
     
-//    private var currentVenue: Map!
+    private var currentVenue: PhotoModel!
+
  
     weak var geminiDelegate: GeminiCellDelegate?
     
@@ -50,6 +51,15 @@ class FavoritesViewCell: GeminiCell {
         return view
     }()
     
+    public lazy var category: UILabel = {
+         let layout = UILabel()
+         layout.text = "Category Name"
+         layout.font = UIFont.preferredFont(forTextStyle: .headline)
+         layout.numberOfLines = 2
+        layout.textAlignment = .center
+         return layout
+     }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -61,8 +71,10 @@ class FavoritesViewCell: GeminiCell {
     
     private func commonInit() {
         setupImageConstraints()
+        setupCategoryLabel()
         setupEditButtonConstraints()
         setupSelectedViewConstraints()
+        
     }
 
     
@@ -72,11 +84,21 @@ class FavoritesViewCell: GeminiCell {
     }
     
     //MARK: TODO waiting on model to finish configureCell
-//       public func configureCell(for card: Map){
-//       //        currentVenue = card
-//    
-//       //        venueName.text =
-//          }
+       public func configureCell(for card: PhotoModel){
+        currentVenue = card
+        venueImageView.getImage(with: )) { [weak self] (result) in
+            switch result {
+            case .failure:
+                self?.venueImageView.image = UIImage(systemName: "photo")
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.venueImageView.image = image
+                }
+            }
+            
+        }
+     
+          }
     
     
     @objc
@@ -110,6 +132,18 @@ class FavoritesViewCell: GeminiCell {
             venueImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             venueImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
             
+        ])
+    }
+    
+    private func setupCategoryLabel(){
+        addSubview(category)
+        
+        category.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            category.topAnchor.constraint(equalTo: venueImageView.bottomAnchor),
+            category.leadingAnchor.constraint(equalTo: leadingAnchor),
+            category.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     private func setupSelectedViewConstraints(){

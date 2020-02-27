@@ -29,6 +29,8 @@ class FavoritesView: UIView {
         return cv
     
     }()
+    
+ 
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -68,5 +70,7 @@ class FavoritesView: UIView {
         
         ])
     }
+    
+
 
 }
