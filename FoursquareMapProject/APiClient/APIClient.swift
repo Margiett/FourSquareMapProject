@@ -14,8 +14,7 @@ import NetworkHelper
 struct SearchAPICLient{
     static func getSearchResults(completion: @escaping (Result <Response,AppError>) -> ()){
         
-        let endPointURL = ""
-//        "https://api.foursquare.com/v2/venues/search?ll=\(SearchQuery.lat ?? 40.7),\(SearchQuery.long ?? -74)&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())&query=\(SearchQuery.wordSearch)"
+        let endPointURL = "https://api.foursquare.com/v2/venues/search?ll=\(SearchQuery.lat ?? 40.7),\(SearchQuery.long ?? -74)&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())&query=\(SearchQuery.wordSearch)"
         
         guard let url = URL(string: endPointURL) else {
             completion(.failure(.badURL(endPointURL)))
@@ -66,13 +65,19 @@ struct SearchAPICLient{
         
     }
     
-    static func imgURL(photo: Item) -> String {
+    static func getImageURL(locationID: String, completion: @escaping (Result<[PhotoModel], AppError>) -> ()) {
+        var photoEndpoint = ""
+        photoEndpoint = photoEndpoint.replacingOccurrences(of: "", with: "%20")
+        guard let url = URL(string: photoEndpoint) else {
+            completion(.failure(.badURL(photoEndpoint)))
+            return
+        }
         
-        let imageUrl = "\(photo.itemPrefix)300*300\(photo.suffix)"
-        return imageUrl
+//        let imageUrl = "\(photo.itemPrefix)300*300\(photo.suffix)"
+//        return imageUrl
     }
     
-}
 
+}
 
 
