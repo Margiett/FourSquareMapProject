@@ -121,7 +121,7 @@ class FavoritesViewCell: GeminiCell {
     
     
     
-    //MARK: TODO CongigureCell & setup constraints
+    //MARK: Constraints
     private func setupEditButtonConstraints(){
         addSubview(editButton)
         editButton.translatesAutoresizingMaskIntoConstraints = false

@@ -55,8 +55,20 @@ class FavoritesViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         faveCollectionViews.geminiCollectionView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         getSavedVenues()
+        configureNavBar()
         
     }
+    
+    private func configureNavBar() {
+        self.navigationItem.title = "My Collection"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(pressButton))
+    }
+    
+    @objc private func pressButton() {
+        let addCollectionController = CreateViewController()
+        navigationController?.pushViewController(addCollectionController, animated: true)
+    }
+    
     private func getSavedVenues() {
         do{
             venues = try dataPersistence.loadItems().reversed()

@@ -43,10 +43,7 @@ class TabBarController: UITabBarController {
    
   override func viewDidLoad() {
     super.viewDidLoad()
-    viewControllers = [ mainVC, collectionVC]
-  }
-   
-   
-   
-   
+    
+    viewControllers = [UINavigationController(rootViewController: mainVC), UINavigationController(rootViewController: collectionVC)]
+  }   
 }
