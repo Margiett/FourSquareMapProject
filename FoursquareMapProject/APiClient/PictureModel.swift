@@ -18,7 +18,6 @@ struct Photos: Codable {
     let dupesRemoved: Int
 }
 
-
 struct Item: Codable {
     let id: String
     let createdAt: Int
@@ -26,7 +25,6 @@ struct Item: Codable {
     let itemPrefix: String
     let suffix: String
     let width, height: Int
-    let user: User
     let checkin: Checkin
     let visibility: String
 
@@ -38,7 +36,6 @@ struct Item: Codable {
         case suffix
         case width
         case height
-        case user
         case checkin
         case visibility
     }
@@ -58,20 +55,5 @@ struct Source: Codable {
     let url: String
 }
 
-struct User: Codable {
-    let id: String
-    let firstName: String
-    let lastName: String
-    let photo: Photo
-}
 
 
-struct Photo: Codable {
-    let photoPrefix: String
-    let suffix: String
-
-    enum CodingKeys: String, CodingKey {
-        case photoPrefix = "prefix"
-        case suffix
-    }
-}
