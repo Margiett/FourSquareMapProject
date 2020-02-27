@@ -11,13 +11,13 @@ import DataPersistence
 
 class FavoritesViewController: UIViewController {
     
-    private var dataPersistence: DataPersistence<Map>
+    private var dataPersistence: DataPersistence<Venue>
     private var userPreference: UserPreference
    // private var arr = ["cat", "dog", "bird"]
     
     let faveCollectionViews = FavoritesView()
     
-    private var venues = [Map]() {
+    private var venues = [Venue]() {
         didSet{
             faveCollectionViews.geminiCollectionView.reloadData()
             if venues.isEmpty {
@@ -29,7 +29,7 @@ class FavoritesViewController: UIViewController {
     }
     
     
-    init(dataPersistence: DataPersistence<Map>,userPreference: UserPreference) {
+    init(dataPersistence: DataPersistence<Venue>,userPreference: UserPreference) {
         self.dataPersistence = dataPersistence
         self.userPreference = userPreference
         super.init(nibName: nil, bundle: nil)
@@ -165,7 +165,7 @@ extension FavoritesViewController: GeminiCellDelegate {
     }
 
     
-    private func deleteVenue(_ foodVenue: Map){
+    private func deleteVenue(_ foodVenue: Venue){
         guard let index = venues.firstIndex(of: foodVenue) else {
             return
         }

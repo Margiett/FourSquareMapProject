@@ -19,9 +19,9 @@ protocol GeminiCellDelegate: AnyObject {
 
 class FavoritesViewCell: GeminiCell {
     
-    private var currentVenue: PhotoModel!
-
- 
+    private var currentVenue: PhototSearch!
+    
+    
     weak var geminiDelegate: GeminiCellDelegate?
     
     lazy var editButton: UIButton = {
@@ -38,7 +38,7 @@ class FavoritesViewCell: GeminiCell {
         iv.image = UIImage(systemName: "photo.fill")
         iv.contentMode = .scaleToFill
         iv.isUserInteractionEnabled = false
-   
+        
         iv.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         return iv
     }()
@@ -52,13 +52,13 @@ class FavoritesViewCell: GeminiCell {
     }()
     
     public lazy var category: UILabel = {
-         let layout = UILabel()
-         layout.text = "Category Name"
-         layout.font = UIFont.preferredFont(forTextStyle: .headline)
-         layout.numberOfLines = 2
+        let layout = UILabel()
+        layout.text = "Category Name"
+        layout.font = UIFont.preferredFont(forTextStyle: .headline)
+        layout.numberOfLines = 2
         layout.textAlignment = .center
-         return layout
-     }()
+        return layout
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -76,7 +76,7 @@ class FavoritesViewCell: GeminiCell {
         setupSelectedViewConstraints()
         
     }
-
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -84,28 +84,40 @@ class FavoritesViewCell: GeminiCell {
     }
     
     //MARK: TODO waiting on model to finish configureCell
-    // "\(photoData.response.venue.photos.groups.first?.items.first?.prefix ?? "")original\(photoData.response.venue.photos.groups.first?.items.first?.suffix ?? "")"
-       public func configureCell(photoData: PhotoModel){
-        currentVenue = photoData
-        venueImageView.getImage(with: "\(photoData.photos.count.items.dupesRemoved)" ) { [weak self] (result) in
+    public func configureCell(venue: Venue){
+        category.text = venue.name
+        VenueAPIClient.getImageURL(venueID: venue.id) { (result) in
             switch result {
             case .failure:
-                self?.venueImageView.image = UIImage(systemName: "photo")
-            case .success(let image):
+                print("image did not load")
+            case .success(let photos):
+                let prefix = photos.first?.prefix ?? ""
+                let suffix = photos.first?.suffix ?? ""
+                let venuePhotos = "\(prefix) original \(suffix)"
                 DispatchQueue.main.async {
-                    self?.venueImageView.image = image
+                    self.venueImageView.getImage(with: venuePhotos) { (result) in
+                        switch result {
+                        case .failure:
+                            self.venueImageView.image = UIImage(systemName: "photo.fill")
+                        case .success(let image):
+                            DispatchQueue.main.async {
+                                self.venueImageView.image = image
+                            }
+                        }
+                    }
                 }
             }
             
         }
-     
-          }
+        
+        
+    }
     
     
     @objc
-      public func editButtonPressed(){
-          geminiDelegate?.moreButtonPressed(self)
-      }
+    public func editButtonPressed(){
+        geminiDelegate?.moreButtonPressed(self)
+    }
     
     
     
@@ -119,7 +131,7 @@ class FavoritesViewCell: GeminiCell {
             editButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             editButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
             editButton.widthAnchor.constraint(equalTo: editButton.heightAnchor)
-        
+            
         ])
     }
     
@@ -155,12 +167,12 @@ class FavoritesViewCell: GeminiCell {
             selectedView.centerYAnchor.constraint(equalTo: venueImageView.centerYAnchor),
             selectedView.widthAnchor.constraint(equalTo: venueImageView.widthAnchor, multiplier: 0.75),
             selectedView.heightAnchor.constraint(equalTo: venueImageView.heightAnchor, multiplier: 0.75)
-        
+            
         ])
     }
 }
 
-    
-    
-   
-    
+
+
+
+

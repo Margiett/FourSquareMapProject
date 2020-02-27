@@ -11,7 +11,7 @@ import DataPersistence
 import Pulley
 class TabBarController: UITabBarController {
    
-  public var dataPersistence = DataPersistence<Map>(filename: "savedLocation.plist")
+  public var dataPersistence = DataPersistence<Venue>(filename: "savedLocation.plist")
     
   private var userPreference = UserPreference()
    

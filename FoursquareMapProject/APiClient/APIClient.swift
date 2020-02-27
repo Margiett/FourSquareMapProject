@@ -11,8 +11,8 @@ import NetworkHelper
 
 
 
-struct SearchAPICLient{
-    static func getSearchResults(completion: @escaping (Result <Response,AppError>) -> ()){
+struct VenueAPIClient{
+    static func getVenues(completion: @escaping (Result <[Venue],AppError>) -> ()){
         
         let endPointURL = "https://api.foursquare.com/v2/venues/search?ll=\(SearchQuery.lat ?? 40.7),\(SearchQuery.long ?? -74)&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())&query=\(SearchQuery.wordSearch)"
         
@@ -28,8 +28,8 @@ struct SearchAPICLient{
                 
             case .success(let data):
                 do{
-                    let searchResults = try JSONDecoder().decode(Response.self, from: data)
-                    completion(.success(searchResults))
+                    let search = try JSONDecoder().decode(VenueSearch.self, from: data)
+                    completion(.success(search.response.venues))
                 }catch{
                     completion(.failure(.decodingError(error)))
                 }
@@ -38,40 +38,31 @@ struct SearchAPICLient{
         
     }
     
-    
-    static func venueUrl(venue: Venue, completion: @escaping (Result<[Item], AppError>) -> () ) {
+    static func getImageURL(venueID: String, completion: @escaping (Result<[Photo], AppError>) -> ()) {
+        let photoEndpoint = "https://api.foursquare.com/v2/venues/\(venueID)/photos?&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())"
         
-        let venueEndpoint = "https://api.foursquare.com/v2/venues/\(venue.id)/photos?&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())"
-        
-        guard let url = URL(string: venueEndpoint) else {
-            completion(.failure(.badURL(venueEndpoint)))
-            return
-        }
-        let request = URLRequest(url: url)
-        NetworkHelper.shared.performDataTask(with: request) { (result) in
-            switch result{
-            case .failure(let appError):
-                completion(.failure(.networkClientError(appError)))
-                
-            case .success(let data):
-                do{
-                    let venueResults = try JSONDecoder().decode([Item].self, from: data)
-                    completion(.success(venueResults))
-                }catch{
-                    completion(.failure(.decodingError(error)))
-                }
-            }
-        }
-        
-    }
-    
-    static func getImageURL(locationID: String, completion: @escaping (Result<[PhotoModel], AppError>) -> ()) {
-        var photoEndpoint = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=KO1VTJ5W522PD1TGSMSJ3XXTPWDTPWJAVXKM0B5VDIGOQ0T3&client_secret=X4NBACIJIBMDHT2XNYO413GNNXP2QKX1MVEONCG2MJAKZ5CS&v=20200227"
-        photoEndpoint = photoEndpoint.replacingOccurrences(of: "", with: "%20")
+       
         guard let url = URL(string: photoEndpoint) else {
             completion(.failure(.badURL(photoEndpoint)))
             return
         }
+        let request = URLRequest(url: url)
+        
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do {
+                    let photoSearch = try JSONDecoder().decode(PhototSearch.self, from: data)
+                    completion(.success(photoSearch.response.photos.items))
+                }catch {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
+            
+         
         
 //        let imageUrl = "\(photo.itemPrefix)300*300\(photo.suffix)"
 //        return imageUrl
@@ -79,5 +70,33 @@ struct SearchAPICLient{
     
 
 }
+
+
+
+//    static func venueUrl(venue: Venue, completion: @escaping (Result<[Item], AppError>) -> () ) {
+//
+//        let venueEndpoint = ""
+//
+//        guard let url = URL(string: venueEndpoint) else {
+//            completion(.failure(.badURL(venueEndpoint)))
+//            return
+//        }
+//        let request = URLRequest(url: url)
+//        NetworkHelper.shared.performDataTask(with: request) { (result) in
+//            switch result{
+//            case .failure(let appError):
+//                completion(.failure(.networkClientError(appError)))
+//
+//            case .success(let data):
+//                do{
+//                    let venueResults = try JSONDecoder().decode([Item].self, from: data)
+//                    completion(.success(venueResults))
+//                }catch{
+//                    completion(.failure(.decodingError(error)))
+//                }
+//            }
+//        }
+//
+//    }
 
 

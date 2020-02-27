@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PhotoModel: Codable & Equatable {
+struct PhototSearch: Codable & Equatable {
      let response: PhotoResponse
 }
 struct PhotoResponse: Codable & Equatable {

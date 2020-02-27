@@ -16,7 +16,6 @@
 		6374DEEF24043DED00E0C03F /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374DEEE24043DED00E0C03F /* SearchTableView.swift */; };
 		9F7AEAA724006BC000ED1E98 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAA624006BC000ED1E98 /* TabBarController.swift */; };
 		9F7AEAA924006C8100ED1E98 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAA824006C8100ED1E98 /* UserPreference.swift */; };
-		9F7AEAAC24006D2400ED1E98 /* FoursqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAAB24006D2400ED1E98 /* FoursqModel.swift */; };
 		9F7AEAAE24006E2B00ED1E98 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAAD24006E2B00ED1E98 /* SearchViewController.swift */; };
 		9F7AEAB024006E4000ED1E98 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAAF24006E4000ED1E98 /* FavoritesViewController.swift */; };
 		9F7AEAB22400730500ED1E98 /* PendingNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAB12400730500ED1E98 /* PendingNotifications.swift */; };
@@ -72,7 +71,6 @@
 		97EAB40D9BC3B0B8E7ABEB72 /* Pods-FoursquareMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareMapProject.debug.xcconfig"; path = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject.debug.xcconfig"; sourceTree = "<group>"; };
 		9F7AEAA624006BC000ED1E98 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9F7AEAA824006C8100ED1E98 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
-		9F7AEAAB24006D2400ED1E98 /* FoursqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursqModel.swift; sourceTree = "<group>"; };
 		9F7AEAAD24006E2B00ED1E98 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9F7AEAAF24006E4000ED1E98 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		9F7AEAB12400730500ED1E98 /* PendingNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingNotifications.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 		9F7AEAAA24006D0C00ED1E98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F7AEAAB24006D2400ED1E98 /* FoursqModel.swift */,
 				9F7AEAA824006C8100ED1E98 /* UserPreference.swift */,
 				9F7AEAB12400730500ED1E98 /* PendingNotifications.swift */,
 			);
@@ -471,7 +468,6 @@
 				9F7AEAA724006BC000ED1E98 /* TabBarController.swift in Sources */,
 				9FC44E222400681700D68408 /* AppDelegate.swift in Sources */,
 				9F7AEAB024006E4000ED1E98 /* FavoritesViewController.swift in Sources */,
-				9F7AEAAC24006D2400ED1E98 /* FoursqModel.swift in Sources */,
 				9FF3FA4E24071CDB00FD6BDA /* SearchTableViewCell.swift in Sources */,
 				2E5C567E24057A6800B2171F /* APIKeys.swift in Sources */,
 				2E23B2D224058454009C8EB3 /* SearchQuery.swift in Sources */,
