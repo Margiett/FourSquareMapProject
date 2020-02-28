@@ -19,8 +19,9 @@ protocol GeminiCellDelegate: AnyObject {
 
 class FavoritesViewCell: GeminiCell {
     
-//    private var currentVenue: Map!
- 
+    private var currentVenue: PhototSearch!
+    
+    
     weak var geminiDelegate: GeminiCellDelegate?
     
     lazy var editButton: UIButton = {
@@ -37,7 +38,7 @@ class FavoritesViewCell: GeminiCell {
         iv.image = UIImage(systemName: "photo.fill")
         iv.contentMode = .scaleToFill
         iv.isUserInteractionEnabled = false
-   
+        
         iv.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         return iv
     }()
@@ -48,6 +49,15 @@ class FavoritesViewCell: GeminiCell {
         view.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         view.isHidden = true
         return view
+    }()
+    
+    public lazy var category: UILabel = {
+        let layout = UILabel()
+        layout.text = "Category Name"
+        layout.font = UIFont.preferredFont(forTextStyle: .headline)
+        layout.numberOfLines = 2
+        layout.textAlignment = .center
+        return layout
     }()
     
     override init(frame: CGRect) {
@@ -61,10 +71,12 @@ class FavoritesViewCell: GeminiCell {
     
     private func commonInit() {
         setupImageConstraints()
+        setupCategoryLabel()
         setupEditButtonConstraints()
         setupSelectedViewConstraints()
+        
     }
-
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -72,21 +84,44 @@ class FavoritesViewCell: GeminiCell {
     }
     
     //MARK: TODO waiting on model to finish configureCell
-//       public func configureCell(for card: Map){
-//       //        currentVenue = card
-//    
-//       //        venueName.text =
-//          }
+    public func configureCell(venue: Venue){
+        category.text = venue.name
+        VenueAPIClient.getImageURL(venueID: venue.id) { (result) in
+            switch result {
+            case .failure:
+                print("image did not load")
+            case .success(let photos):
+                let prefix = photos.first?.prefix ?? ""
+                let suffix = photos.first?.suffix ?? ""
+                let venuePhotos = "\(prefix) original \(suffix)"
+                DispatchQueue.main.async {
+                    self.venueImageView.getImage(with: venuePhotos) { (result) in
+                        switch result {
+                        case .failure:
+                            self.venueImageView.image = UIImage(systemName: "photo.fill")
+                        case .success(let image):
+                            DispatchQueue.main.async {
+                                self.venueImageView.image = image
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+        
+    }
     
     
     @objc
-      public func editButtonPressed(){
-          geminiDelegate?.moreButtonPressed(self)
-      }
+    public func editButtonPressed(){
+        geminiDelegate?.moreButtonPressed(self)
+    }
     
     
     
-    //MARK: TODO CongigureCell & setup constraints
+    //MARK: Constraints
     private func setupEditButtonConstraints(){
         addSubview(editButton)
         editButton.translatesAutoresizingMaskIntoConstraints = false
@@ -96,7 +131,7 @@ class FavoritesViewCell: GeminiCell {
             editButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             editButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
             editButton.widthAnchor.constraint(equalTo: editButton.heightAnchor)
-        
+            
         ])
     }
     
@@ -112,6 +147,18 @@ class FavoritesViewCell: GeminiCell {
             
         ])
     }
+    
+    private func setupCategoryLabel(){
+        addSubview(category)
+        
+        category.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            category.topAnchor.constraint(equalTo: venueImageView.bottomAnchor),
+            category.leadingAnchor.constraint(equalTo: leadingAnchor),
+            category.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
     private func setupSelectedViewConstraints(){
         addSubview(selectedView)
         selectedView.translatesAutoresizingMaskIntoConstraints = false
@@ -120,12 +167,12 @@ class FavoritesViewCell: GeminiCell {
             selectedView.centerYAnchor.constraint(equalTo: venueImageView.centerYAnchor),
             selectedView.widthAnchor.constraint(equalTo: venueImageView.widthAnchor, multiplier: 0.75),
             selectedView.heightAnchor.constraint(equalTo: venueImageView.heightAnchor, multiplier: 0.75)
-        
+            
         ])
     }
 }
 
-    
-    
-   
-    
+
+
+
+

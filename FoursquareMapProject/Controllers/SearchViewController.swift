@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
    
   let searchView = SearchView()
    
-  private var dataPersistence: DataPersistence<Map>?
+  private var dataPersistence: DataPersistence<Venue>?
    
   private var userPreference: UserPreference?
    

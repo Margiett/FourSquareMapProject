@@ -16,7 +16,6 @@
 		6374DEEF24043DED00E0C03F /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374DEEE24043DED00E0C03F /* SearchTableView.swift */; };
 		9F7AEAA724006BC000ED1E98 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAA624006BC000ED1E98 /* TabBarController.swift */; };
 		9F7AEAA924006C8100ED1E98 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAA824006C8100ED1E98 /* UserPreference.swift */; };
-		9F7AEAAC24006D2400ED1E98 /* FoursqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAAB24006D2400ED1E98 /* FoursqModel.swift */; };
 		9F7AEAAE24006E2B00ED1E98 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAAD24006E2B00ED1E98 /* SearchViewController.swift */; };
 		9F7AEAB024006E4000ED1E98 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAAF24006E4000ED1E98 /* FavoritesViewController.swift */; };
 		9F7AEAB22400730500ED1E98 /* PendingNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AEAB12400730500ED1E98 /* PendingNotifications.swift */; };
@@ -37,6 +36,11 @@
 		9FC44E452400684100D68408 /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC44E442400684100D68408 /* DataPersistence */; };
 		9FC44E482400685700D68408 /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC44E472400685700D68408 /* NetworkHelper */; };
 		9FC44E4B2400687600D68408 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC44E4A2400687600D68408 /* ImageKit */; };
+		9FD91C902408767E00158DAA /* FaveTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91C8F2408767E00158DAA /* FaveTableView.swift */; };
+		9FD91C9224087BB300158DAA /* FaveTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91C9124087BB300158DAA /* FaveTableCell.swift */; };
+		9FD91C9424087BEF00158DAA /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91C9324087BEF00158DAA /* CreateView.swift */; };
+		9FD91C962408882600158DAA /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91C952408882600158DAA /* CreateViewController.swift */; };
+		9FD91C98240894F600158DAA /* UserCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91C97240894F600158DAA /* UserCollection.swift */; };
 		9FF3FA4324057E0600FD6BDA /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4224057E0600FD6BDA /* EmptyView.swift */; };
 		9FF3FA4524058F0700FD6BDA /* Extensions + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4424058F0700FD6BDA /* Extensions + Alerts.swift */; };
 		9FF3FA4724058F3100FD6BDA /* appError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF3FA4624058F3100FD6BDA /* appError.swift */; };
@@ -72,7 +76,6 @@
 		97EAB40D9BC3B0B8E7ABEB72 /* Pods-FoursquareMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoursquareMapProject.debug.xcconfig"; path = "Target Support Files/Pods-FoursquareMapProject/Pods-FoursquareMapProject.debug.xcconfig"; sourceTree = "<group>"; };
 		9F7AEAA624006BC000ED1E98 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9F7AEAA824006C8100ED1E98 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
-		9F7AEAAB24006D2400ED1E98 /* FoursqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursqModel.swift; sourceTree = "<group>"; };
 		9F7AEAAD24006E2B00ED1E98 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9F7AEAAF24006E4000ED1E98 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		9F7AEAB12400730500ED1E98 /* PendingNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingNotifications.swift; sourceTree = "<group>"; };
@@ -94,6 +97,11 @@
 		9FC44E342400681B00D68408 /* FoursquareMapProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoursquareMapProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC44E382400681B00D68408 /* FoursquareMapProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareMapProjectTests.swift; sourceTree = "<group>"; };
 		9FC44E3A2400681B00D68408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FD91C8F2408767E00158DAA /* FaveTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveTableView.swift; sourceTree = "<group>"; };
+		9FD91C9124087BB300158DAA /* FaveTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveTableCell.swift; sourceTree = "<group>"; };
+		9FD91C9324087BEF00158DAA /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		9FD91C952408882600158DAA /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		9FD91C97240894F600158DAA /* UserCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollection.swift; sourceTree = "<group>"; };
 		9FF3FA4224057E0600FD6BDA /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		9FF3FA4424058F0700FD6BDA /* Extensions + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extensions + Alerts.swift"; path = "FoursquareMapProject/Views/Extensions + Alerts.swift"; sourceTree = SOURCE_ROOT; };
 		9FF3FA4624058F3100FD6BDA /* appError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = appError.swift; path = FoursquareMapProject/Views/appError.swift; sourceTree = SOURCE_ROOT; };
@@ -159,8 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				2EE6F2CF24044A1400BD86B5 /* APIClient.swift */,
-				2EE6F2D224044CB000BD86B5 /* SearchModel.swift */,
-				2EE6F2D424044DDD00BD86B5 /* PictureModel.swift */,
 				2E23B2D124058454009C8EB3 /* SearchQuery.swift */,
 			);
 			path = APiClient;
@@ -178,9 +184,11 @@
 		9F7AEAAA24006D0C00ED1E98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F7AEAAB24006D2400ED1E98 /* FoursqModel.swift */,
+				2EE6F2D224044CB000BD86B5 /* SearchModel.swift */,
+				2EE6F2D424044DDD00BD86B5 /* PictureModel.swift */,
 				9F7AEAA824006C8100ED1E98 /* UserPreference.swift */,
 				9F7AEAB12400730500ED1E98 /* PendingNotifications.swift */,
+				9FD91C97240894F600158DAA /* UserCollection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 				9F7AEAC1240079EB00ED1E98 /* SearchCell.swift */,
 				9F7AEAC324007B4400ED1E98 /* FavoritesViewCell.swift */,
 				9FF3FA4D24071CDB00FD6BDA /* SearchTableViewCell.swift */,
+				9FD91C9124087BB300158DAA /* FaveTableCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -204,6 +213,8 @@
 				9F7AEABF2400799600ED1E98 /* SearchCollectionView.swift */,
 				9F7AEAB9240077BE00ED1E98 /* SearchDetailView.swift */,
 				9F7AEAB72400765B00ED1E98 /* FavoritesView.swift */,
+				9FD91C8F2408767E00158DAA /* FaveTableView.swift */,
+				9FD91C9324087BEF00158DAA /* CreateView.swift */,
 				9FF3FA4224057E0600FD6BDA /* EmptyView.swift */,
 				9F7AEAB3240074FC00ED1E98 /* Cell */,
 			);
@@ -278,6 +289,7 @@
 				9F7AEABB2400783A00ED1E98 /* SearchDetailViewController.swift */,
 				9F7AEAAF24006E4000ED1E98 /* FavoritesViewController.swift */,
 				9FF3FA4B24071BAC00FD6BDA /* MainVC.swift */,
+				9FD91C952408882600158DAA /* CreateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -464,17 +476,21 @@
 				9F7AEABC2400783A00ED1E98 /* SearchDetailViewController.swift in Sources */,
 				9F7AEAB62400763D00ED1E98 /* SearchView.swift in Sources */,
 				9FF3FA502407218700FD6BDA /* SearchTableVC.swift in Sources */,
+				9FD91C902408767E00158DAA /* FaveTableView.swift in Sources */,
 				9F7AEABA240077BE00ED1E98 /* SearchDetailView.swift in Sources */,
+				9FD91C9424087BEF00158DAA /* CreateView.swift in Sources */,
 				2E23B2D024058233009C8EB3 /* CoreLocation.swift in Sources */,
 				9FC44E262400681700D68408 /* ViewController.swift in Sources */,
+				9FD91C962408882600158DAA /* CreateViewController.swift in Sources */,
 				9F7AEAAE24006E2B00ED1E98 /* SearchViewController.swift in Sources */,
 				9F7AEAA724006BC000ED1E98 /* TabBarController.swift in Sources */,
 				9FC44E222400681700D68408 /* AppDelegate.swift in Sources */,
+				9FD91C9224087BB300158DAA /* FaveTableCell.swift in Sources */,
 				9F7AEAB024006E4000ED1E98 /* FavoritesViewController.swift in Sources */,
-				9F7AEAAC24006D2400ED1E98 /* FoursqModel.swift in Sources */,
 				9FF3FA4E24071CDB00FD6BDA /* SearchTableViewCell.swift in Sources */,
 				2E5C567E24057A6800B2171F /* APIKeys.swift in Sources */,
 				2E23B2D224058454009C8EB3 /* SearchQuery.swift in Sources */,
+				9FD91C98240894F600158DAA /* UserCollection.swift in Sources */,
 				9F7AEAB22400730500ED1E98 /* PendingNotifications.swift in Sources */,
 				9FF3FA4C24071BAC00FD6BDA /* MainVC.swift in Sources */,
 				9FF3FA4324057E0600FD6BDA /* EmptyView.swift in Sources */,
