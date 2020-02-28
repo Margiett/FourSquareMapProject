@@ -15,7 +15,7 @@ protocol CreateFullDelegate: AnyObject {
 class CreateView: UIView {
     
     weak var buttonDelegate: CreateFullDelegate?
-
+    
     public lazy var collectionNameTextField: UITextField = {
         let nameTextField = UITextField()
         nameTextField.placeholder = "Create Category"
@@ -27,14 +27,14 @@ class CreateView: UIView {
     
     public lazy var libImage: UIImageView = {
         let iv = UIImageView()
-               iv.image = UIImage(systemName: "photo.fill")
-               iv.contentMode = .scaleToFill
-               iv.isUserInteractionEnabled = false
-               
-               iv.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-               return iv
+        iv.image = UIImage(systemName: "photo.fill")
+        iv.contentMode = .scaleToFill
+        iv.isUserInteractionEnabled = false
+        
+        iv.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        return iv
     }()
-   
+    
     
     public lazy var addPhoto: UIButton = {
         let ab = UIButton()
@@ -51,18 +51,20 @@ class CreateView: UIView {
     }()
     
     override init(frame: CGRect) {
-           super.init(frame: UIScreen.main.bounds)
-           commonInit()
-       }
-       required init?(coder: NSCoder) {
-           super.init(coder: coder)
-           commonInit()
-       }
-       
-       private func commonInit() {
-         setupTextField()
-         setupImage()
-       }
+        super.init(frame: UIScreen.main.bounds)
+        commonInit()
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        setupTextField()
+        setupImage()
+        setupAddPhoto()
+        setupTakePhoto()
+    }
     
     
     
@@ -86,8 +88,36 @@ class CreateView: UIView {
             libImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             libImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             libImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3)
+            
+            
+        ])
+    }
+    
+    private func setupAddPhoto() {
+        addSubview(addPhoto)
+        addPhoto.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([
+            
+            addPhoto.topAnchor.constraint(equalTo: libImage.bottomAnchor, constant: 8),
+            //addPhoto.centerXAnchor.constraint(equalTo: centerXAnchor)
+            addPhoto.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 170)
+            //,addPhoto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
+            
+        ])
+    }
+    
+    private func setupTakePhoto() {
+        addSubview(takePhoto)
+        takePhoto.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([
+            
+            takePhoto.topAnchor.constraint(equalTo: libImage.bottomAnchor, constant: 8),
+            takePhoto.leadingAnchor.constraint(equalTo: addPhoto.trailingAnchor, constant: 30)
+            
+            //, takePhoto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            
         ])
     }
     
