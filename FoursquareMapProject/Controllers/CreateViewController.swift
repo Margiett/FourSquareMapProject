@@ -23,6 +23,7 @@ class CreateViewController: UIViewController {
     weak var photosDelegate: AddPhotoToCollection?
     public var originalPhoto: UserCollection?
     public var selectedImage: UIImage?
+    private let imagePickerController = UIImagePickerController()
     
     private let createView = CreateView()
     
@@ -44,6 +45,7 @@ class CreateViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         configureNavBar()
+        //imagePickerController.delegate = self
 
     }
     
@@ -65,45 +67,35 @@ class CreateViewController: UIViewController {
 
 }
 
-
-extension CreateViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+extension CreateViewController: CreateFullDelegate {
+    func addButtonPress(_ createCategory: CreateView) {
+        print("testing to see if this delegate works")
         
-        textField.resignFirstResponder()
-        //if textField.text != "" && photoImage.image != nil {
-         //   saveButton.isEnabled = true
-       // }
-       // imageDescription = textField.text ?? "no photo description"
-//        print(photoImage.image?.description)
-        return true
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePickerController.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion:  nil)
+         
+        }
+        
+        
+        
+        
+    }
     }
 
-}
-
 extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            print("image selected not found")
-            return
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as?
+            UIImage else {
+                print("image seleted not found")
+                return
         }
-       // selectedImage = image
-        //photoImage.image = image
+        selectedImage = image
+        createView.libImage.image = image
         dismiss(animated: true)
-    }
-}
-
-extension UIImage {
-    func resizeImage(to width: CGFloat, height: CGFloat) -> UIImage {
-        let size = CGSize(width: width, height: height)
-        let renderer = UIGraphicsImageRenderer(size: size)
-        return renderer.image { (context) in
-            self.draw(in: CGRect(origin: .zero, size: size))
-        }
     }
 }

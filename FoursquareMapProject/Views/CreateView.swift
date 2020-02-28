@@ -11,10 +11,14 @@ import UIKit
 protocol CreateFullDelegate: AnyObject {
     func addButtonPress(_ createCategory: CreateView)
 }
+protocol TakePictureDelegate: AnyObject {
+    func takePictureButton(_ takePhoto: CreateView)
+}
 
 class CreateView: UIView {
     
     weak var buttonDelegate: CreateFullDelegate?
+    weak var takeDelegate: TakePictureDelegate?
     
     public lazy var collectionNameTextField: UITextField = {
         let nameTextField = UITextField()
@@ -29,26 +33,33 @@ class CreateView: UIView {
         let iv = UIImageView()
         iv.image = UIImage(systemName: "photo.fill")
         iv.contentMode = .scaleToFill
-        iv.isUserInteractionEnabled = false
-        
         iv.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         return iv
     }()
     
-    
+    //MARK: Button !!
     public lazy var addPhoto: UIButton = {
         let ab = UIButton()
-        //editButton.backgroundColor = .black
         ab.setImage(UIImage(systemName: "photo"), for: .normal)
-        //ab.addTarget(self, action: #selector(editButtonPressed), for: .touchUpInside)
+        ab.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
+        
         return ab
     }()
     
     public lazy var takePhoto: UIButton = {
         let tb = UIButton()
         tb.setImage(UIImage(systemName: "camera.on.rectangle"), for: .normal)
+        tb.addTarget(self, action: #selector(takePhotoButton), for: .touchUpInside)
         return tb
     }()
+    @objc
+    public func takePhotoButton(){
+        takeDelegate?.takePictureButton(self)
+    }
+    @objc
+    public func addButtonPressed(){
+        buttonDelegate?.addButtonPress(self)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -68,7 +79,7 @@ class CreateView: UIView {
     
     
     
-    
+    //MARK: Setting up Constraints
     private func setupTextField() {
         addSubview(collectionNameTextField)
         collectionNameTextField.translatesAutoresizingMaskIntoConstraints = false
