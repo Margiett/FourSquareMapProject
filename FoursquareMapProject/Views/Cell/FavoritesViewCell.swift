@@ -51,7 +51,7 @@ class FavoritesViewCell: GeminiCell {
         return view
     }()
     
-    public lazy var category: UILabel = {
+    public lazy var categoryLabel: UILabel = {
         let layout = UILabel()
         layout.text = "Category Name"
         layout.font = UIFont.preferredFont(forTextStyle: .headline)
@@ -85,7 +85,7 @@ class FavoritesViewCell: GeminiCell {
     
     //MARK: TODO waiting on model to finish configureCell
     public func configureCell(venue: Venue){
-        category.text = venue.name
+        categoryLabel.text = venue.name
         VenueAPIClient.getImageURL(venueID: venue.id) { (result) in
             switch result {
             case .failure:
@@ -149,14 +149,14 @@ class FavoritesViewCell: GeminiCell {
     }
     
     private func setupCategoryLabel(){
-        addSubview(category)
+        addSubview(categoryLabel)
         
-        category.translatesAutoresizingMaskIntoConstraints = false
+        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            category.topAnchor.constraint(equalTo: venueImageView.bottomAnchor),
-            category.leadingAnchor.constraint(equalTo: leadingAnchor),
-            category.trailingAnchor.constraint(equalTo: trailingAnchor)
+            categoryLabel.topAnchor.constraint(equalTo: venueImageView.bottomAnchor),
+            categoryLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            categoryLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     private func setupSelectedViewConstraints(){
