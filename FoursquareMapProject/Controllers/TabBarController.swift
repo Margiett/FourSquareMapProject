@@ -43,6 +43,7 @@ class TabBarController: UITabBarController {
    
   override func viewDidLoad() {
     super.viewDidLoad()
+    tabBar.tintColor = .black
     
     viewControllers = [UINavigationController(rootViewController: mainVC), UINavigationController(rootViewController: collectionVC)]
   }   

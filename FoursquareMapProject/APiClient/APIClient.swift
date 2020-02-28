@@ -12,14 +12,19 @@ import NetworkHelper
 
 
 struct VenueAPIClient{
-    static func getVenues(completion: @escaping (Result <[Venue],AppError>) -> ()){
+    static func getVenues(city: String, venue: String, completion: @escaping (Result <[Venue],AppError>) -> ()){
         
-        let endPointURL = "https://api.foursquare.com/v2/venues/search?ll=\(SearchQuery.lat ?? 40.7),\(SearchQuery.long ?? -74)&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())&query=\(SearchQuery.wordSearch)"
+        let cityFinal = ""
+        let venueFinal = ""
         
-        guard let url = URL(string: endPointURL) else {
-            completion(.failure(.badURL(endPointURL)))
+        let newEndpointURL = "https://api.foursquare.com/v2/venues/search?client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=20210102&near=\(city)&intent=browse&radius=1000&query=\(venue)&limit=5"
+        
+        guard let url = URL(string: newEndpointURL) else {
+            completion(.failure(.badURL(newEndpointURL)))
             return
         }
+        
+        print(url)
         let request = URLRequest(url: url)
         NetworkHelper.shared.performDataTask(with: request) { (result) in
             switch result{
@@ -39,7 +44,7 @@ struct VenueAPIClient{
     }
     
     static func getImageURL(venueID: String, completion: @escaping (Result<[Photo], AppError>) -> ()) {
-        let photoEndpoint = "https://api.foursquare.com/v2/venues/\(venueID)/photos?&client_id=\(APIKeys.CientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())"
+        let photoEndpoint = "https://api.foursquare.com/v2/venues/\(venueID)/photos?&client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())"
         
        
         guard let url = URL(string: photoEndpoint) else {

@@ -15,7 +15,7 @@ class CoreLocationSession: NSObject {
     public var locationManager: CLLocationManager
     
     override init() {
-       
+        
         locationManager = CLLocationManager()
         super.init()
         locationManager.delegate = self
@@ -50,19 +50,20 @@ class CoreLocationSession: NSObject {
         
     }
     
-    public func convertPlaceNameToCoordinates(addressString: String){
-        //converting an address to a coordinate
-        
-        CLGeocoder().geocodeAddressString(addressString) { (placemarks, error) in
-            if let error = error{
-                print("geocodeAddressString: \(error)")
-            }
-            if let firstPlacemark = placemarks?.first,
-                let location = firstPlacemark.location{
-                print("placeName coordinate is  \(location.coordinate)")
-            }
-        }
-    }
+     public func convertPlaceNameToCoordinate(addressString: String, completion: @escaping (Result<CLLocationCoordinate2D, Error>) -> ()) {
+       // coverting an address to a coordinate
+       CLGeocoder().geocodeAddressString(addressString) { (placemarks, error) in
+         if let error = error {
+            print("geocodeAddressString: \(error)")
+           completion(.failure(error))
+         }
+         if let firstPlacemark = placemarks?.first,
+           let location = firstPlacemark.location {
+           print("place name coordinate is \(location.coordinate)")
+           completion(.success(location.coordinate))
+         }
+       }
+     }
     
 }
 
@@ -83,7 +84,6 @@ extension CoreLocationSession: CLLocationManagerDelegate {
             print("authorizedWhenInUse")
         case .denied:
             print("denied")
-            
         case .notDetermined:
             print("notDetermined")
         case .restricted:

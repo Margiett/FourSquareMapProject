@@ -9,8 +9,8 @@
 import Foundation
 
 struct APIKeys {
-  static let CientId = ""
-    static let ClientSecret = ""
+  static let ClientId = "KO1VTJ5W522PD1TGSMSJ3XXTPWDTPWJAVXKM0B5VDIGOQ0T3"
+    static let ClientSecret = "X4NBACIJIBMDHT2XNYO413GNNXP2QKX1MVEONCG2MJAKZ5CS"
 
     
 }
