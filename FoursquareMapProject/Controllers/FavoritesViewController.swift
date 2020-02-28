@@ -132,22 +132,24 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         let maxSize: CGSize = UIScreen.main.bounds.size
         let itemWidth: CGFloat = maxSize.width * 0.75
         let itemHeight: CGFloat = maxSize.height * 0.70
-      
+        
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
-            fatalError("could not deque cell")
-        }
-        cell.selectedView.isHidden = true
-        let venue = venues[indexPath.row]
-        let venueDetailVC = FaveDetailController()
-        
-  
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
+//            fatalError("could not deque cell")
+//        }
+//        cell.selectedView.isHidden = true
+        let location = Location(address: "dfgdsfgs", crossStreet: "gsgfsgsd", lat: 9.0, lng: 9.0, postalCode: "glkfng", cc: "nbfnjdfn", city: "dngjlgns", state: "fngnf", country: "dmngklsfn", formattedAddress: ["lfnbjldf","kfgknfg"])
+        let icon = Icon(prefix: "mnfdlmna", suffix: "nvlksdfnl")
+        let cat = [Category(name: "gnfkongjk", icon: icon)]
+        let venue = Venue(id: "mnbn", name: "jkvv", location: location, categories: cat)
+        let venueDetailVC = FaveDetailController(dataPersistence, venues: venue)
+        self.present(venueDetailVC, animated:  true)
         
         faveCollectionViews.geminiCollectionView.alpha = 0.15
-        cell.layoutIfNeeded()
+//        cell.layoutIfNeeded()
     }
 }
 extension FavoritesViewController: UICollectionViewDataSource {
@@ -162,14 +164,12 @@ extension FavoritesViewController: UICollectionViewDataSource {
             fatalError("could not deque cell")
         }
         //let food = venues[indexPath.row]
-        
         faveCollectionViews.geminiCollectionView.animateCell(geminiCell)
-        
         geminiCell.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         geminiCell.geminiDelegate = self
         //geminiCell.configureCell(venue: food)
         
-      
+        
         
         return geminiCell
     }
@@ -203,7 +203,7 @@ extension FavoritesViewController: GeminiCellDelegate {
         
         let action = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let deleteAction = UIAlertAction(title: "Delete ?", style: .destructive) { [weak self] (alertAction) in
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] (alertAction) in
             //self?.deleteVenue
             self?.getSavedVenues()
         }

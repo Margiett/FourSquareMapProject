@@ -28,7 +28,7 @@ class FaveDetail: UIView {
         vImages.contentMode = .scaleToFill
         vImages.image = UIImage(systemName: "photo.fill")
         vImages.backgroundColor = .blue
-    return vImages
+        return vImages
         
     }()
     
@@ -42,6 +42,11 @@ class FaveDetail: UIView {
         
     }()
     
+    public lazy var venueMap: MKMapView = {
+        let map = MKMapView()
+        return map
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -51,9 +56,10 @@ class FaveDetail: UIView {
         commonInit()
     }
     private func commonInit() {
-    setupVenueName()
-    setupVenuImage()
+        setupVenueName()
+        setupVenuImage()
         setupLoction()
+        setupMap()
     }
     
     private func setupVenueName(){
@@ -73,7 +79,8 @@ class FaveDetail: UIView {
         NSLayoutConstraint.activate([
             venuePhoto.topAnchor.constraint(equalTo: venueName.bottomAnchor, constant: 8),
             venuePhoto.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            venuePhoto.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -8)
+            venuePhoto.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -8),
+            venuePhoto.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3)
         ])
     }
     
@@ -87,8 +94,18 @@ class FaveDetail: UIView {
         ])
     }
     
-
-
+    private func setupMap(){
+        addSubview(venueMap)
+        venueMap.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            venueMap.topAnchor.constraint(equalTo: venueLocation.bottomAnchor, constant: 20),
+            venueMap.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            venueMap.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            venueMap.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8)
+        ])
     }
     
+    
+}
+
 
