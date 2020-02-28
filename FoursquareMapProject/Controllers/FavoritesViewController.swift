@@ -19,6 +19,8 @@ protocol ImagePhoto: AnyObject {
 class FavoritesViewController: UIViewController {
     
     private var dataPersistence: DataPersistence<Venue>
+    
+    
     private var userPreference: UserPreference
     // private var arr = ["cat", "dog", "bird"]
     
@@ -41,12 +43,12 @@ class FavoritesViewController: UIViewController {
         }
     }
     
+    private var userCollection = [UserCollection]()
     
     init(dataPersistence: DataPersistence<Venue>,userPreference: UserPreference) {
         self.dataPersistence = dataPersistence
         self.userPreference = userPreference
         super.init(nibName: nil, bundle: nil)
-        // self.userPreference.delegate = self as? UserPreferenceDelegate
     }
     required init?(coder: NSCoder) {
         fatalError("init couldnt be implemented")
@@ -128,11 +130,9 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let maxSize: CGSize = UIScreen.main.bounds.size
-        //let spacingBetweenItem: CGFloat = 8
-        //let numberOfItems: CGFloat = 1
         let itemWidth: CGFloat = maxSize.width * 0.75
         let itemHeight: CGFloat = maxSize.height * 0.70
-        // let totalSpacing: CGFloat = (2 * spacingBetweenItem) + (numberOfItems - 1) * spacingBetweenItem
+      
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
@@ -142,6 +142,9 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         }
         cell.selectedView.isHidden = true
         let venue = venues[indexPath.row]
+        let venueDetailVC = FaveDetailController()
+        
+  
         
         faveCollectionViews.geminiCollectionView.alpha = 0.15
         cell.layoutIfNeeded()
@@ -149,7 +152,7 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
 }
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 3
         //venues.count
     }
     
@@ -164,7 +167,9 @@ extension FavoritesViewController: UICollectionViewDataSource {
         
         geminiCell.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         geminiCell.geminiDelegate = self
-       // geminiCell.configureCell(venue: food)
+        //geminiCell.configureCell(venue: food)
+        
+      
         
         return geminiCell
     }
@@ -219,4 +224,12 @@ extension FavoritesViewController: GeminiCellDelegate {
             showAlert(title: "There is an error when deleting", message: "Error: \(error)")
         }
     }
+}
+
+extension FavoritesViewController: AddPhotoToCollection {
+    func updateCollectionView(images: UserCollection) {
+        
+    }
+    
+    
 }

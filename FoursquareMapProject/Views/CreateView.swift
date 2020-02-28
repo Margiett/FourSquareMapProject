@@ -73,8 +73,8 @@ class CreateView: UIView {
     private func commonInit() {
         setupTextField()
         setupImage()
-        setupAddPhoto()
-        setupTakePhoto()
+        setupAddPhoto() // button
+        setupTakePhoto() // button 
     }
     
     
