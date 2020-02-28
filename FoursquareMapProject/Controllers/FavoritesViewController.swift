@@ -64,8 +64,9 @@ class FavoritesViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(pressButton))
     }
     
-    @objc private func pressButton() {
-        let addCollectionController = CreateViewController()
+    @objc
+    private func pressButton() {
+        let addCollectionController = CreateViewController(dataPersistence: dataPersistence, userPreference: userPreference)
         navigationController?.pushViewController(addCollectionController, animated: true)
     }
     

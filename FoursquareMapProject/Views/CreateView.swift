@@ -44,6 +44,12 @@ class CreateView: UIView {
         return ab
     }()
     
+    public lazy var takePhoto: UIButton = {
+        let tb = UIButton()
+        tb.setImage(UIImage(systemName: "camera.on.rectangle"), for: .normal)
+        return tb
+    }()
+    
     override init(frame: CGRect) {
            super.init(frame: UIScreen.main.bounds)
            commonInit()
@@ -54,8 +60,35 @@ class CreateView: UIView {
        }
        
        private func commonInit() {
-         
-           
+         setupTextField()
+         setupImage()
        }
+    
+    
+    
+    
+    private func setupTextField() {
+        addSubview(collectionNameTextField)
+        collectionNameTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionNameTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            collectionNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            collectionNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            
+        ])
+    }
+    
+    private func setupImage() {
+        addSubview(libImage)
+        libImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            libImage.topAnchor.constraint(equalTo: collectionNameTextField.bottomAnchor, constant: 20),
+            libImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            libImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            libImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3)
+        
+        
+        ])
+    }
     
 }
