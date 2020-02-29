@@ -133,7 +133,7 @@ class SearchDetailView: UIView {
         
         
         private func imageConstrints(){
-            addSubview(imageView)
+//            addSubview(imageView)
             imageView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
 
@@ -146,7 +146,7 @@ class SearchDetailView: UIView {
         }
     private func nameConstraints(){
         
-        addSubview(nameLabel)
+//        addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
@@ -159,7 +159,7 @@ class SearchDetailView: UIView {
     
     private func addresslLabelConstraints(){
         
-        addSubview(addressLabel)
+//        addSubview(addressLabel)
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
@@ -171,7 +171,7 @@ class SearchDetailView: UIView {
     }
     
         private func directionButConstraints(){
-            addSubview(addressButton)
+//            addSubview(addressButton)
             addressButton.translatesAutoresizingMaskIntoConstraints = false
             addressButton.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20).isActive = true
             addressButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
@@ -180,7 +180,7 @@ class SearchDetailView: UIView {
     
     private func phonelLabelConstraints(){
         
-        addSubview(phoneLabel)
+//        addSubview(phoneLabel)
         phoneLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             phoneLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20),
@@ -192,7 +192,7 @@ class SearchDetailView: UIView {
     }
     
     private func phoneButConstraints(){
-            addSubview(phoneButton)
+//            addSubview(phoneButton)
             phoneButton.translatesAutoresizingMaskIntoConstraints = false
             phoneButton.topAnchor.constraint(equalTo: phoneLabel.bottomAnchor, constant: 20).isActive = true
             phoneButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
@@ -201,10 +201,10 @@ class SearchDetailView: UIView {
     
     private func detailLabelConstraints(){
           
-          addSubview(detailsText)
+//          addSubview(detailsText)
           detailsText.translatesAutoresizingMaskIntoConstraints = false
           NSLayoutConstraint.activate([
-             // detailsText.topAnchor.constraint(equalTo: phoneButton.bottomAnchor, constant: 20),
+              detailsText.topAnchor.constraint(equalTo: phoneButton.bottomAnchor, constant: 20),
              detailsText.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
            detailsText.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
               detailsText.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
