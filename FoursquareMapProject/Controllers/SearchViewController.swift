@@ -82,11 +82,16 @@ class SearchViewController: UIViewController {
         VenueAPIClient.getVenues(city: city, venue: venue, completion: { (result) in
             switch result {
             case .failure(let appError):
+                self.showAlert(title: "No Venue Found", message: "Please check your spelling and try again.")
                 print("error getting venue: \(appError)")
             case .success(let data):
                 DispatchQueue.main.async {
-                    self.allLocations = data
-                    self.loadMapAnnotation()
+                    if venue.count == 0 {
+                        self.showAlert(title: "Not Found", message: "There are no \(venue) in this area.")
+                    } else {
+                        self.allLocations = data
+                        self.loadMapAnnotation()
+                    }
                 }
             }
         }
@@ -137,16 +142,24 @@ class SearchViewController: UIViewController {
 
 
 extension SearchViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let searchDetailVC = FaveDetailController()
+        navigationController?.pushViewController(searchDetailVC, animated: true)
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        allLocations.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as? SearchCell else {
             fatalError()
         }
-        
+        let location = allLocations[indexPath.row]
         cell.backgroundColor = .white
+        cell.configureCell(venue: location)
         return cell
     }
 }
@@ -163,7 +176,7 @@ extension SearchViewController: UISearchBarDelegate {
             !searchText.isEmpty else {
                 return true
         }
-       // convertPlaceNameToCoordinate(searchText)
+        // convertPlaceNameToCoordinate(searchText)
         return true
     }
     
