@@ -21,6 +21,11 @@ class SearchDetailViewController: UIViewController {
         
          navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favButtonPressed(_:)))
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "backward"), style: .plain, target: self, action: #selector(backButtonPressed(_:)))
+        updateUI()
+        
+         detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
+        
     }
     
     init(_ dataPersistence: DataPersistence<Venue>, venue: Venue, photo: Photo){
@@ -41,12 +46,24 @@ class SearchDetailViewController: UIViewController {
         detailView.nameLabel.layer.cornerRadius = 10
         detailView.addressLabel.layer.cornerRadius = 10
         detailView.addressButton.layer.cornerRadius = 10
-        detailView.phoneLabel.layer.cornerRadius = 10
-        detailView.phoneButton.layer.cornerRadius = 10
         detailView.detailsText.layer.cornerRadius = 10
     }
     override func loadView() {
         view = detailView
+    }
+    
+    
+    
+    @objc func addressButtonPressed(_ sender: UIButton){
+        
+        
+    }
+    
+    @objc func backButtonPressed(_ sender: UIBarButtonItem){
+        
+        let searchController = SearchViewController()
+        navigationController?.pushViewController(searchController, animated: true)
+        
     }
     
     @objc func favButtonPressed(_ sender: UIBarButtonItem){
