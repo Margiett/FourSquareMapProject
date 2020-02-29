@@ -17,6 +17,8 @@ class FaveDetailController: UIViewController {
     private var isShowingNewAnnotations = false
      private var selectedVenue: Venue
     
+    var venueDetail = [Venue]()
+    
     let faveDatailViews = FaveDetail()
     private var venue: Venue
     private var dataPersistence: DataPersistence<Venue>
@@ -39,9 +41,25 @@ class FaveDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .brown
-        
-        
+        loadMap()
+        getDirections()
+        loadvenue()
     }
+    
+    private func loadvenue(){
+        VenueAPIClient.getVenues(city: "New York", venue: "Pizza") { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let venues):
+                self?.venueDetail = venues
+                DispatchQueue.main.async {
+                    self?.loadMap()
+                }
+            }
+        }
+    }
+        
     private func loadMap() {
         let annotation = makeAnnotation(for: selectedVenue)
         faveDatailViews.venueMap.addAnnotation(annotation)
