@@ -34,13 +34,7 @@ class SearchViewController: UIViewController {
         }
     }
     
-    private var allPhotos = [Photo]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.searchView.collectionView.reloadData()
-            }
-        }
-    }
+    private var allPhotos = [UIImage]()
     
     override func loadView() {
         view = searchView
@@ -143,12 +137,6 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let searchDetailVC = FaveDetailController()
-        navigationController?.pushViewController(searchDetailVC, animated: true)
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         allLocations.count
     }
@@ -160,6 +148,9 @@ extension SearchViewController: UICollectionViewDataSource {
         let location = allLocations[indexPath.row]
         cell.backgroundColor = .white
         cell.configureCell(venue: location)
+        var allPhotosArray = [UIImage]()
+        allPhotos.append(cell.imageView.image ?? UIImage(systemName: "map.fill")!)
+        allPhotos = allPhotosArray
         return cell
     }
 }

@@ -8,7 +8,14 @@
 
 import UIKit
 
+
+// can improve by defining a class and creating a static var
+//dependancy injection
+var imageCache = [String: UIImage]()
+
 class SearchCell: UICollectionViewCell {
+    
+    var allPhotos = [Photo]()
     
     public lazy var imageView : UIImageView = {
       let imageView = UIImageView()
@@ -56,8 +63,41 @@ class SearchCell: UICollectionViewCell {
         venueNameLabel.text = venue.name
         addressLabel.text = venue.location.address
         
+        // cache images so it doesnt call the API again
+        if let image = imageCache[venue.id] {
+            imageView.image = image
+            return
+        }
         
-        
+        VenueAPIClient.getImageURL(venueID: venue.id) { [weak self] (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let appError):
+                    print("could not retrieve image: \(appError)")
+                case .success(let imageView):
+                    self?.allPhotos = imageView
+                }
+            }
+            
+            DispatchQueue.main.async {
+                let prefix = self?.allPhotos.first?.prefix ?? ""
+                let suffix = self?.allPhotos.first?.suffix ?? ""
+                let photoURL = "\(prefix)original\(suffix)"
+                self?.imageView.getImage(with: photoURL) { (result) in
+                    switch result {
+                    case .failure(_):
+                        DispatchQueue.main.async {
+                            self?.imageView.image = UIImage(systemName: "map.fill")
+                        }
+                    case .success(let photo):
+                        DispatchQueue.main.async {
+                            imageCache[venue.id] = photo
+                            self?.imageView.image = photo
+                        }
+                    }
+                }
+            }
+        }
     }
     
     
