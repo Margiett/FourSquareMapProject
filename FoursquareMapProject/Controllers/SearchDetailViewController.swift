@@ -25,6 +25,11 @@ class SearchDetailViewController: UIViewController {
         
          detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "backward"), style: .plain, target: self, action: #selector(backButtonPressed(_:)))
+        updateUI()
+        
+         detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
+        
     }
     
     init(_ dataPersistence: DataPersistence<Venue>, venue: Venue){
@@ -59,13 +64,14 @@ class SearchDetailViewController: UIViewController {
         
     }
     
+
 //    @objc func backButtonPressed(_ sender: UIBarButtonItem){
 //
 //        let searchController = SearchViewController()
 //        navigationController?.pushViewController(searchController, animated: true)
 //
 //    }
-    
+
     @objc func favButtonPressed(_ sender: UIBarButtonItem){
 
                do {
