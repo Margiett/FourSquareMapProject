@@ -25,8 +25,8 @@ class SearchDetailViewController: UIViewController {
         
          detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "backward"), style: .plain, target: self, action: #selector(backButtonPressed(_:)))
-        updateUI()
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "backward"), style: .plain, target: self, action: #selector(backButtonPressed(_:)))
+//        updateUI()
         
          detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
         
