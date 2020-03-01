@@ -22,7 +22,7 @@ class SearchDetailView: UIView {
         public lazy var imageView: UIImageView = {
             let view = UIImageView()
             view.backgroundColor = .cyan
-            
+            view.contentMode = .scaleAspectFill
             return view
         }()
         
@@ -52,8 +52,7 @@ class SearchDetailView: UIView {
             
            return but
         }()
-   
-    
+
     public lazy var detailsText: UILabel = {
         let label = UILabel()
         label.backgroundColor = .systemBackground
@@ -157,6 +156,7 @@ class SearchDetailView: UIView {
     
         }
     
+
     
     private func detailLabelConstraints(){
           
