@@ -50,6 +50,9 @@ struct VenueAPIClient{
         print(photoEndpoint)
         
         
+//        let photoEndpoint = "https://api.foursquare.com/v2/venues/\(venueID)/photos?&client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())"
+        
+       
         guard let url = URL(string: photoEndpoint) else {
             completion(.failure(.badURL(photoEndpoint)))
             return
@@ -70,11 +73,39 @@ struct VenueAPIClient{
             }
         }
         
-
+//        let imageUrl = "\(photo.itemPrefix)300*300\(photo.suffix)"
+//        return imageUrl
     }
-    
     
 
 }
+
+
+
+//    static func venueUrl(venue: Venue, completion: @escaping (Result<[Item], AppError>) -> () ) {
+//
+//        let venueEndpoint = ""
+//
+//        guard let url = URL(string: venueEndpoint) else {
+//            completion(.failure(.badURL(venueEndpoint)))
+//            return
+//        }
+//        let request = URLRequest(url: url)
+//        NetworkHelper.shared.performDataTask(with: request) { (result) in
+//            switch result{
+//            case .failure(let appError):
+//                completion(.failure(.networkClientError(appError)))
+//
+//            case .success(let data):
+//                do{
+//                    let venueResults = try JSONDecoder().decode([Item].self, from: data)
+//                    completion(.success(venueResults))
+//                }catch{
+//                    completion(.failure(.decodingError(error)))
+//                }
+//            }
+//        }
+//
+//    }
 
 
