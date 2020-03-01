@@ -52,8 +52,7 @@ class SearchDetailView: UIView {
             
            return but
         }()
-        
-   
+
     public lazy var detailsText: UILabel = {
         let label = UILabel()
         label.backgroundColor = .systemBackground
@@ -76,8 +75,7 @@ class SearchDetailView: UIView {
         
         private func commonInit(){
             scrollConstraints()
-//            imageConstrints()
-//            nameConstraints()
+
         }
         
 

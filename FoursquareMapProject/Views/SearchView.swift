@@ -61,7 +61,7 @@ class SearchView: UIView {
         layout.itemSize = CGSize(width: 400, height: 100)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.layer.cornerRadius = 5.0
-        collectionView.backgroundView = collectionViewBackground
+        collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         return collectionView
     }()
     
