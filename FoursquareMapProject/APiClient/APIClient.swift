@@ -14,10 +14,10 @@ import NetworkHelper
 struct VenueAPIClient{
     static func getVenues(city: String, venue: String, completion: @escaping (Result <[Venue],AppError>) -> ()){
         
-        let cityFinal = ""
-        let venueFinal = ""
+        let cityFinal = city.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let venueFinal = venue.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
-        let newEndpointURL = "https://api.foursquare.com/v2/venues/search?client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=20210102&near=\(city)&intent=browse&radius=1000&query=\(venue)&limit=5"
+        let newEndpointURL = "https://api.foursquare.com/v2/venues/search?client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=20210102&near=\(cityFinal)&intent=browse&radius=1500&query=\(venueFinal)&limit=5"
         
         guard let url = URL(string: newEndpointURL) else {
             completion(.failure(.badURL(newEndpointURL)))
@@ -44,9 +44,12 @@ struct VenueAPIClient{
     }
     
     static func getImageURL(venueID: String, completion: @escaping (Result<[Photo], AppError>) -> ()) {
-        let photoEndpoint = "https://api.foursquare.com/v2/venues/\(venueID)/photos?&client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=\(Date().currectDate())"
         
-       
+        let photoEndpoint = "https://api.foursquare.com/v2/venues/\(venueID)/photos?&client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=20210102"
+        
+        print(photoEndpoint)
+        
+        
         guard let url = URL(string: photoEndpoint) else {
             completion(.failure(.badURL(photoEndpoint)))
             return
@@ -66,42 +69,12 @@ struct VenueAPIClient{
                 }
             }
         }
-            
-         
         
-//        let imageUrl = "\(photo.itemPrefix)300*300\(photo.suffix)"
-//        return imageUrl
+
     }
+    
     
 
 }
-
-
-
-//    static func venueUrl(venue: Venue, completion: @escaping (Result<[Item], AppError>) -> () ) {
-//
-//        let venueEndpoint = ""
-//
-//        guard let url = URL(string: venueEndpoint) else {
-//            completion(.failure(.badURL(venueEndpoint)))
-//            return
-//        }
-//        let request = URLRequest(url: url)
-//        NetworkHelper.shared.performDataTask(with: request) { (result) in
-//            switch result{
-//            case .failure(let appError):
-//                completion(.failure(.networkClientError(appError)))
-//
-//            case .success(let data):
-//                do{
-//                    let venueResults = try JSONDecoder().decode([Item].self, from: data)
-//                    completion(.success(venueResults))
-//                }catch{
-//                    completion(.failure(.decodingError(error)))
-//                }
-//            }
-//        }
-//
-//    }
 
 

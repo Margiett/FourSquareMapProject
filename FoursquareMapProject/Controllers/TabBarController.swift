@@ -21,7 +21,6 @@ class TabBarController: UITabBarController {
     let searchVC = UIStoryboard(name: "Storyboard", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController")
      
     let searchTableVC = UIStoryboard(name: "Storyboard", bundle: nil).instantiateViewController(identifier: "SearchTableVC")
-     
     let vc = MainVC(contentViewController: searchVC, drawerViewController: searchTableVC)
     vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass.circle"), tag: 0)
     return vc
