@@ -124,33 +124,6 @@ class SearchDetailViewController: UIViewController {
                 }
                 
             }
-            
-            // func updateUI() {
-            // detailView.imageView.getImage(with: imageURL()  ) { [weak self] (result) in
-            //   switch result {
-            //    case .failure:
-            //     DispatchQueue.main.async {
-            //         self?.detailView.imageView.image = UIImage(named: "exclamation.mark.triangle")
-            //      }
-            //   case .success(let image):
-            //      DispatchQueue.main.async {
-            //        self?.detailView.imageView.image = image
-            
-            //      }
-            //      }
-            //   }
-            
-            
-            //        detailView.textView.text = chosenBook.description
-            
-            self?.detailView.nameLabel.text = venue.name
-            //detailView.addressLabel.text =
-            
-            //detailView.addressButton
-            //detailView.phoneLabel.text =
-            //detailView.phoneButton
-            // detailView.detailsText.text =
-            
         }
     }
 }

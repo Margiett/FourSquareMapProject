@@ -18,18 +18,18 @@ class SearchViewController: UIViewController {
     
     private var dataPersistence: DataPersistence<Venue>?
     
-     var userPreference: UserPreference?
+    var userPreference: UserPreference?
     
     init(_ dataPersistence: DataPersistence<Venue>,userPreference: UserPreference ){
-             
-             self.dataPersistence = dataPersistence
-             self.userPreference = userPreference
-             super.init(nibName: nil, bundle: nil)
-         }
-         
-         required init?(coder aDecoder: NSCoder) {
-           super.init(coder: aDecoder)
-         }
+        
+        self.dataPersistence = dataPersistence
+        self.userPreference = userPreference
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     
     private let coreLocation = CoreLocationSession()
@@ -48,7 +48,7 @@ class SearchViewController: UIViewController {
     
     private var allPhotos = [UIImage]()
     
-  
+    
     
     override func loadView() {
         view = searchView
@@ -91,8 +91,8 @@ class SearchViewController: UIViewController {
             switch result {
             case .failure(let appError):
                 DispatchQueue.main.async {
-                self.showAlert(title: "No Venue Found", message: "Please check your spelling and try again.")
-                print("error getting venue: \(appError)")
+                    self.showAlert(title: "No Venue Found", message: "Please check your spelling and try again.")
+                    print("error getting venue: \(appError)")
                 }
             case .success(let data):
                 DispatchQueue.main.async {
@@ -173,17 +173,23 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      print("yes")
-
-             navigationController?.navigationBar.isHidden = false
-       let venueItem = allLocations[indexPath.row]
+        print("yes")
+        
+        navigationController?.navigationBar.isHidden = false
+        let venueItem = allLocations[indexPath.row]
         let detailVC = SearchDetailViewController(venueItem)
-             detailVC.navigationItem.title = venueItem.name
-             present(detailVC, animated: true)
+        detailVC.navigationItem.title = venueItem.name
+        detailVC.detailView.nameLabel.text = venueItem.name
+        print(venueItem.name)
+        detailVC.detailView.addressLabel.text = venueItem.location.formattedAddress[0]
+        print(venueItem.location.formattedAddress[0])
+        detailVC.detailView.detailsText.text = venueItem.location.formattedAddress[1]
+        print(venueItem.location.formattedAddress[1])
+        present(detailVC, animated: true)
+        
+    }
     
-         }
     
-
 }
 
 
