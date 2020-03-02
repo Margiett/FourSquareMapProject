@@ -19,7 +19,7 @@ class SearchTableVC: UIViewController {
     private var allLocations = [Venue]() {
         didSet{
             DispatchQueue.main.async {
-                self.searchTableView.searchTableView.reloadData()
+                self.searchTableView.tableView.reloadData()
             }
         }
     }
@@ -27,8 +27,12 @@ class SearchTableVC: UIViewController {
     override func loadView() {
         view = searchTableView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        searchTableView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
+
     }
     
     // Hides and shortens the navigation bar
@@ -60,10 +64,19 @@ extension SearchTableVC: UITableViewDataSource {
         let detailTVC = allLocations[indexPath.row]
         cell.configureCell(venue: detailTVC)
         cell.backgroundColor = .white
+    
         return cell
     }
     
 }
 extension SearchTableVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("yes")
+        
+                 navigationController?.navigationBar.isHidden = false
+           let venueItem = allLocations[indexPath.row]
+            let detailVC = SearchDetailViewController(venueItem)
+                 detailVC.navigationItem.title = venueItem.name
+                 present(detailVC, animated: true)
+    }
 }

@@ -31,8 +31,7 @@ class SearchDetailViewController: UIViewController {
     }
     
     init(_ venue: Venue){
-        
-//        self.dataPersistence = dataPersistence
+
         self.venue = venue
       
         super.init(nibName: nil, bundle: nil)
@@ -63,25 +62,44 @@ class SearchDetailViewController: UIViewController {
     
 //    @objc func backButtonPressed(_ sender: UIBarButtonItem){
 //        
-//        let searchController = SearchViewController(dataPersistence, userPreference: userPreference)()
-//        navigationController?.pushViewController(searchController, animated: true)
+//        let searchController = SearchViewController(
+//       present(searchController, animated: true)
 //        
 //    }
+//    
     
     @objc func favButtonPressed(_ sender: UIBarButtonItem){
 
-               do {
-                 
-                try dataPersistence?.createItem(venue)
-                   DispatchQueue.main.async {
-                       self.showAlert(title: "Saved", message: "Venue has been added to favorites")
-                   }
+        print("didSelectMoreButton: \(venue.name)")
+            
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let saveAction = UIAlertAction(title: "Save", style: .default) { alertAction in
+                self.saveVenue(self.venue)
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
+            present(alertController, animated: true)
+        }
+        
+//might need a dispatchQue main
+        private func saveVenue(_ venue: Venue) {
+        
+            if !(dataPersistence?.hasItemBeenSaved(venue))! {
+        
+                self.showAlert(title: "Unable to save", message: "This item has already been saved")
+            } else {
+                do {
+                    // save to documents directory
+                    try dataPersistence?.createItem(venue)
+                } catch {
+                    print("error saving card: \(error)")
+                }
+            }
+        }
 
-               } catch {
-                   print("error saving article: \(venue)")
-               }
-       }
     
+
     
 
     func updateUI(venue: Venue) {
