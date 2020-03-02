@@ -13,21 +13,27 @@ class SearchDetailViewController: UIViewController {
     
     
     let detailView = SearchDetailView()
-    private var dataPersistence: DataPersistence<Venue>
+    private var dataPersistence: DataPersistence<Venue>?
     var venue: Venue
-    var photo: Photo
+
+//    var photo: Photo
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
          navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favButtonPressed(_:)))
         
+
+        
+         detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
+
     }
     
-    init(_ dataPersistence: DataPersistence<Venue>, venue: Venue, photo: Photo){
-        
-        self.dataPersistence = dataPersistence
+    init(_ venue: Venue){
+
         self.venue = venue
-        self.photo = photo
+      
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -41,51 +47,121 @@ class SearchDetailViewController: UIViewController {
         detailView.nameLabel.layer.cornerRadius = 10
         detailView.addressLabel.layer.cornerRadius = 10
         detailView.addressButton.layer.cornerRadius = 10
-        detailView.phoneLabel.layer.cornerRadius = 10
-        detailView.phoneButton.layer.cornerRadius = 10
         detailView.detailsText.layer.cornerRadius = 10
     }
     override func loadView() {
         view = detailView
     }
     
-    @objc func favButtonPressed(_ sender: UIBarButtonItem){
-
-               do {
-
-                   try dataPersistence.createItem(venue)
-                   DispatchQueue.main.async {
-                       self.showAlert(title: "Saved", message: "Venue has been added to favorites")
-                   }
-
-               } catch {
-                   print("error saving article: \(venue)")
-               }
-       }
     
-    func imageURL() -> String{
-        let imageUrl = "\(photo.prefix)300*300\(photo.suffix)"
-              return imageUrl
+    
+    @objc func addressButtonPressed(_ sender: UIButton){
+        
+        
     }
     
-    func updateUI() {
-        detailView.imageView.getImage(with: imageURL()  ) { [weak self] (result) in
-            switch result {
-            case .failure:
-                DispatchQueue.main.async {
-                    self?.detailView.imageView.image = UIImage(named: "exclamation.mark.triangle")
-                }
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.detailView.imageView.image = image
-                    
+//    @objc func backButtonPressed(_ sender: UIBarButtonItem){
+//        
+//        let searchController = SearchViewController(
+//       present(searchController, animated: true)
+//        
+//    }
+//    
+    
+    @objc func favButtonPressed(_ sender: UIBarButtonItem){
+
+        print("didSelectMoreButton: \(venue.name)")
+            
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let saveAction = UIAlertAction(title: "Save", style: .default) { alertAction in
+                self.saveVenue(self.venue)
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
+            present(alertController, animated: true)
+        }
+        
+//might need a dispatchQue main
+        private func saveVenue(_ venue: Venue) {
+        
+            if !(dataPersistence?.hasItemBeenSaved(venue))! {
+        
+                self.showAlert(title: "Unable to save", message: "This item has already been saved")
+            } else {
+                do {
+                    // save to documents directory
+                    try dataPersistence?.createItem(venue)
+                } catch {
+                    print("error saving card: \(error)")
                 }
             }
         }
+
+    
+
+    
+
+    func updateUI(venue: Venue) {
+             
+               if let image = imageCache[venue.id] {
+                detailView.imageView.image = image
+                   return
+               }
+               
+               VenueAPIClient.getImageURL(venueID: venue.id) { [weak self] (result) in
+                
+                       switch result {
+                        
+                       case .failure(let appError):
+                        DispatchQueue.main.async {
+                        print("could not retrieve image: \(appError)")
+                        }
+                       case .success(let imageData):
+                        
+                        let photo = imageData[0]
+            
+                 
+                    let prefix = photo.prefix
+                    let suffix = photo.suffix
+                       let photoURL = "\(prefix)original\(suffix)"
+                        print(photoURL)
+                       self?.detailView.imageView.getImage(with: photoURL) { (result) in
+                           switch result {
+                           case .failure(_):
+                               DispatchQueue.main.async {
+                                   self?.detailView.imageView.image = UIImage(systemName: "map.fill")
+                               }
+                           case .success(let photo):
+                               DispatchQueue.main.async {
+                                   imageCache[venue.id] = photo
+                                
+                                   self?.detailView.imageView.image = photo
+                               }
+                           }
+                       }
+                   
+                }
+
+   // func updateUI() {
+       // detailView.imageView.getImage(with: imageURL()  ) { [weak self] (result) in
+         //   switch result {
+        //    case .failure:
+           //     DispatchQueue.main.async {
+           //         self?.detailView.imageView.image = UIImage(named: "exclamation.mark.triangle")
+          //      }
+         //   case .success(let image):
+          //      DispatchQueue.main.async {
+            //        self?.detailView.imageView.image = image
+                    
+          //      }
+      //      }
+     //   }
+
         
 //        detailView.textView.text = chosenBook.description
         
-        detailView.nameLabel.text = venue.name
+                self?.detailView.nameLabel.text = venue.name
         //detailView.addressLabel.text =
         
                //detailView.addressButton
@@ -94,4 +170,5 @@ class SearchDetailViewController: UIViewController {
        // detailView.detailsText.text =
     
     }
+}
 }

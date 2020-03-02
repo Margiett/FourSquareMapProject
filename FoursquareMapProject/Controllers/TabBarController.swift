@@ -15,23 +15,24 @@ class TabBarController: UITabBarController {
    
   public var dataPersistence = DataPersistence<Venue>(filename: "savedLocation.plist")
     
-  private var userPreference = UserPreference()
+  public var userPreference = UserPreference()
    
   private lazy var mainVC: MainVC = {
     let searchVC = UIStoryboard(name: "Storyboard", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController")
      
     let searchTableVC = UIStoryboard(name: "Storyboard", bundle: nil).instantiateViewController(identifier: "SearchTableVC")
-     
     let vc = MainVC(contentViewController: searchVC, drawerViewController: searchTableVC)
+    
     vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass.circle"), tag: 0)
     return vc
   }()
    
-//  private lazy var searchVC: SearchViewController = {
-//    let vc = SearchViewController(dataPersistence: dataPersistence, userPreference: userPreference)
-//    vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass.circle"), tag: 0)
-//    return vc
-//  }()
+  private lazy var searchVC: SearchViewController = {
+    let vc = SearchViewController(dataPersistence, userPreference: userPreference)
+    vc.userPreference = userPreference
+    vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass.circle"), tag: 0)
+    return vc
+  }()
    
   private lazy var collectionVC: FavoritesViewController = {
      
