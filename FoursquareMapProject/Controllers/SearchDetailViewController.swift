@@ -30,7 +30,7 @@ class SearchDetailViewController: UIViewController {
 
     }
     
-    init(_ dataPersistence: DataPersistence<Venue>, venue: Venue, photo: Photo){
+    init(_ dataPersistence: DataPersistence<Venue>, venue: Venue){
         
         self.dataPersistence = dataPersistence
         self.venue = venue
@@ -68,20 +68,37 @@ class SearchDetailViewController: UIViewController {
 //        
 //    }
     
-    @objc func favButtonPressed(_ sender: UIBarButtonItem){
-
-               do {
-                 
-                   try dataPersistence.createItem(venue)
-                   DispatchQueue.main.async {
-                       self.showAlert(title: "Saved", message: "Venue has been added to favorites")
-                   }
-
-               } catch {
-                   print("error saving article: \(venue)")
-               }
-       }
     
+    @objc func favButtonPressed(_ sender: UIBarButtonItem){
+        print("didSelectMoreButton: \(venue.name)")
+            
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let saveAction = UIAlertAction(title: "Save", style: .default) { alertAction in
+                self.saveVenue(self.venue)
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
+            present(alertController, animated: true)
+        }
+        
+//might need a dispatchQue main
+        private func saveVenue(_ venue: Venue) {
+        
+            if !dataPersistence.hasItemBeenSaved(venue) {
+        
+                self.showAlert(title: "Unable to save", message: "This item has already been saved")
+            } else {
+                do {
+                    // save to documents directory
+                    try dataPersistence.createItem(venue)
+                } catch {
+                    print("error saving card: \(error)")
+                }
+            }
+        }
+    
+
     
 
     func updateUI(venue: Venue) {
