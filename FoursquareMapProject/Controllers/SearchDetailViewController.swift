@@ -55,6 +55,7 @@ class SearchDetailViewController: UIViewController {
     }
     
     @objc func favButtonPressed(_ sender: UIBarButtonItem){
+
         print("didSelectMoreButton: \(venue.name)")
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -82,9 +83,6 @@ class SearchDetailViewController: UIViewController {
             }
         }
     }
-    
-    
-    
     
     func updateUI(venue: Venue) {
         
