@@ -34,7 +34,7 @@ class SearchDetailViewController: UIViewController {
         
         self.dataPersistence = dataPersistence
         self.venue = venue
-        self.photo = photo
+      
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -61,12 +61,12 @@ class SearchDetailViewController: UIViewController {
         
     }
     
-    @objc func backButtonPressed(_ sender: UIBarButtonItem){
-        
-        let searchController = SearchViewController()
-        navigationController?.pushViewController(searchController, animated: true)
-        
-    }
+//    @objc func backButtonPressed(_ sender: UIBarButtonItem){
+//        
+//        let searchController = SearchViewController(dataPersistence, userPreference: userPreference)()
+//        navigationController?.pushViewController(searchController, animated: true)
+//        
+//    }
     
     @objc func favButtonPressed(_ sender: UIBarButtonItem){
 
@@ -82,10 +82,6 @@ class SearchDetailViewController: UIViewController {
                }
        }
     
-    func imageURL() -> String{
-        let imageUrl = "\(photo.prefix)300*300\(photo.suffix)"
-              return imageUrl
-    }
     
 
     func updateUI(venue: Venue) {
@@ -147,7 +143,7 @@ class SearchDetailViewController: UIViewController {
         
 //        detailView.textView.text = chosenBook.description
         
-        detailView.nameLabel.text = venue.name
+                self?.detailView.nameLabel.text = venue.name
         //detailView.addressLabel.text =
         
                //detailView.addressButton
@@ -156,4 +152,5 @@ class SearchDetailViewController: UIViewController {
        // detailView.detailsText.text =
     
     }
+}
 }

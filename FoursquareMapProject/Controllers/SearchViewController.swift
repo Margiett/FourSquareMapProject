@@ -16,9 +16,9 @@ class SearchViewController: UIViewController {
     
     let searchView = SearchView()
     
-    private var dataPersistence: DataPersistence<Venue>
+    private var dataPersistence: DataPersistence<Venue>?
     
-     var userPreference: UserPreference
+     var userPreference: UserPreference?
     
     init(_ dataPersistence: DataPersistence<Venue>,userPreference: UserPreference ){
              
@@ -27,9 +27,8 @@ class SearchViewController: UIViewController {
              super.init(nibName: nil, bundle: nil)
          }
          
-         required init?(coder: NSCoder) {
-     
-             fatalError("init(coder:) has not been implemented")
+         required init?(coder aDecoder: NSCoder) {
+           super.init(coder: aDecoder)
          }
     
     
