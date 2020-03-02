@@ -177,8 +177,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     
              navigationController?.navigationBar.isHidden = false
        let venueItem = allLocations[indexPath.row]
-           guard let presistence = dataPersistence else{return}
-           let detailVC = SearchDetailViewController(presistence, venue: venueItem)
+        let detailVC = SearchDetailViewController(venueItem)
              detailVC.navigationItem.title = venueItem.name
              present(detailVC, animated: true)
     
