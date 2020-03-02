@@ -49,6 +49,7 @@ class FavoritesViewController: UIViewController {
         self.dataPersistence = dataPersistence
         self.userPreference = userPreference
         super.init(nibName: nil, bundle: nil)
+        dataPersistence.delegate = self
     }
     required init?(coder: NSCoder) {
         fatalError("init couldnt be implemented")
@@ -65,11 +66,10 @@ class FavoritesViewController: UIViewController {
         faveCollectionViews.geminiCollectionView.delegate = self
         faveCollectionViews.geminiCollectionView.register(FavoritesViewCell.self, forCellWithReuseIdentifier: "geminiVenueCell")
         circleRotation()
-        
         navigationItem.title = "Favorite Venues"
-        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        faveCollectionViews.geminiCollectionView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        getSavedVenues()
+        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        faveCollectionViews.geminiCollectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+//        getSavedVenues()
         configureNavBar()
         
     }
@@ -83,6 +83,11 @@ class FavoritesViewController: UIViewController {
     private func pressButton() {
         let addCollectionController = CreateViewController(dataPersistence: dataPersistence, userPreference: userPreference)
         navigationController?.pushViewController(addCollectionController, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getSavedVenues()
     }
     
     private func getSavedVenues() {
@@ -116,9 +121,7 @@ class FavoritesViewController: UIViewController {
         }
         present(createPhotoController, animated: true)
     }
-    
-    
-    
+
     
 }
 
@@ -142,13 +145,14 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         }
        cell.selectedView.isHidden = true
         let venue = venues[indexPath.row]
-        //let location = Location(address: "dfgdsfgs", crossStreet: "gsgfsgsd", lat: 9.0, lng: 9.0, postalCode: "glkfng", cc: "nbfnjdfn", city: "dngjlgns", state: "fngnf", country: "dmngklsfn", formattedAddress: ["lfnbjldf","kfgknfg"])
-        //let icon = Icon(prefix: "mnfdlmna", suffix: "nvlksdfnl")
-      //  let cat = [Category(name: "gnfkongjk", icon: icon)]
-      //  let venue = Venue(id: "mnbn", name: "jkvv", location: location, categories: cat)
+        cell.configureCell(venue: venue)
+        cell.geminiDelegate = self
+        let location = Location(address: venue.location.address, crossStreet: venue.location.crossStreet, lat: 9.0, lng: 9.0, postalCode: venue.location.postalCode, cc: "nbfnjdfn", city: "dngjlgns", state: "fngnf", country: venue.location.country, formattedAddress: [venue.location.formattedAddress[0],venue.location.formattedAddress[1]])
+        let icon = Icon(prefix: "", suffix: "nvlksdfnl")
+        let cat = [Category(name: "gnfkongjk", icon: icon)]
+        let venueInfo = Venue(id: venue.id, name: venue.name, location: location, categories: cat)
         let venueDetailVC = FaveDetailController(dataPersistence, venues: venue)
         self.present(venueDetailVC, animated:  true)
-        
         faveCollectionViews.geminiCollectionView.alpha = 0.15
         cell.layoutIfNeeded()
     }

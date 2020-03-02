@@ -39,14 +39,14 @@ class FavoritesViewCell: GeminiCell {
         iv.contentMode = .scaleToFill
         iv.isUserInteractionEnabled = false
         
-        iv.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        iv.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         return iv
     }()
     
     
     public lazy var selectedView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         view.isHidden = true
         return view
     }()
@@ -88,24 +88,36 @@ class FavoritesViewCell: GeminiCell {
         categoryLabel.text = venue.name
         VenueAPIClient.getImageURL(venueID: venue.id) { (result) in
             switch result {
-            case .failure:
-                print("image did not load")
-            case .success(let photos):
-                let prefix = photos.first?.prefix ?? ""
-                let suffix = photos.first?.suffix ?? ""
-                let venuePhotos = "\(prefix) original \(suffix)"
+              
+            case .failure(let appError):
+              DispatchQueue.main.async {
+                print("could not retrieve image: \(appError)")
+              }
+            case .success(let imageData):
+              
                 DispatchQueue.main.async {
-                    self.venueImageView.getImage(with: venuePhotos) { (result) in
-                        switch result {
-                        case .failure:
-                            self.venueImageView.image = UIImage(systemName: "photo.fill")
-                        case .success(let image):
-                            DispatchQueue.main.async {
-                                self.venueImageView.image = image
-                            }
-                        }
-                    }
+              let photo = imageData.first
+              guard let prefix = photo?.prefix,
+                let suffix = photo?.suffix else {return}
+              let photoURL = "\(prefix)original\(suffix)"
+              print(photoURL)
+                
+              
+              self.venueImageView.getImage(with: photoURL) { (result) in
+                switch result {
+                case .failure(_):
+                  DispatchQueue.main.async {
+                    self.venueImageView.image = UIImage(systemName: "map.fill")
+                  }
+                case .success(let photo):
+                  DispatchQueue.main.async {
+                    imageCache[venue.id] = photo
+                    
+                    self.venueImageView.image = photo
+                  }
                 }
+                }
+              }
             }
             
         }

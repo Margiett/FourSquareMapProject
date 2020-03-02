@@ -40,10 +40,12 @@ class FaveDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         loadMap()
         getDirections()
         loadvenue()
+        updateUI()
+        
     }
     
     private func loadvenue(){
@@ -59,6 +61,50 @@ class FaveDetailController: UIViewController {
             }
         }
     }
+    
+    
+    private func updateUI() {
+        faveDatailViews.venueName.text = venue.name
+        faveDatailViews.venueLocation.text = venue.location.address
+        VenueAPIClient.getImageURL(venueID: venue.id) { [weak self] (result) in
+        
+        switch result {
+            
+        case .failure(let appError):
+            DispatchQueue.main.async {
+                print("could not retrieve image: \(appError)")
+            }
+        case .success(let imageData):
+            
+            DispatchQueue.main.async {
+            let photo = imageData[0]
+            let prefix = photo.prefix
+            let suffix = photo.suffix
+            let photoURL = "\(prefix)original\(suffix)"
+            print(photoURL)
+            self?.faveDatailViews.venuePhoto.getImage(with: photoURL) { (result) in
+                switch result {
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self?.faveDatailViews.venuePhoto.image = UIImage(systemName: "map.fill")
+                    }
+                case .success(let photo):
+                    DispatchQueue.main.async {
+                        imageCache[self?.venue.id ?? ""] = photo
+                        
+                        self?.faveDatailViews.venuePhoto.image = photo
+                    }
+                }
+                }
+
+            }
+        }
+        
+        
+        }
+    }
+    
+    
         
     private func loadMap() {
         let annotation = makeAnnotation(for: selectedVenue)

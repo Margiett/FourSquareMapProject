@@ -15,7 +15,7 @@ class SearchDetailViewController: UIViewController {
     
     
     let detailView = SearchDetailView()
-    private var dataPersistence: DataPersistence<Venue>?
+    private var dataPersistence: DataPersistence<Venue>
     var venue: Venue
     
     
@@ -31,8 +31,9 @@ class SearchDetailViewController: UIViewController {
         updateUI(venue: venue)
     }
     
-    init(_ venue: Venue){
+    init(_ venue: Venue, dataPersistence: DataPersistence<Venue>){
         self.venue = venue
+        self.dataPersistence = dataPersistence
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -91,13 +92,13 @@ class SearchDetailViewController: UIViewController {
     //might need a dispatchQue main
     private func saveVenue(_ venue: Venue) {
         
-        if !(dataPersistence?.hasItemBeenSaved(venue))! {
-            
+        if (dataPersistence.hasItemBeenSaved(venue)) {
             self.showAlert(title: "Unable to save", message: "This item has already been saved")
         } else {
             do {
                 // save to documents directory
-                try dataPersistence?.createItem(venue)
+                try dataPersistence.createItem(venue)
+                showAlert(title: "Item Was Saved", message: "")
             } catch {
                 print("error saving card: \(error)")
             }

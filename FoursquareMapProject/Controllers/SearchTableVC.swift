@@ -10,11 +10,23 @@ import UIKit
 import Pulley
 import DataPersistence
 
-
-
 class SearchTableVC: UIViewController {
     
     let searchTableView = SearchTableView()
+//    let userPreference = UserPreference()
+    let dataPersistence: DataPersistence<Venue>
+    
+    let searchVC = SearchViewController(DataPersistence<Venue>(filename: "savedLocation.plist"), userPreference: UserPreference())
+    
+    init(_ dataPersistence: DataPersistence<Venue>) {
+        self.dataPersistence = dataPersistence
+        super.init(nibName: nil, bundle: nil)
+        }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     private var allLocations = [Venue]() {
         didSet{
@@ -30,9 +42,11 @@ class SearchTableVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         searchTableView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
-
+        searchVC.delegate = self
+        searchTableView.tableView.dataSource = self
+        searchTableView.tableView.delegate = self
+        print("viewDidLoad")
     }
     
     // Hides and shortens the navigation bar
@@ -75,8 +89,22 @@ extension SearchTableVC: UITableViewDelegate {
         
                  navigationController?.navigationBar.isHidden = false
            let venueItem = allLocations[indexPath.row]
-            let detailVC = SearchDetailViewController(venueItem)
+            let detailVC = SearchDetailViewController(venueItem, dataPersistence: dataPersistence)
                  detailVC.navigationItem.title = venueItem.name
                  present(detailVC, animated: true)
     }
+}
+
+extension SearchTableVC: SearchButtonPressedDelegate {
+    func searchButtonPressed(venue: [Venue]) {
+        self.allLocations = venue
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        let venueItem = allLocations[indexPath.row]
+//        let detailVC = SearchDetailViewController(venueItem, dataPersistence)
+//        detailVC.navigation.title = venueItem.name
+//        present(UINavigationController(rootViewController: detailVC), animated:true)
+    }
+    
 }
