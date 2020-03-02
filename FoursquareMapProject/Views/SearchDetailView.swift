@@ -192,7 +192,3 @@ class SearchDetailView: UIView {
     }
     
 }
-
-
-
-
