@@ -17,7 +17,7 @@ struct VenueAPIClient{
         let cityFinal = city.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let venueFinal = venue.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
-        let newEndpointURL = "https://api.foursquare.com/v2/venues/search?client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=20210102&near=\(cityFinal)&intent=browse&radius=1500&query=\(venueFinal)&limit=5"
+        let newEndpointURL = "https://api.foursquare.com/v2/venues/search?client_id=\(APIKeys.ClientId)&client_secret=\(APIKeys.ClientSecret)&v=20210102&near=\(cityFinal)&intent=browse&radius=1500&query=\(venueFinal)&limit=25"
         
         guard let url = URL(string: newEndpointURL) else {
             completion(.failure(.badURL(newEndpointURL)))

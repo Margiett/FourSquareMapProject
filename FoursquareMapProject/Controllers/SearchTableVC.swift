@@ -50,7 +50,7 @@ extension SearchTableVC: PulleyDrawerViewControllerDelegate {
 }
 extension SearchTableVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return allLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

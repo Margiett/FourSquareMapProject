@@ -13,7 +13,7 @@ class SearchDetailViewController: UIViewController {
     
     
     let detailView = SearchDetailView()
-    private var dataPersistence: DataPersistence<Venue>
+    private var dataPersistence: DataPersistence<Venue>?
     var venue: Venue
 
 //    var photo: Photo
@@ -30,9 +30,9 @@ class SearchDetailViewController: UIViewController {
 
     }
     
-    init(_ dataPersistence: DataPersistence<Venue>, venue: Venue, photo: Photo){
+    init(_ venue: Venue){
         
-        self.dataPersistence = dataPersistence
+//        self.dataPersistence = dataPersistence
         self.venue = venue
       
         super.init(nibName: nil, bundle: nil)
@@ -72,7 +72,7 @@ class SearchDetailViewController: UIViewController {
 
                do {
                  
-                   try dataPersistence.createItem(venue)
+                try dataPersistence?.createItem(venue)
                    DispatchQueue.main.async {
                        self.showAlert(title: "Saved", message: "Venue has been added to favorites")
                    }
