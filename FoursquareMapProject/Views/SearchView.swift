@@ -165,19 +165,6 @@ class SearchView: UIView {
             
         ])
     }
-    
-//    private func setupUserTrackingButton() {
-//        addSubview(userTrackingLocationButton)
-//        userTrackingLocationButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            userTrackingLocationButton.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -20),
-//            userTrackingLocationButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
-//
-//        ])
-//    }
-    
-    
-    
 }
 
 
