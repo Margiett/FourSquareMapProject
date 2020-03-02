@@ -30,7 +30,9 @@ class SearchTableVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         searchTableView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
+
     }
     
     // Hides and shortens the navigation bar
@@ -52,7 +54,7 @@ extension SearchTableVC: PulleyDrawerViewControllerDelegate {
 }
 extension SearchTableVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return allLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,10 +64,19 @@ extension SearchTableVC: UITableViewDataSource {
         let detailTVC = allLocations[indexPath.row]
         cell.configureCell(venue: detailTVC)
         cell.backgroundColor = .white
+    
         return cell
     }
     
 }
 extension SearchTableVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("yes")
+        
+                 navigationController?.navigationBar.isHidden = false
+           let venueItem = allLocations[indexPath.row]
+            let detailVC = SearchDetailViewController(venueItem)
+                 detailVC.navigationItem.title = venueItem.name
+                 present(detailVC, animated: true)
+    }
 }
