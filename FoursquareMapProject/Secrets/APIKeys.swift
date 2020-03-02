@@ -12,7 +12,10 @@ struct APIKeys {
 
   static let ClientId = ""
     static let ClientSecret = ""
-    
+
+ 
+    static let ClientId = "UKHG24JNBB4BF03MGIXPBLOTFHESFAYGC44TWXXBJJ4GMURN"
+static let ClientSecret = "43D1VSNLKBYWSATV4IBCKJPBTFF3RBVDUN4HOZGDBSHTXYLN"
 }
 
 

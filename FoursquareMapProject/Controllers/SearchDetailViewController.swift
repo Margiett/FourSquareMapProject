@@ -8,6 +8,8 @@
 
 import UIKit
 import DataPersistence
+import MapKit
+import CoreLocation
 
 class SearchDetailViewController: UIViewController {
     
@@ -48,16 +50,34 @@ class SearchDetailViewController: UIViewController {
     }
     
     
-    
     @objc func addressButtonPressed(_ sender: UIButton){
-        
-        
+        openMapForPlace()
     }
     
-    @objc func favButtonPressed(_ sender: UIBarButtonItem){
+    func openMapForPlace() {
 
+        let lat1 : NSString = self.venue.location.lat.description as NSString
+        let lng1 : NSString = self.venue.location.lng.description as NSString
+
+        let latitude:CLLocationDegrees =  lat1.doubleValue
+        let longitude:CLLocationDegrees =  lng1.doubleValue
+
+        let regionDistance:CLLocationDistance = 3000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(self.venue.name)"
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
+
+    @objc func favButtonPressed(_ sender: UIBarButtonItem){
         print("didSelectMoreButton: \(venue.name)")
-        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let saveAction = UIAlertAction(title: "Save", style: .default) { alertAction in
@@ -102,8 +122,6 @@ class SearchDetailViewController: UIViewController {
             case .success(let imageData):
                 
                 let photo = imageData[0]
-                
-                
                 let prefix = photo.prefix
                 let suffix = photo.suffix
                 let photoURL = "\(prefix)original\(suffix)"
@@ -122,7 +140,6 @@ class SearchDetailViewController: UIViewController {
                         }
                     }
                 }
-                
             }
         }
     }
