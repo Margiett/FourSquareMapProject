@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import ImageKit
 import DataPersistence
 
 class SearchDetailViewController: UIViewController {
   
     
     let detailView = SearchDetailView()
-    private var dataPersistence: DataPersistence<Venue>?
+    private var dataPersistence: DataPersistence<Venue>
     var venue: Venue
 //    var photo: Photo
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,12 +24,6 @@ class SearchDetailViewController: UIViewController {
         
         
          detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
-        
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "backward"), style: .plain, target: self, action: #selector(backButtonPressed(_:)))
-//        updateUI()
-        
-         detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
-        
     }
     
     init(_ dataPersistence: DataPersistence<Venue>, venue: Venue){
@@ -76,7 +70,7 @@ class SearchDetailViewController: UIViewController {
 
                do {
 
-                try dataPersistence?.createItem(venue)
+                try dataPersistence.createItem(venue)
                    DispatchQueue.main.async {
                        self.showAlert(title: "Saved", message: "Venue has been added to favorites")
                    }
@@ -95,18 +89,22 @@ class SearchDetailViewController: UIViewController {
                }
                
                VenueAPIClient.getImageURL(venueID: venue.id) { [weak self] (result) in
-                  
+                
                        switch result {
-                       case .failure(let appError):
-                        print("could not retrieve image: \(appError)")
                         
+                       case .failure(let appError):
+                        DispatchQueue.main.async {
+                        print("could not retrieve image: \(appError)")
+                        }
                        case .success(let imageData):
+                        
                         let photo = imageData[0]
             
                  
                     let prefix = photo.prefix
                     let suffix = photo.suffix
                        let photoURL = "\(prefix)original\(suffix)"
+                        print(photoURL)
                        self?.detailView.imageView.getImage(with: photoURL) { (result) in
                            switch result {
                            case .failure(_):
@@ -121,8 +119,8 @@ class SearchDetailViewController: UIViewController {
                                }
                            }
                        }
-                   }
-               
+                   
+                }
         
 //        detailView.textView.text = chosenBook.description
         
