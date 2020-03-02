@@ -174,7 +174,7 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       print("yes")
-    
+
              navigationController?.navigationBar.isHidden = false
        let venueItem = allLocations[indexPath.row]
         let detailVC = SearchDetailViewController(venueItem)
