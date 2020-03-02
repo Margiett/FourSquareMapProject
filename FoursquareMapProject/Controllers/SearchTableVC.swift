@@ -19,7 +19,7 @@ class SearchTableVC: UIViewController {
     private var allLocations = [Venue]() {
         didSet{
             DispatchQueue.main.async {
-                self.searchTableView.searchTableView.reloadData()
+                self.searchTableView.tableView.reloadData()
             }
         }
     }
@@ -27,8 +27,10 @@ class SearchTableVC: UIViewController {
     override func loadView() {
         view = searchTableView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTableView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
     }
     
     // Hides and shortens the navigation bar
