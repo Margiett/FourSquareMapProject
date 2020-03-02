@@ -26,34 +26,41 @@ class SearchDetailView: UIView {
     
     public lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .cyan
+        view.backgroundColor = .systemGroupedBackground
         view.contentMode = .scaleAspectFill
         return view
     }()
     
     public lazy var nameLabel: UILabel = {
         let but = UILabel()
-        but.backgroundColor = .red
+        but.backgroundColor = .systemGroupedBackground
         but.text = "Venue Name"
-        but.numberOfLines = 2
+        but.numberOfLines = 0
         but.textAlignment = .center
-        but.font.withSize(CGFloat(30))
+        but.font.withSize(CGFloat(50))
         return but
     }()
     
     public lazy var addressLabel: UILabel = {
         let but = UILabel()
-        but.backgroundColor = .purple
-        but.numberOfLines = 7
-        but.textAlignment = .left
-        but.font.withSize(CGFloat(20))
+        but.backgroundColor = .systemGroupedBackground
+        but.numberOfLines = 0
+        but.textAlignment = .center
+        but.font.withSize(CGFloat(30))
         return but
     }()
     
     public lazy var addressButton: UIButton = {
         let but = UIButton()
-        but.backgroundColor = .cyan
+        but.backgroundColor = .systemGroupedBackground
         but.titleLabel?.text = "Get Directions"
+        
+        return but
+    }()
+    public lazy var saveButton: UIButton = {
+        let but = UIButton()
+        but.backgroundColor = .systemGroupedBackground
+        but.titleLabel?.text = "Add to favorites"
         
         return but
     }()
@@ -83,6 +90,7 @@ class SearchDetailView: UIView {
         contentViewConstraint()
         imageConstrints()
         nameConstraints()
+        saveButConstraints()
         addresslLabelConstraints()
         directionButConstraints()
         detailLabelConstraints()
@@ -136,11 +144,23 @@ class SearchDetailView: UIView {
         ])
     }
     
+    private func saveButConstraints(){
+        addSubview(saveButton)
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            saveButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+            saveButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            saveButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
+            saveButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
+        ])
+    }
+    
+    
     private func addresslLabelConstraints(){
         addSubview(addressLabel)
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+            addressLabel.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 20),
             addressLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             addressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             addressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
@@ -152,7 +172,8 @@ class SearchDetailView: UIView {
         addSubview(addressButton)
         addressButton.translatesAutoresizingMaskIntoConstraints = false
         addressButton.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20).isActive = true
-        addressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        addressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
+        addressButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
     }
     
     
@@ -171,7 +192,3 @@ class SearchDetailView: UIView {
     }
     
 }
-
-
-
-

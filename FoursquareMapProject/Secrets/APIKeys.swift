@@ -9,22 +9,11 @@
 import Foundation
 
 struct APIKeys {
-<<<<<<< HEAD
-=======
 
+  static let ClientId = ""
+    static let ClientSecret = ""
 
-  static let ClientId = "UKHG24JNBB4BF03MGIXPBLOTFHESFAYGC44TWXXBJJ4GMURN"
-    static let ClientSecret = "43D1VSNLKBYWSATV4IBCKJPBTFF3RBVDUN4HOZGDBSHTXYLN"
-
-//   static let ClientId = "RQOTHW5EUA01SAN4K5PVJW5WV5O4V4ZLKTGWXX1T01H20CQJ"
-//     static let ClientSecret = "YN5ARSPE4D3BADQ01ZWLOZJVFUQZ1MNMPI3ITSM1RWH52UZ4"
-
-
-
-
-//    https://api.foursquare.com/v2/venues/search?client_id=KRPYYF2RSF40EJAS0ZCCOWXXDTGI4WXSURO1LHJBRAEZ0AWF&client_secret=V2HAWF3RNWZXY20ZCGA1KDCIDPE0AZ3SG1G5S3TUNLKQFVPC&v=20210102&near=queens&intent=browse&radius=1500&query=pizza&limit=5
->>>>>>> 7943abcb857de5ef1d97e3dd00a919311a3bc9c7
-    
+ 
     static let ClientId = "UKHG24JNBB4BF03MGIXPBLOTFHESFAYGC44TWXXBJJ4GMURN"
 static let ClientSecret = "43D1VSNLKBYWSATV4IBCKJPBTFF3RBVDUN4HOZGDBSHTXYLN"
 }
