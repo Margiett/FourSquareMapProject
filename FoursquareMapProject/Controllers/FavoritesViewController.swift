@@ -22,7 +22,7 @@ class FavoritesViewController: UIViewController {
     
     
     private var userPreference: UserPreference
-    // private var arr = ["cat", "dog", "bird"]
+    
     
     public var selectedImage: UserCollection?
     public var persistence = DataPersistence<UserCollection>(filename: "images.plist")
@@ -108,7 +108,7 @@ class FavoritesViewController: UIViewController {
         guard let createPhotoController = storyboard?.instantiateViewController(identifier: "AddPhotoController") as? CreateViewController else {
             fatalError("could not downcast to AddPhotoController")
         }
-        //createPhotoController.photosDelegate = self
+        createPhotoController.photosDelegate = self
         if !isNewPhoto {
             guard let photoData = photo?.pickedImage else {return}
             createPhotoController.selectedImage = UIImage(data: photoData)
@@ -137,25 +137,25 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: itemWidth, height: itemHeight)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
-//            fatalError("could not deque cell")
-//        }
-//        cell.selectedView.isHidden = true
-        let location = Location(address: "dfgdsfgs", crossStreet: "gsgfsgsd", lat: 9.0, lng: 9.0, postalCode: "glkfng", cc: "nbfnjdfn", city: "dngjlgns", state: "fngnf", country: "dmngklsfn", formattedAddress: ["lfnbjldf","kfgknfg"])
-        let icon = Icon(prefix: "mnfdlmna", suffix: "nvlksdfnl")
-        let cat = [Category(name: "gnfkongjk", icon: icon)]
-        let venue = Venue(id: "mnbn", name: "jkvv", location: location, categories: cat)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
+            fatalError("could not deque cell")
+        }
+       cell.selectedView.isHidden = true
+        let venue = venues[indexPath.row]
+        //let location = Location(address: "dfgdsfgs", crossStreet: "gsgfsgsd", lat: 9.0, lng: 9.0, postalCode: "glkfng", cc: "nbfnjdfn", city: "dngjlgns", state: "fngnf", country: "dmngklsfn", formattedAddress: ["lfnbjldf","kfgknfg"])
+        //let icon = Icon(prefix: "mnfdlmna", suffix: "nvlksdfnl")
+      //  let cat = [Category(name: "gnfkongjk", icon: icon)]
+      //  let venue = Venue(id: "mnbn", name: "jkvv", location: location, categories: cat)
         let venueDetailVC = FaveDetailController(dataPersistence, venues: venue)
         self.present(venueDetailVC, animated:  true)
         
         faveCollectionViews.geminiCollectionView.alpha = 0.15
-//        cell.layoutIfNeeded()
+        cell.layoutIfNeeded()
     }
 }
 extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-        //venues.count
+        return venues.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -163,14 +163,11 @@ extension FavoritesViewController: UICollectionViewDataSource {
         guard let geminiCell = collectionView.dequeueReusableCell(withReuseIdentifier: "geminiVenueCell", for: indexPath) as? FavoritesViewCell else {
             fatalError("could not deque cell")
         }
-        //let food = venues[indexPath.row]
+         let food = venues[indexPath.row]
         faveCollectionViews.geminiCollectionView.animateCell(geminiCell)
         geminiCell.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         geminiCell.geminiDelegate = self
-        //geminiCell.configureCell(venue: food)
-        
-        
-        
+        geminiCell.configureCell(venue: food)
         return geminiCell
     }
     
