@@ -15,17 +15,19 @@ class SearchDetailViewController: UIViewController {
     let detailView = SearchDetailView()
     private var dataPersistence: DataPersistence<Venue>
     var venue: Venue
-    var photo: Photo
+
+//    var photo: Photo
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
          navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favButtonPressed(_:)))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "backward"), style: .plain, target: self, action: #selector(backButtonPressed(_:)))
-        updateUI()
+
         
          detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
-        
+
     }
     
     init(_ dataPersistence: DataPersistence<Venue>, venue: Venue, photo: Photo){
@@ -69,7 +71,7 @@ class SearchDetailViewController: UIViewController {
     @objc func favButtonPressed(_ sender: UIBarButtonItem){
 
                do {
-
+                 
                    try dataPersistence.createItem(venue)
                    DispatchQueue.main.async {
                        self.showAlert(title: "Saved", message: "Venue has been added to favorites")
@@ -85,20 +87,63 @@ class SearchDetailViewController: UIViewController {
               return imageUrl
     }
     
-    func updateUI() {
-        detailView.imageView.getImage(with: imageURL()  ) { [weak self] (result) in
-            switch result {
-            case .failure:
-                DispatchQueue.main.async {
-                    self?.detailView.imageView.image = UIImage(named: "exclamation.mark.triangle")
+
+    func updateUI(venue: Venue) {
+             
+               if let image = imageCache[venue.id] {
+                detailView.imageView.image = image
+                   return
+               }
+               
+               VenueAPIClient.getImageURL(venueID: venue.id) { [weak self] (result) in
+                
+                       switch result {
+                        
+                       case .failure(let appError):
+                        DispatchQueue.main.async {
+                        print("could not retrieve image: \(appError)")
+                        }
+                       case .success(let imageData):
+                        
+                        let photo = imageData[0]
+            
+                 
+                    let prefix = photo.prefix
+                    let suffix = photo.suffix
+                       let photoURL = "\(prefix)original\(suffix)"
+                        print(photoURL)
+                       self?.detailView.imageView.getImage(with: photoURL) { (result) in
+                           switch result {
+                           case .failure(_):
+                               DispatchQueue.main.async {
+                                   self?.detailView.imageView.image = UIImage(systemName: "map.fill")
+                               }
+                           case .success(let photo):
+                               DispatchQueue.main.async {
+                                   imageCache[venue.id] = photo
+                                
+                                   self?.detailView.imageView.image = photo
+                               }
+                           }
+                       }
+                   
                 }
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.detailView.imageView.image = image
+
+   // func updateUI() {
+       // detailView.imageView.getImage(with: imageURL()  ) { [weak self] (result) in
+         //   switch result {
+        //    case .failure:
+           //     DispatchQueue.main.async {
+           //         self?.detailView.imageView.image = UIImage(named: "exclamation.mark.triangle")
+          //      }
+         //   case .success(let image):
+          //      DispatchQueue.main.async {
+            //        self?.detailView.imageView.image = image
                     
-                }
-            }
-        }
+          //      }
+      //      }
+     //   }
+
         
 //        detailView.textView.text = chosenBook.description
         

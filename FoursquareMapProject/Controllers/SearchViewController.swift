@@ -16,9 +16,22 @@ class SearchViewController: UIViewController {
     
     let searchView = SearchView()
     
-    private var dataPersistence: DataPersistence<Venue>?
+    private var dataPersistence: DataPersistence<Venue>
     
-    private var userPreference: UserPreference?
+     var userPreference: UserPreference
+    
+    init(_ dataPersistence: DataPersistence<Venue>,userPreference: UserPreference ){
+             
+             self.dataPersistence = dataPersistence
+             self.userPreference = userPreference
+             super.init(nibName: nil, bundle: nil)
+         }
+         
+         required init?(coder: NSCoder) {
+     
+             fatalError("init(coder:) has not been implemented")
+         }
+    
     
     private let coreLocation = CoreLocationSession()
     
@@ -35,6 +48,8 @@ class SearchViewController: UIViewController {
     }
     
     private var allPhotos = [UIImage]()
+    
+  
     
     override func loadView() {
         view = searchView
@@ -76,8 +91,10 @@ class SearchViewController: UIViewController {
         VenueAPIClient.getVenues(city: city, venue: venue, completion: { (result) in
             switch result {
             case .failure(let appError):
+                DispatchQueue.main.async {
                 self.showAlert(title: "No Venue Found", message: "Please check your spelling and try again.")
                 print("error getting venue: \(appError)")
+                }
             case .success(let data):
                 DispatchQueue.main.async {
                     if venue.count == 0 {
