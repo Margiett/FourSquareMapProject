@@ -11,43 +11,18 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
-    func afterSplashScreenAnimation(){
-        
-        window?.rootViewController = TabBarController()
-        
-        UIView.transition(with: window!,
-                          duration: 0.5,
-                             options: .transitionCrossDissolve,
-                             animations: nil,
-                             completion: nil)
-       }
+
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-         guard let windowScene = (scene as? UIWindowScene) else { return }
-               // set up frame of the window to be the entire/ take up the entire device screen
-               //instantiating the window with a frame CGRect- origin and frame and its size,
-               //window encapsulates the entire app
-               window = UIWindow(frame: UIScreen.main.bounds)
-               
-               //setup scene
-               window?.windowScene = windowScene
-               
-               //set up root view controller
-               //window?.rootViewController = SettingsViewController()
-              
-               //embedding a UIViewController in a UI Navigation Controller
-               window?.rootViewController = InitialViewController()
-               
-               
-               //make visible
-               window?.makeKeyAndVisible()
-           }
-
-
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = TabBarController()
+        window?.makeKeyAndVisible()
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

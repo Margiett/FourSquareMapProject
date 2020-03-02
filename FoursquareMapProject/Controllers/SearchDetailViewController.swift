@@ -10,28 +10,31 @@ import UIKit
 import DataPersistence
 
 class SearchDetailViewController: UIViewController {
-  
+    
     
     let detailView = SearchDetailView()
     private var dataPersistence: DataPersistence<Venue>
     var venue: Venue
+
 //    var photo: Photo
    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favButtonPressed(_:)))
+         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favButtonPressed(_:)))
         
+
         
          detailView.addressButton.addTarget(self, action: #selector(addressButtonPressed(_:)), for: .touchUpInside)
+
     }
     
-    init(_ dataPersistence: DataPersistence<Venue>, venue: Venue){
+    init(_ dataPersistence: DataPersistence<Venue>, venue: Venue, photo: Photo){
         
         self.dataPersistence = dataPersistence
         self.venue = venue
-//        self.photo = photo
-//        self.photoArray = [photo]
+        self.photo = photo
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -58,19 +61,18 @@ class SearchDetailViewController: UIViewController {
         
     }
     
-
-//    @objc func backButtonPressed(_ sender: UIBarButtonItem){
-//
-//        let searchController = SearchViewController()
-//        navigationController?.pushViewController(searchController, animated: true)
-//
-//    }
-
+    @objc func backButtonPressed(_ sender: UIBarButtonItem){
+        
+        let searchController = SearchViewController()
+        navigationController?.pushViewController(searchController, animated: true)
+        
+    }
+    
     @objc func favButtonPressed(_ sender: UIBarButtonItem){
 
                do {
-
-                try dataPersistence.createItem(venue)
+                 
+                   try dataPersistence.createItem(venue)
                    DispatchQueue.main.async {
                        self.showAlert(title: "Saved", message: "Venue has been added to favorites")
                    }
@@ -80,7 +82,12 @@ class SearchDetailViewController: UIViewController {
                }
        }
     
+    func imageURL() -> String{
+        let imageUrl = "\(photo.prefix)300*300\(photo.suffix)"
+              return imageUrl
+    }
     
+
     func updateUI(venue: Venue) {
              
                if let image = imageCache[venue.id] {
@@ -121,17 +128,32 @@ class SearchDetailViewController: UIViewController {
                        }
                    
                 }
+
+   // func updateUI() {
+       // detailView.imageView.getImage(with: imageURL()  ) { [weak self] (result) in
+         //   switch result {
+        //    case .failure:
+           //     DispatchQueue.main.async {
+           //         self?.detailView.imageView.image = UIImage(named: "exclamation.mark.triangle")
+          //      }
+         //   case .success(let image):
+          //      DispatchQueue.main.async {
+            //        self?.detailView.imageView.image = image
+                    
+          //      }
+      //      }
+     //   }
+
         
 //        detailView.textView.text = chosenBook.description
         
-                self?.detailView.nameLabel.text = venue.name
-                self?.detailView.addressLabel.text = venue.location.address
+        detailView.nameLabel.text = venue.name
+        //detailView.addressLabel.text =
         
-        //detailView.addressButton
-
-    
-//        detailView.detailsText.text = venue.categories.name
+               //detailView.addressButton
+        //detailView.phoneLabel.text =
+               //detailView.phoneButton
+       // detailView.detailsText.text =
     
     }
-}
 }

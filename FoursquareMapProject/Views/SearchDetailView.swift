@@ -83,6 +83,15 @@ class SearchDetailView: UIView {
             
             addSubview(scrollView)
             
+            //not sure if this is correct
+            scrollView.addSubview(imageView)
+            scrollView.addSubview(nameLabel)
+            scrollView.addSubview(addressLabel)
+            scrollView.addSubview(addressButton)
+            scrollView.addSubview(detailsText)
+            
+            
+            
             scrollView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -102,48 +111,48 @@ class SearchDetailView: UIView {
         
         
         private func imageConstrints(){
-         scrollView.addSubview(imageView)
+//            addSubview(imageView)
             imageView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
 
                 imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
                 imageView.heightAnchor.constraint(equalToConstant: 600),
                 imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-                imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-                imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+                imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+                imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20)
             ])
         }
     private func nameConstraints(){
         
-scrollView.addSubview(nameLabel)
+//        addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-           // nameLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            nameLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
         nameLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     private func addresslLabelConstraints(){
         
-      scrollView.addSubview(addressLabel)
+//        addSubview(addressLabel)
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
-           // addressLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-           addressLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            addressLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            addressLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+           addressLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            addressLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
         
         ])
     }
     
         private func directionButConstraints(){
-       scrollView.addSubview(addressButton)
+//            addSubview(addressButton)
             addressButton.translatesAutoresizingMaskIntoConstraints = false
             addressButton.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20).isActive = true
-            addressButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+            addressButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
     
         }
     
@@ -151,14 +160,14 @@ scrollView.addSubview(nameLabel)
     
     private func detailLabelConstraints(){
           
-        scrollView.addSubview(detailsText)
+//          addSubview(detailsText)
           detailsText.translatesAutoresizingMaskIntoConstraints = false
           NSLayoutConstraint.activate([
               detailsText.topAnchor.constraint(equalTo: addressButton.bottomAnchor, constant: 20),
-             //detailsText.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-           detailsText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+             detailsText.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+           detailsText.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
               detailsText.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
-               detailsText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+               detailsText.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8),
           
           ])
       }
